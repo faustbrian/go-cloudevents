@@ -7,6 +7,9 @@ versioning once released.
 
 ### Changed
 
+- Upgrade Go cryptography and network dependencies and pin JavaScript
+  interoperability to the security-fixed `uuid` release.
+
 - Exclude intentional nested modules from root local-proxy archives so local,
   bootstrap, CI, and public module checksums describe the same source
   boundary.
