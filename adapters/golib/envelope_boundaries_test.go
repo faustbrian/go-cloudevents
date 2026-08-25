@@ -8,9 +8,9 @@ import (
 	"github.com/faustbrian/go-cloudevents"
 	golib "github.com/faustbrian/go-cloudevents/adapters/golib"
 	eventsourcing "github.com/faustbrian/go-event-sourcing"
-	"github.com/faustbrian/go-transactional-outbox"
 	"github.com/faustbrian/go-queue/job"
 	"github.com/faustbrian/go-tenancy"
+	"github.com/faustbrian/go-transactional-outbox"
 	"github.com/faustbrian/go-workflow"
 )
 
