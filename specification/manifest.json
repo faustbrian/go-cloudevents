@@ -86,7 +86,7 @@
       "revision": "c23895145a2f055e8e90714401fc67252a0edf21",
       "package_integrity": "sha512-uyzC+PpMMRawbouHO+3mlisr3QfEDObmo2pN4oTTF6dZncZgpIzdasZx0tRBFI1dMsqCLZZXMtz8cUuvYqHdbw==",
       "lockfile_path": "scripts/javascript/package-lock.json",
-      "lockfile_sha256": "fc99415c67b0f2eec6c91f1362f9387e3b664f65f244828e270910654c49ac71",
+      "lockfile_sha256": "ba36ec00ac7bbbe49b7f309d14673e2b9f305499eaa8c96b52bb55ed5124948e",
       "edge_fixture_path": "testdata/interoperability/javascript-edge-batch.json",
       "edge_fixture_sha256": "622bba22412b35d695b0517515dcefcdd3770953b347d9d7616e5c7cfdf51163",
       "license": "Apache-2.0",

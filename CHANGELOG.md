@@ -9,6 +9,9 @@ versioning once released.
 
 ### Changed
 
+- Refresh the pinned JavaScript lockfile evidence after the security-fixed
+  interoperability dependency update.
+
 - Upgrade Go cryptography and network dependencies and pin JavaScript
   interoperability to the security-fixed `uuid` release.
 
