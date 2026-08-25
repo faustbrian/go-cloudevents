@@ -50,7 +50,7 @@ github.com/ebitengine/purego v0.10.0 h1:QIw4xfpWT6GWTzaW5XEKy3HXoqrJGx1ijYHzTF0/
 github.com/ebitengine/purego v0.10.0/go.mod h1:iIjxzd6CiRiOG0UyXP+V1+jWqUXVjPKLAI0mRfJZTmQ=
 github.com/faustbrian/go-audit v1.0.0 h1:CbNQdCyoc46P7/GBsS3W1iZen1dPVvgWZW9nrSkNDUg=
 github.com/faustbrian/go-audit v1.0.0/go.mod h1:IrR+KzmsdkEizekCStgGor5Mqj4OfAj25REXAqDJ540=
-github.com/faustbrian/go-cloudevents v1.0.0 h1:NtkaOsKeNJxPuslHMUKda3pA3h2Sf/G8Lx1SUVJgOy4=
+github.com/faustbrian/go-cloudevents v1.0.0 h1:M0I9bxU6GSgqXly9ZdV7wI6+2KYSCnDFAw8tKEyD8Yk=
 github.com/faustbrian/go-cloudevents v1.0.0/go.mod h1:icPshOQcLVwjqQoaAlDDQFotOPTEm2dlS8cFWuQ4OVM=
 github.com/faustbrian/go-correlation v1.0.0 h1:Pdw35b/VKGD7zOWG/892Hn0bwGVXd3WQ8+HQ82x8GtE=
 github.com/faustbrian/go-correlation v1.0.0/go.mod h1:upLcV0fqKC8IUUx11R6c69CVwC3DO1EeXsw2BQU2PKE=
