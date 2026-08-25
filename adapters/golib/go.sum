@@ -52,7 +52,7 @@ github.com/faustbrian/go-audit v1.0.0 h1:wUfN3m7rHXjUkFLFDdSR1OBQBcQCb5O47xMaMMV
 github.com/faustbrian/go-audit v1.0.0/go.mod h1:IrR+KzmsdkEizekCStgGor5Mqj4OfAj25REXAqDJ540=
 github.com/faustbrian/go-cloudevents v1.0.0 h1:YwjZtreUE355vKIFR1c7JULPTeKDVfE+FjvaG9DTX8o=
 github.com/faustbrian/go-cloudevents v1.0.0/go.mod h1:icPshOQcLVwjqQoaAlDDQFotOPTEm2dlS8cFWuQ4OVM=
-github.com/faustbrian/go-correlation v1.0.0 h1:Xpn5/ey5qtdMErJF0QDxBiRT/kWMkBbX1RsR3TzG9/o=
+github.com/faustbrian/go-correlation v1.0.0 h1:4mtOkp3iLq6nQkefx0n7JK6lTypgcGpZ6oCQjRduZ4g=
 github.com/faustbrian/go-correlation v1.0.0/go.mod h1:upLcV0fqKC8IUUx11R6c69CVwC3DO1EeXsw2BQU2PKE=
 github.com/faustbrian/go-event-sourcing v1.0.0 h1:nJIB7vMriAxe7mcqU4LZw6usAFsiDavvJwPvBU4SycU=
 github.com/faustbrian/go-event-sourcing v1.0.0/go.mod h1:YnepDoU9pM7GqLFf+hjuD1ttfaOoO1BZ37lvsNlByZA=
@@ -66,9 +66,9 @@ github.com/faustbrian/go-queue v1.0.0 h1:rwB9yEK6QhGAHN03/7oAf2vOmnwnqzLvtTmQTVv
 github.com/faustbrian/go-queue v1.0.0/go.mod h1:XQY6QpHS87WeYYt1Xs3lWiak1v099mZlC+TPPU7kB1M=
 github.com/faustbrian/go-rabbitmq-streams v1.0.0 h1:ZIegxDyuF9J3iS1FKOBjUkJcw+AU99affdlLJY0bf1s=
 github.com/faustbrian/go-rabbitmq-streams v1.0.0/go.mod h1:G+Eu/VdiBUxsFTeUNC0YK6867jIUwao0DJODi5ABN54=
-github.com/faustbrian/go-schema-registry v1.0.0 h1:c93eBs+sr2Y3jAdjZ3kdTGNuG2vzQOu5bH/EeWH8ot0=
+github.com/faustbrian/go-schema-registry v1.0.0 h1:k4P/YJgrT/vIzL5Jc5K0EuAKrZQZzixqEEep8JbJSjM=
 github.com/faustbrian/go-schema-registry v1.0.0/go.mod h1:lj1jdEWEDxxWW5e5mTGol8KEkwLP3KLMN+0+vvLJusc=
-github.com/faustbrian/go-telemetry v1.0.0 h1:w2JJO9aTWXEmfdVdl0CGcH8khrTSAVDO/WF9AdkAw3A=
+github.com/faustbrian/go-telemetry v1.0.0 h1:jI6ocg9x1rPJIqEDmawHSOhbmSP+wVb/y0DCMpl/0uY=
 github.com/faustbrian/go-telemetry v1.0.0/go.mod h1:3bs4hcIGr0FS11ZLPmnPc+Hy56zHGCJjhxtUxp/sozU=
 github.com/faustbrian/go-tenancy v1.0.0 h1:HPTxeopeTFyhcv/710zf2+emFUOkkchKNga4wQQDpg0=
 github.com/faustbrian/go-tenancy v1.0.0/go.mod h1:aiEdsa3aoVg41f4Xy04fUiDjcD5CkPhhSHpexm4HheQ=
