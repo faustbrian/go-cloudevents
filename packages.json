@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "repository": "github.com/faustbrian/go-cloudevents",
+  "packages": [
+    {
+      "module_directory": ".",
+      "directory": ".",
+      "name": "cloudevents",
+      "import_path": "github.com/faustbrian/go-cloudevents",
+      "kind": "public",
+      "production": true,
+      "executable": true,
+      "coverage_required": true,
+      "build_required": true,
+      "build_tags": []
+    },
+    {
+      "module_directory": "adapters/golib",
+      "directory": ".",
+      "name": "golib",
+      "import_path": "github.com/faustbrian/go-cloudevents/adapters/golib",
+      "kind": "public",
+      "production": true,
+      "executable": true,
+      "coverage_required": true,
+      "build_required": true,
+      "build_tags": []
+    }
+  ]
+}

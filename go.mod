@@ -1,4 +1,4 @@
-module github.com/faustbrian/golib/pkg/cloudevents
+module github.com/faustbrian/go-cloudevents
 
 go 1.26.6
 

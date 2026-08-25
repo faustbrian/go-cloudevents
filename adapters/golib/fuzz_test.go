@@ -9,17 +9,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/faustbrian/golib/pkg/audit"
-	"github.com/faustbrian/golib/pkg/cloudevents"
-	golib "github.com/faustbrian/golib/pkg/cloudevents/adapters/golib"
-	"github.com/faustbrian/golib/pkg/correlation"
-	eventsourcing "github.com/faustbrian/golib/pkg/event-sourcing"
-	jsonschema "github.com/faustbrian/golib/pkg/json-schema"
-	"github.com/faustbrian/golib/pkg/kafka"
-	"github.com/faustbrian/golib/pkg/outbox"
-	"github.com/faustbrian/golib/pkg/queue/job"
-	"github.com/faustbrian/golib/pkg/tenancy"
-	"github.com/faustbrian/golib/pkg/workflow"
+	"github.com/faustbrian/go-audit"
+	"github.com/faustbrian/go-cloudevents"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib"
+	"github.com/faustbrian/go-correlation"
+	eventsourcing "github.com/faustbrian/go-event-sourcing"
+	jsonschema "github.com/faustbrian/go-json-schema"
+	"github.com/faustbrian/go-kafka"
+	"github.com/faustbrian/go-transactional-outbox"
+	"github.com/faustbrian/go-queue/job"
+	"github.com/faustbrian/go-tenancy"
+	"github.com/faustbrian/go-workflow"
 )
 
 const fuzzAdapterPayloadLimit = 64 << 10

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	golib "github.com/faustbrian/golib/pkg/cloudevents/adapters/golib"
-	"github.com/faustbrian/golib/pkg/queue/job"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib"
+	"github.com/faustbrian/go-queue/job"
 )
 
 func ExampleQueueToCloudEvent() {

@@ -5,13 +5,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/faustbrian/golib/pkg/cloudevents"
-	golib "github.com/faustbrian/golib/pkg/cloudevents/adapters/golib"
-	eventsourcing "github.com/faustbrian/golib/pkg/event-sourcing"
-	"github.com/faustbrian/golib/pkg/outbox"
-	"github.com/faustbrian/golib/pkg/queue/job"
-	"github.com/faustbrian/golib/pkg/tenancy"
-	"github.com/faustbrian/golib/pkg/workflow"
+	"github.com/faustbrian/go-cloudevents"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib"
+	eventsourcing "github.com/faustbrian/go-event-sourcing"
+	"github.com/faustbrian/go-transactional-outbox"
+	"github.com/faustbrian/go-queue/job"
+	"github.com/faustbrian/go-tenancy"
+	"github.com/faustbrian/go-workflow"
 )
 
 func TestEventSourcingAdapterRejectsEveryUnrepresentableBoundary(t *testing.T) {

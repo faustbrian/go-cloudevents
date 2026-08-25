@@ -5,6 +5,8 @@ versioning once released.
 
 ## Unreleased
 
+## 1.0.0 - 2026-08-25
+
 ### Documentation
 
 - Link the package README to the repository-wide Golib documentation portal.
@@ -33,6 +35,7 @@ versioning once released.
 
 ### Changed
 
+- Publish the module from its standalone `github.com/faustbrian/go-cloudevents` identity while preserving its documented API and behavior.
 - Preserve declared JSON payload bytes across structured JSON, HTTP, Kafka, and
   batch round trips instead of compacting payloads during encoding.
 - Assert complete JavaScript SDK consumer context, extension, and semantic

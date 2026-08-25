@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/faustbrian/golib/pkg/cloudevents"
-	"github.com/faustbrian/golib/pkg/queue/job"
+	"github.com/faustbrian/go-cloudevents"
+	"github.com/faustbrian/go-queue/job"
 )
 
 func TestAdapterHelpersCoverOwnedBoundarySemantics(t *testing.T) {

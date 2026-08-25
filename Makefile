@@ -1,17 +1,11 @@
-GO ?= go
-BENCH_TIME ?= 100ms
+SHELL := /usr/bin/env bash
 
-.PHONY: benchmark conformance interoperability specification-evidence
+.PHONY: check ci inventory repository-check
 
-specification-evidence:
-	./scripts/check-specification-evidence.sh
+check:
+	./.golib/scripts/with-disposable-go-cache.sh ./.golib/scripts/run-modules.sh check --all
 
-conformance: specification-evidence
-	$(GO) test . -run '^TestOfficialConformance' -count=1
+ci: repository-check check
 
-interoperability:
-	$(GO) test . -run '^TestOfficialGoSDK' -count=1
-	./scripts/check-javascript-interop.sh
-
-benchmark:
-	$(GO) test . -run '^$$' -bench . -benchmem -benchtime="$(BENCH_TIME)"
+inventory repository-check:
+	./.golib/scripts/repository-check.sh

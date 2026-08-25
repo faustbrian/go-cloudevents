@@ -5,11 +5,11 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/faustbrian/golib/pkg/cloudevents"
-	golib "github.com/faustbrian/golib/pkg/cloudevents/adapters/golib"
-	"github.com/faustbrian/golib/pkg/correlation"
-	telemetrypropagation "github.com/faustbrian/golib/pkg/telemetry/propagation"
-	"github.com/faustbrian/golib/pkg/tenancy"
+	"github.com/faustbrian/go-cloudevents"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib"
+	"github.com/faustbrian/go-correlation"
+	telemetrypropagation "github.com/faustbrian/go-telemetry/propagation"
+	"github.com/faustbrian/go-tenancy"
 	"go.opentelemetry.io/otel/trace"
 )
 

@@ -9,10 +9,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/faustbrian/golib/pkg/cloudevents"
-	jsonschema "github.com/faustbrian/golib/pkg/json-schema"
-	schemaregistry "github.com/faustbrian/golib/pkg/schema-registry"
-	registryjsonschema "github.com/faustbrian/golib/pkg/schema-registry/formats/jsonschema"
+	"github.com/faustbrian/go-cloudevents"
+	jsonschema "github.com/faustbrian/go-json-schema"
+	schemaregistry "github.com/faustbrian/go-schema-registry"
+	registryjsonschema "github.com/faustbrian/go-schema-registry/formats/jsonschema"
 )
 
 var (

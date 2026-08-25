@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/faustbrian/golib/pkg/cloudevents"
-	"github.com/faustbrian/golib/pkg/rabbitstream"
+	"github.com/faustbrian/go-cloudevents"
+	"github.com/faustbrian/go-rabbitmq-streams"
 )
 
 // RabbitStreamTransport is caller-owned routing and correlation metadata for

@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/faustbrian/golib/pkg/audit"
-	"github.com/faustbrian/golib/pkg/cloudevents"
-	"github.com/faustbrian/golib/pkg/correlation"
-	"github.com/faustbrian/golib/pkg/tenancy"
+	"github.com/faustbrian/go-audit"
+	"github.com/faustbrian/go-cloudevents"
+	"github.com/faustbrian/go-correlation"
+	"github.com/faustbrian/go-tenancy"
 )
 
 const (

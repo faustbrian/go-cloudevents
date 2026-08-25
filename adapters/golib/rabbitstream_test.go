@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/faustbrian/golib/pkg/cloudevents"
-	golib "github.com/faustbrian/golib/pkg/cloudevents/adapters/golib"
-	"github.com/faustbrian/golib/pkg/rabbitstream"
+	"github.com/faustbrian/go-cloudevents"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib"
+	"github.com/faustbrian/go-rabbitmq-streams"
 )
 
 func TestRabbitStreamStructuredAdapterPreservesEventAndTransportState(t *testing.T) {

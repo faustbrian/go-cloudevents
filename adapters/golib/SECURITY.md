@@ -2,8 +2,8 @@
 
 ## Supported status
 
-This module is pre-v1. Security fixes are delivered on the current development
-line. Report suspected vulnerabilities privately through the repository's
+Security fixes are delivered on the latest stable v1 release and current
+development line. Report suspected vulnerabilities privately through the repository's
 security reporting channel; do not include payloads, credentials, tenant data,
 trace context, audit contents, or registry responses in a public issue.
 

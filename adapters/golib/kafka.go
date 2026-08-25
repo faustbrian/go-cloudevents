@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/faustbrian/golib/pkg/cloudevents"
-	"github.com/faustbrian/golib/pkg/kafka"
+	"github.com/faustbrian/go-cloudevents"
+	"github.com/faustbrian/go-kafka"
 )
 
 // KafkaTransport is Kafka-owned producer metadata retained outside the

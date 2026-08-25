@@ -146,7 +146,7 @@ and [changelog](CHANGELOG.md).
 ## Verification
 
 Run package-specific repository gates for
-`pkg/cloudevents/adapters/golib`. They cover formatting, tests, race detection,
+`adapters/golib`. They cover formatting, tests, race detection,
 exact statement coverage, fuzz smoke, mutation, API compatibility, security,
 documentation, benchmarks, and clean-consumer installation.
 
