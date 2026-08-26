@@ -62,7 +62,7 @@ github.com/faustbrian/go-json-schema v1.0.0 h1:ciuPLS/3+YNlbscfJem0iuC6OEj0AqunM
 github.com/faustbrian/go-json-schema v1.0.0/go.mod h1:8FEVyrKHwaYqo+fG+dIaVaFiF9m1Ut/fHpk6WcIE1fE=
 github.com/faustbrian/go-kafka v1.0.0 h1:jqW6QpRLa5EmJsjehL9lnCiMDhPSHdZY3DBuYEYIX/Q=
 github.com/faustbrian/go-kafka v1.0.0/go.mod h1:5RqX6tuSHTWu052ZromHx8uRUDqsv07IVesA+/4p664=
-github.com/faustbrian/go-queue v1.0.0 h1:rwB9yEK6QhGAHN03/7oAf2vOmnwnqzLvtTmQTVvJjik=
+github.com/faustbrian/go-queue v1.0.0 h1:aHvkX1W1nxEXiDryaQY3R6SfI28YFcCbNhYiMAo+OoI=
 github.com/faustbrian/go-queue v1.0.0/go.mod h1:XQY6QpHS87WeYYt1Xs3lWiak1v099mZlC+TPPU7kB1M=
 github.com/faustbrian/go-rabbitmq-streams v1.0.0 h1:ZIegxDyuF9J3iS1FKOBjUkJcw+AU99affdlLJY0bf1s=
 github.com/faustbrian/go-rabbitmq-streams v1.0.0/go.mod h1:G+Eu/VdiBUxsFTeUNC0YK6867jIUwao0DJODi5ABN54=
