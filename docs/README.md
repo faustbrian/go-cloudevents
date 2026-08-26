@@ -12,6 +12,10 @@
 - [Conformance report](conformance-report.md)
 - [Fixture provenance](provenance.md)
 
+## Optional modules
+
+- [Golib adapters](../adapters/golib/docs/README.md)
+
 ## Operations and security
 
 - [Security review](security-review.md)
