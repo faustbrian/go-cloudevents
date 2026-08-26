@@ -1,9 +1,13 @@
 # Changelog
 
 All notable changes follow Keep a Changelog. This module uses semantic
-versioning once released.
+versioning.
 
 ## Unreleased
+
+### Documentation
+
+- Replace archived monorepo links with a package-owned documentation index.
 
 ## 1.0.0 - 2026-08-25
 
