@@ -5,6 +5,14 @@ versioning.
 
 ## Unreleased
 
+### Changed
+
+- Replace the repository-local verification implementation with the pinned
+  `go-library-tools` v1.0.1 CLI and reusable workflow while preserving module
+  policy, interoperability fixtures, and content-addressed evidence.
+- Use canonical public module checksums for the nested Golib adapter instead of
+  bootstrap-only archives.
+
 ### Documentation
 
 - Replace archived monorepo links with a package-owned documentation index.
