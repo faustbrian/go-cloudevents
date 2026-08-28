@@ -1,9 +1,21 @@
 # Changelog
 
 All notable changes follow Keep a Changelog. This module uses semantic
-versioning once released.
+versioning.
 
 ## Unreleased
+
+### Changed
+
+- Replace the repository-local verification implementation with the pinned
+  `go-library-tools` v1.0.1 CLI and reusable workflow while preserving module
+  policy, interoperability fixtures, and content-addressed evidence.
+- Use canonical public module checksums for the nested Golib adapter instead of
+  bootstrap-only archives.
+
+### Documentation
+
+- Replace archived monorepo links with a package-owned documentation index.
 
 ## 1.0.0 - 2026-08-25
 
@@ -32,7 +44,7 @@ versioning once released.
 
 ### Documentation
 
-- Link the package README to the repository-wide Golib documentation portal.
+- Link the package README to package-owned documentation.
 
 ### Added
 

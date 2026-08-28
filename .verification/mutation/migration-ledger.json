@@ -24,15 +24,6 @@
       "module": "adapters/golib",
       "package": ".",
       "report_sha256": "6aa8a1011e4351df722bec3bb606ff6eff41281373dd780221d5981694b8590d"
-    },
-    {
-      "module": "adapters/golib",
-      "package": ".",
-      "execution_revision": "3506b146619f442263e3803fafb0403d3ebbea52",
-      "gate_input_digest": "ac82f2072761c74c530ada0b0d21cae438a77760a332b9b4c127d362bc57f10c",
-      "gremlins_version": "v0.6.0",
-      "gremlins_verifier_sha256": "9a9499ff68a8dfd49a0be7995590297a8ee563a1aa226bfd8b9361dc53058108",
-      "report_sha256": "570d50e5860b4180b4052842db7ec50516a7ac81ecc88b59bbcd2a3bf5bf0d54"
     }
   ],
   "entries": [
@@ -45,26 +36,6 @@
       "package": ".",
       "replacement_gate_input_digest": "323f3fc72abeac6ce5cc17dbe2cd68ce9506a7e66a500f46fe37baeb988997b1",
       "report_sha256": "6aa8a1011e4351df722bec3bb606ff6eff41281373dd780221d5981694b8590d"
-    },
-    {
-      "module": ".",
-      "package": ".",
-      "execution_revision": "c09c5268b1facb88317f933913b2e7cf4377948b",
-      "gate_input_digest": "d59737378448c90100771c25e360cffa450740d4555a2a3ae5ad82c1eb6373e4",
-      "replacement_gate_input_digest": "4899f7a7ff4d09f9846591a44690260c90d622bb8fadec06e221db17da3b476a",
-      "gremlins_version": "v0.6.0",
-      "gremlins_verifier_sha256": "9a9499ff68a8dfd49a0be7995590297a8ee563a1aa226bfd8b9361dc53058108",
-      "report_sha256": "1b2438ef39e88df2e668a43a8e2f4ae6abf1a8e7359b242a2655156f6c85ae88"
-    },
-    {
-      "module": "adapters/golib",
-      "package": ".",
-      "execution_revision": "3506b146619f442263e3803fafb0403d3ebbea52",
-      "gate_input_digest": "ac82f2072761c74c530ada0b0d21cae438a77760a332b9b4c127d362bc57f10c",
-      "replacement_gate_input_digest": "de4737e85bb73bf24de8bb7f83b329849baaad1ecb001e32678b31d56a26bc43",
-      "gremlins_version": "v0.6.0",
-      "gremlins_verifier_sha256": "9a9499ff68a8dfd49a0be7995590297a8ee563a1aa226bfd8b9361dc53058108",
-      "report_sha256": "570d50e5860b4180b4052842db7ec50516a7ac81ecc88b59bbcd2a3bf5bf0d54"
     }
   ]
 }

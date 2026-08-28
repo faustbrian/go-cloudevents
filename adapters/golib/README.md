@@ -11,8 +11,11 @@ not official CloudEvents protocol bindings. Schema resolution occurs only when
 the caller explicitly invokes CloudEvents schema validation with a configured
 registry validator.
 
-See the parent module's [conversion policy](../../docs/conversions.md) for
-reserved ownership, collisions, and round-trip guarantees.
+## Install
+
+```sh
+go get github.com/faustbrian/go-cloudevents/adapters/golib@v1
+```
 
 ## Quick start
 
@@ -33,124 +36,26 @@ event, retained, report, err := golib.QueueToCloudEvent(
 )
 ```
 
-`retained` remains the authoritative queue execution state. Inspect `report`
-before accepting any conversion whose target cannot represent all source
-fields. The compiling example in `example_test.go` shows the complete imports.
+The compiling examples in this module contain complete imports and setup.
 
-## Supported adapters
+## Guarantees and limitations
 
-| Boundary | Direction | Round-trip policy |
-| --- | --- | --- |
-| event sourcing | message to/from CloudEvent | payload and canonical message restored with caller-retained stream, version, position, recording, and metadata state |
-| outbox | envelope to/from CloudEvent | Golib mapping, not an official binding; relay state remains out of band |
-| queue | job to/from CloudEvent | Golib mapping, not an official binding; callbacks, retry, settlement, and operational metadata remain out of band |
-| Kafka | producer/consumed record to/from official binding | CloudEvents headers/value use the parent binding; topic, partition, offset, timestamp, and non-CloudEvents headers remain transport-owned |
-| workflow | history event to/from CloudEvent | caller supplies the stable CloudEvents ID; durable workflow state, including `DataWasNil`, remains retained |
-| correlation and tenancy | attach/extract | tenant extraction requires present, valid metadata and an explicit trust decision; tenant identity is not authorization |
-| telemetry | inject/extract | delegates W3C propagation to a caller-configured Golib policy; baggage is reported as loss |
-| audit | attach/extract selected metadata | never reconstructs or replaces the canonical audit record |
-| JSON Schema | validate | caller supplies a compiled schema; no lookup occurs |
-| schema registry | resolve then validate | lookup and resolver are caller configured and run only on explicit validation |
+The [complete guide](docs/reference.md) defines ownership, failure semantics,
+bounds, concurrency, security, and unsupported behavior. Do not infer
+additional guarantees beyond the documented module boundary.
 
-## Collisions, trust, and loss
+## Documentation
 
-Portable metadata uses the documented CloudEvents extensions
-`correlationid`, `requestid`, `causationid`, `tenantid`, `traceparent`,
-`tracestate`, `partitionkey`, `eventschema`, `auditid`, `auditaction`, and
-`auditoutcome`. An equal pre-existing value is idempotent. A different value
-returns `ErrMetadataCollision`. Malformed canonical input returns
-`ErrInvalidAdapterInput`; adopting protected inbound metadata without trust
-returns `ErrUntrustedMetadata`. Tenant extraction fails closed when the
-`tenantid` extension is absent, and outbound audit tenant values are validated
-before they become extensions. Queue and event-sourcing conversions validate
-tenant metadata on both outbound conversion and inbound replay, including when
-the retained envelope and CloudEvent contain the same malformed value.
+- [Documentation index](docs/README.md)
+- [Complete technical guide](docs/reference.md)
+- [Go API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/golib)
+- [Parent package documentation](../../docs/README.md)
 
-`Report.Losses` names every portable field deliberately not represented by the
-target. A successful conversion does not imply an exact CloudEvents round trip
-unless its adapter row above says so and the retained state is supplied back.
-For canonical event-sourcing and queue fields emitted by the forward mapping,
-the reverse mapping requires every non-empty retained portable value to remain
-present and equal; deletion is a metadata collision rather than an implicit
-fallback to retained state.
+## Compatibility and support
 
-## Schema validation and cancellation
+This module follows Semantic Versioning. Report vulnerabilities through the
+[parent security policy](../../SECURITY.md).
 
-`JSONSchemaValidator` accepts one already compiled Golib JSON Schema and an
-exact schema URI. `RegistryJSONSchemaValidator` is constructed with a bounded
-`ResolveCache`, a static `dataschema` URI-to-lookup map, a JSON Schema adapter,
-an explicit availability policy, and a positive timeout. Construction clones
-the map, so later caller mutation cannot redirect resolution. An unmapped URI
-fails before the cache or resolver is called; event-controlled schema values
-therefore cannot choose a provider endpoint or registry key.
+## License
 
-The derived timeout context is passed through cached resolution, schema
-compilation, and payload validation, and preserves an earlier caller
-cancellation or deadline. The configured cache owns concurrency, capacity,
-freshness, staleness, and negative-result policy.
-Provider endpoints, credentials, TLS, registry trust, and lookup construction
-remain caller-owned and must not be derived from event data. Merely receiving,
-decoding, or converting an event never invokes either validator. Registry and
-validation errors preserve cancellation and resolver errors for caller policy
-while using `ErrSchemaMapping` and `ErrSchemaViolation` for stable local
-classification.
-
-## Concurrency and ownership
-
-All conversions are synchronous and start no goroutines. Returned maps, byte
-slices, headers, payloads, timestamps, and retained envelope state are copied
-where mutable aliasing would cross the boundary. Configured schema resolvers,
-compiled schemas, and telemetry policies retain the concurrency guarantees of
-their owning Golib packages.
-
-## Adoption and migration
-
-Adopt this nested module only at a boundary that already owns both a Golib
-canonical value and a CloudEvents interoperability requirement. Keep existing
-domain, event-store, outbox, queue, workflow, audit, and transport envelopes as
-the source of truth. During migration, persist or carry the returned retained
-state before replacing any bespoke envelope mapping, and reject unexpected
-losses or collisions explicitly.
-
-Registry-backed validation now requires construction instead of an exported
-field literal. Replace `RegistryJSONSchemaValidator{Resolver: ..., Adapter: ...,
-Lookup: ...}` with `NewRegistryJSONSchemaValidator(RegistryJSONSchemaConfig{...})`.
-Move the former lookup callback's accepted URIs into `SchemaLookups`, wrap the
-resolver in a bounded `ResolveCache`, and select an availability policy and
-positive timeout explicitly. Construction can fail with `ErrSchemaMapping`, so
-initialize the validator during application wiring rather than while handling
-an event.
-
-Do not use this module as an event bus, broker, store, dispatcher, schema
-registry, workflow engine, audit log, tenant authorization mechanism, or
-application event taxonomy.
-
-## FAQ
-
-**Are queue and outbox mappings official CloudEvents bindings?** No. They are
-documented Golib mappings.
-
-**Does a schema URI trigger registry access?** No. Resolution occurs only when
-the caller explicitly invokes schema validation with the registry adapter.
-
-**Can an audit record be reconstructed from extensions?** No. Only selected,
-non-authoritative metadata is portable.
-
-**Can inbound tenant or correlation fields be trusted automatically?** No. The
-caller owns transport authentication and must select trusted extraction.
-
-See the [security policy](SECURITY.md), parent [specification matrix](../../docs/specification-matrix.md),
-[provenance](../../docs/provenance.md), [benchmark evidence](docs/benchmarks.md),
-and [changelog](CHANGELOG.md).
-
-## Verification
-
-Run package-specific repository gates for
-`adapters/golib`. They cover formatting, tests, race detection,
-exact statement coverage, fuzz smoke, mutation, API compatibility, security,
-documentation, benchmarks, and clean-consumer installation.
-
-## Ecosystem
-
-Use the [Golib documentation portal](https://github.com/faustbrian/golib/blob/main/docs/index.md)
-to choose companion packages, supported stacks, recipes, and operations guidance.
+MIT. See [LICENSE](LICENSE).
