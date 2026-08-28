@@ -3,7 +3,7 @@
   "reason": "Exact mutation checkpoints retained across history rewrites only when the approved old and replacement package input fingerprints, tool version, and report digest match.",
   "verifier_migration_review": {
     "gremlins_verifier_sha256": "9a9499ff68a8dfd49a0be7995590297a8ee563a1aa226bfd8b9361dc53058108",
-    "reason": "Each listed checkpoint was executed with the complete current Gremlins semantic patch set introduced by ac300cf3; the four omitted checkpoints require fresh campaigns.",
+    "reason": "Each listed checkpoint was executed with the complete current Gremlins semantic verifier patch set.",
     "reviewed_at": "2026-08-20"
   },
   "verifier_migrations": [
@@ -17,25 +17,25 @@
       "report_sha256": "1b2438ef39e88df2e668a43a8e2f4ae6abf1a8e7359b242a2655156f6c85ae88"
     },
     {
-      "execution_revision": "dd07cf92586a4d0459f8692f26e2a9aac70552f1",
-      "gate_input_digest": "323f3fc72abeac6ce5cc17dbe2cd68ce9506a7e66a500f46fe37baeb988997b1",
+      "execution_revision": "3506b146619f442263e3803fafb0403d3ebbea52",
+      "gate_input_digest": "ac82f2072761c74c530ada0b0d21cae438a77760a332b9b4c127d362bc57f10c",
       "gremlins_verifier_sha256": "9a9499ff68a8dfd49a0be7995590297a8ee563a1aa226bfd8b9361dc53058108",
       "gremlins_version": "v0.6.0",
       "module": "adapters/golib",
       "package": ".",
-      "report_sha256": "6aa8a1011e4351df722bec3bb606ff6eff41281373dd780221d5981694b8590d"
+      "report_sha256": "570d50e5860b4180b4052842db7ec50516a7ac81ecc88b59bbcd2a3bf5bf0d54"
     }
   ],
   "entries": [
     {
-      "execution_revision": "dd07cf92586a4d0459f8692f26e2a9aac70552f1",
-      "gate_input_digest": "dc4b362c31d7d8c9a1f89acc25b02308df9ffa6524d77c4e7e24199049845ff6",
+      "execution_revision": "3506b146619f442263e3803fafb0403d3ebbea52",
+      "gate_input_digest": "ac82f2072761c74c530ada0b0d21cae438a77760a332b9b4c127d362bc57f10c",
       "gremlins_version": "v0.6.0",
-      "migration_reason": "owned-module-version-locator-canonicalization",
+      "migration_reason": "central-tooling-content-identity-recalculation-after-standalone-migration",
       "module": "adapters/golib",
       "package": ".",
-      "replacement_gate_input_digest": "323f3fc72abeac6ce5cc17dbe2cd68ce9506a7e66a500f46fe37baeb988997b1",
-      "report_sha256": "6aa8a1011e4351df722bec3bb606ff6eff41281373dd780221d5981694b8590d"
+      "replacement_gate_input_digest": "ed0b5b82f93481b60ea076fd4e1540879fa8063cdb6e1c4e3192cac7248ec221",
+      "report_sha256": "570d50e5860b4180b4052842db7ec50516a7ac81ecc88b59bbcd2a3bf5bf0d54"
     }
   ]
 }
