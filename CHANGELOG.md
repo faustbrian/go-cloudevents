@@ -12,10 +12,27 @@ versioning.
   policy, interoperability fixtures, and content-addressed evidence.
 - Use canonical public module checksums for the nested Golib adapter instead of
   bootstrap-only archives.
+- Pin CI specification enforcement to canonical shared tooling commit
+  `2dd7ae5aa634c99dc9aa9033d361019e5ffc9988`.
 
 ### Documentation
 
 - Replace archived monorepo links with a package-owned documentation index.
+- Enforce the [specification decision register](docs/specification-decisions.md),
+  conformance bindings, immutable authority pins, release monitoring, and
+  append-only decision history through the shared repository check.
+- Current decision records: `CLOUDEVENTS-DEC-001 sha256:317e42da14b62ad0511bc935463c8fb01cf037db77e0c20e9df885ea01559b7a`;
+  `CLOUDEVENTS-DEC-002 sha256:6c35a0124b6ca9a733f2cd2c8e2c4431997b3f3b6527193232d596ba2c177bdb`;
+  `CLOUDEVENTS-DEC-003 sha256:695e83ba9df4c8eb1f986ea49b7194934a894f2a3b77503a8c7fe1bfa533de88`;
+  `CLOUDEVENTS-DEC-004 sha256:bb3e9e20e33e1619a51406e2c30fbb1db462138aeb005e9ff06904de925a5345`;
+  `CLOUDEVENTS-DEC-005 sha256:c15f47585a8a86e8382595cceece5e71d5302b963bc7c35a36a5df501b572415`;
+  `CLOUDEVENTS-DEC-006 sha256:7f3898d219e264bcb7fb23cf3493e4ecf51bd4d2512d38cf1d3ae4d36308e009`;
+  `CLOUDEVENTS-DEC-007 sha256:dd58a6179aa2c6674f8f75b8bd0792667548d9a288e346800c633a76826ae38e`;
+  `CLOUDEVENTS-DEC-008 sha256:58bcf8a8b3ddf3d11477544af9b1e418a8605f3170dbcbc372e7394ef7323c03`;
+  `CLOUDEVENTS-DEC-009 sha256:c1545df6d6f51dd4f93d7dca7dfae4964b7ee7a0650cdc4bc2036f791fdcedb2`;
+  `CLOUDEVENTS-DEC-010 sha256:7a33d17a4c654d30849ead7ddea51839e2c006f8129e2e67781b9d389525ca7b`;
+  `CLOUDEVENTS-DEC-011 sha256:3bdde5243c68f63da55fdfc9d00f2a693b15d81461349cad37cab527c7ed66b6`;
+  `CLOUDEVENTS-DEC-012 sha256:48d7db91a9d4bc2ca4d7858b20ee6ebb5978960322662faf590445e5a85502fe`.
 
 ## 1.0.0 - 2026-08-25
 

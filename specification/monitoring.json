@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-08-30",
+  "review_interval_days": 90,
+  "authorities": [
+    {
+      "id": "cloudevents-core-v1.0.2",
+      "kind": "specification",
+      "version": "v1.0.2",
+      "url": "https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/spec.md",
+      "sha256": "e327435c858d19fd171e4ab9781a01fc22dfa949d23c4220976529ebd16a1aa3",
+      "specifications": ["CloudEvents specification 1.0.2"]
+    },
+    {
+      "id": "cloudevents-json-v1.0.2",
+      "kind": "specification",
+      "version": "v1.0.2",
+      "url": "https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/formats/json-format.md",
+      "sha256": "30778f995a2c82f3ac6c4f7cd56415d675111990151c9ab67bd0a2de1d0e1ce5",
+      "specifications": ["CloudEvents JSON event format 1.0.2"]
+    },
+    {
+      "id": "cloudevents-http-v1.0.2",
+      "kind": "specification",
+      "version": "v1.0.2",
+      "url": "https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/bindings/http-protocol-binding.md",
+      "sha256": "35b0bc7949dd95e1134867c0f3854d97f7d7f3adcfe7a9b378705489ccc65e83",
+      "specifications": ["CloudEvents HTTP protocol binding 1.0.2"]
+    },
+    {
+      "id": "cloudevents-kafka-v1.0.2",
+      "kind": "specification",
+      "version": "v1.0.2",
+      "url": "https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/bindings/kafka-protocol-binding.md",
+      "sha256": "2935a0d3c01f61b66580a15cd2a7ebc7663919bfe0a9e97b7f0428cbe9fa2d8c",
+      "specifications": ["CloudEvents Kafka protocol binding 1.0.2"]
+    },
+    {
+      "id": "cloudevents-tracing-v1.0.2",
+      "kind": "extension",
+      "version": "v1.0.2",
+      "url": "https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/extensions/distributed-tracing.md",
+      "sha256": "bf6cef7bc1a72c59eee126f5f5a3047f58d9961899fbfa9625c3ade3f28980a5",
+      "specifications": ["CloudEvents distributed tracing extension 1.0.2"]
+    },
+    {
+      "id": "cloudevents-partitioning-v1.0.2",
+      "kind": "extension",
+      "version": "v1.0.2",
+      "url": "https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/extensions/partitioning.md",
+      "sha256": "38b5bf2b9e46a52917710f5ca2bba3cc3b5d91649f7a463293b6cd67634fa94e",
+      "specifications": ["CloudEvents partitioning extension 1.0.2"]
+    },
+    {
+      "id": "cloudevents-releases",
+      "kind": "releases",
+      "url": "https://github.com/cloudevents/spec/releases.atom",
+      "sha256": "0bac8dd4b2c8f380eb55e7970e7c27703f83747354223d7a7c97a0c50aa6b5b5",
+      "specifications": [
+        "CloudEvents specification 1.0.2",
+        "CloudEvents JSON event format 1.0.2",
+        "CloudEvents HTTP protocol binding 1.0.2",
+        "CloudEvents Kafka protocol binding 1.0.2",
+        "CloudEvents distributed tracing extension 1.0.2",
+        "CloudEvents partitioning extension 1.0.2"
+      ]
+    }
+  ]
+}

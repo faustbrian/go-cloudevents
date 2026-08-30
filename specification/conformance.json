@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "decisions": [
+    {
+      "id": "CLOUDEVENTS-DEC-001",
+      "authoritative_sources": ["cloudevents-core-v1.0.2"],
+      "executable_evidence": ["TestPinnedOfficialConformanceFixtures"],
+      "fixtures": ["testdata/conformance/http-protocol-binding.feature", "testdata/conformance/kafka-protocol-binding.feature"],
+      "fuzz": [],
+      "interoperability_evidence": [],
+      "interoperability_classification": "not assessed",
+      "differential_evidence": ["testdata/interoperability/golib-event.json", "testdata/interoperability/javascript-event.json"],
+      "differential_classification": "maintained peer agreement",
+      "public_behavior": ["Only reviewed stable-line clarifications are adopted."]
+    },
+    {
+      "id": "CLOUDEVENTS-DEC-002",
+      "authoritative_sources": ["cloudevents-core-v1.0.2"],
+      "executable_evidence": ["TestAttributeNamesAndCloudStringsEnforceExactCharacterBoundaries"],
+      "fixtures": [],
+      "fuzz": [],
+      "interoperability_evidence": [],
+      "interoperability_classification": "not assessed",
+      "differential_evidence": [],
+      "differential_classification": "not assessed",
+      "public_behavior": ["Digit-leading lowercase alphanumeric extension names remain valid."]
+    },
+    {
+      "id": "CLOUDEVENTS-DEC-003",
+      "authoritative_sources": ["cloudevents-json-v1.0.2"],
+      "executable_evidence": ["TestDataKindsPreserveAbsentNullEmptyAndBinaryValues"],
+      "fixtures": [],
+      "fuzz": ["FuzzDecodeJSON"],
+      "interoperability_evidence": [],
+      "interoperability_classification": "not assessed",
+      "differential_evidence": ["testdata/interoperability/javascript-edge-batch.json"],
+      "differential_classification": "deliberate policy difference",
+      "public_behavior": ["Absent, null, empty text, empty binary, binary, and JSON data remain distinct."]
+    },
+    {
+      "id": "CLOUDEVENTS-DEC-004",
+      "authoritative_sources": ["cloudevents-json-v1.0.2"],
+      "executable_evidence": ["TestDecodeJSONPreservesUnknownExtensionsAndDataPresence"],
+      "fixtures": [],
+      "fuzz": ["FuzzDecodeJSON"],
+      "interoperability_evidence": [],
+      "interoperability_classification": "not assessed",
+      "differential_evidence": ["testdata/interoperability/javascript-event.json"],
+      "differential_classification": "maintained peer agreement",
+      "public_behavior": ["Unknown JSON strings decode as CloudEvents String attributes."]
+    },
+    {
+      "id": "CLOUDEVENTS-DEC-005",
+      "authoritative_sources": ["cloudevents-json-v1.0.2"],
+      "executable_evidence": ["TestDecodeJSONRejectsAmbiguousAndOverLimitInput"],
+      "fixtures": [],
+      "fuzz": ["FuzzDecodeJSON"],
+      "interoperability_evidence": [],
+      "interoperability_classification": "not assessed",
+      "differential_evidence": [],
+      "differential_classification": "not assessed",
+      "public_behavior": ["Duplicate context attributes fail closed."]
+    },
+    {
+      "id": "CLOUDEVENTS-DEC-006",
+      "authoritative_sources": ["cloudevents-core-v1.0.2"],
+      "executable_evidence": ["TestAttributeValidationCoversEveryAbstractTypeAndInvariant"],
+      "fixtures": [],
+      "fuzz": [],
+      "interoperability_evidence": [],
+      "interoperability_classification": "not assessed",
+      "differential_evidence": [],
+      "differential_classification": "not assessed",
+      "public_behavior": ["URI attributes require already-valid RFC 3986 ASCII serialization."]
+    },
+    {
+      "id": "CLOUDEVENTS-DEC-007",
+      "authoritative_sources": ["cloudevents-json-v1.0.2"],
+      "executable_evidence": ["TestEncodeJSONIsDeterministicAndNormative"],
+      "fixtures": [],
+      "fuzz": [],
+      "interoperability_evidence": [],
+      "interoperability_classification": "not assessed",
+      "differential_evidence": ["testdata/interoperability/golib-event.json", "testdata/interoperability/javascript-event.json"],
+      "differential_classification": "deliberate policy difference",
+      "public_behavior": ["Package-produced JSON bytes follow the documented deterministic profile."]
+    },
+    {
+      "id": "CLOUDEVENTS-DEC-008",
+      "authoritative_sources": ["cloudevents-http-v1.0.2", "cloudevents-kafka-v1.0.2"],
+      "executable_evidence": ["TestDecodeHTTPRejectsDuplicateAndConflictingMetadata"],
+      "fixtures": ["testdata/conformance/http-protocol-binding.feature", "testdata/conformance/kafka-protocol-binding.feature"],
+      "fuzz": ["FuzzDecodeHTTP", "FuzzDecodeKafka"],
+      "interoperability_evidence": [],
+      "interoperability_classification": "not assessed",
+      "differential_evidence": ["testdata/interoperability/javascript-http-structured.json", "testdata/interoperability/javascript-kafka-structured.json"],
+      "differential_classification": "deliberate policy difference",
+      "public_behavior": ["Conflicting structured metadata and unsupported structured formats fail closed."]
+    },
+    {
+      "id": "CLOUDEVENTS-DEC-009",
+      "authoritative_sources": ["cloudevents-http-v1.0.2"],
+      "executable_evidence": ["TestHTTPBodyLimitsCancellationAndNilOwnership"],
+      "fixtures": [],
+      "fuzz": ["FuzzDecodeHTTP"],
+      "interoperability_evidence": [],
+      "interoperability_classification": "not assessed",
+      "differential_evidence": [],
+      "differential_classification": "not assessed",
+      "public_behavior": ["HTTP body ownership remains with the caller."]
+    },
+    {
+      "id": "CLOUDEVENTS-DEC-010",
+      "authoritative_sources": ["cloudevents-kafka-v1.0.2", "cloudevents-partitioning-v1.0.2"],
+      "executable_evidence": ["TestEncodeKafkaBinaryPreservesKeyAndTombstoneSemantics"],
+      "fixtures": ["testdata/conformance/kafka-protocol-binding.feature"],
+      "fuzz": ["FuzzDecodeKafka"],
+      "interoperability_evidence": [],
+      "interoperability_classification": "not assessed",
+      "differential_evidence": ["testdata/interoperability/golib-kafka-binary.json", "testdata/interoperability/javascript-kafka-binary.json"],
+      "differential_classification": "deliberate policy difference",
+      "public_behavior": ["Nil Kafka values preserve tombstone semantics and Kafka batch mode remains unsupported."]
+    },
+    {
+      "id": "CLOUDEVENTS-DEC-011",
+      "authoritative_sources": ["cloudevents-core-v1.0.2"],
+      "executable_evidence": ["TestValidateSchemaIsExplicitAndOwnsValidatorInput"],
+      "fixtures": [],
+      "fuzz": [],
+      "interoperability_evidence": [],
+      "interoperability_classification": "not assessed",
+      "differential_evidence": [],
+      "differential_classification": "not assessed",
+      "public_behavior": ["Schema validation occurs only through an explicit caller-supplied validator."]
+    },
+    {
+      "id": "CLOUDEVENTS-DEC-012",
+      "authoritative_sources": ["cloudevents-tracing-v1.0.2"],
+      "executable_evidence": ["TestTracingExtensionsRejectEveryGrammarBoundary"],
+      "fixtures": [],
+      "fuzz": [],
+      "interoperability_evidence": [],
+      "interoperability_classification": "not assessed",
+      "differential_evidence": [],
+      "differential_classification": "not assessed",
+      "public_behavior": ["Core tracing support validates syntax without claiming multi-hop lifecycle ownership."]
+    }
+  ]
+}
