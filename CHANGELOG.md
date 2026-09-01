@@ -7,13 +7,12 @@ versioning.
 
 ### Changed
 
-- Replace the repository-local verification implementation with the pinned
-  `go-library-tools` v1.0.13 CLI and reusable workflow while preserving module
-  policy, interoperability fixtures, and content-addressed evidence.
+- Adopt the pinned `go-library-tools` v1.2.0 CLI and reusable workflow so CI
+  enforces specification decisions, conformance bindings, source monitoring,
+  and change control while preserving module-owned policy, interoperability
+  fixtures, and content-addressed evidence.
 - Use canonical public module checksums for the nested Golib adapter instead of
   bootstrap-only archives.
-- Pin CI specification enforcement to canonical shared tooling commit
-  `2dd7ae5aa634c99dc9aa9033d361019e5ffc9988`.
 
 ### Documentation
 
