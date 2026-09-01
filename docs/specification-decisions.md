@@ -13,6 +13,22 @@ resource, wire, executable-evidence, and changelog review when changed.
 
 ## CLOUDEVENTS-DEC-001: Stable-line clarifications after 1.0.2
 
+Machine authority: status `resolved`; owner `cloudevents maintainers`;
+classification `erratum`; decision scope `normative`; specification
+`CloudEvents specification 1.0.2`; version `v1.0.2`; source authority
+`cloudevents-core-v1.0.2`; source URL
+`https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/spec.md`;
+section `Stable-line clarifications`; requirement strength `not specified`;
+documentation `docs/specification-decisions.md`. The package adopts only the
+eight clarification commits listed in the specification matrix. Other
+1.0.3-wip behavior is not imported. Accepted commits and their exact
+interpretation are retained in the specification matrix.
+
+Evidence bindings: `testdata/conformance/http-protocol-binding.feature`,
+`testdata/conformance/kafka-protocol-binding.feature`,
+`testdata/interoperability/golib-event.json`, and
+`testdata/interoperability/javascript-event.json`.
+
 | Field | Decision |
 | --- | --- |
 | Status and owner | `resolved`; `cloudevents` maintainers |
@@ -30,6 +46,14 @@ resource, wire, executable-evidence, and changelog review when changed.
 | Reconsider when | CloudEvents publishes a stable patch release that incorporates, reverses, or supersedes one of the selected clarifications. |
 
 ## CLOUDEVENTS-DEC-002: Extension attribute-name compatibility
+
+Machine authority: status `resolved`; owner `cloudevents maintainers`;
+classification `interoperability policy`; decision scope `recommended`;
+specification `CloudEvents specification 1.0.2`; version `v1.0.2`; source
+authority `cloudevents-core-v1.0.2`; source URL
+`https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/spec.md`;
+section `Attribute Naming Convention`; requirement strength `SHOULD NOT`;
+documentation `docs/specification-decisions.md`.
 
 | Field | Decision |
 | --- | --- |
@@ -49,6 +73,18 @@ resource, wire, executable-evidence, and changelog review when changed.
 
 ## CLOUDEVENTS-DEC-003: Data presence and JSON representation
 
+Machine authority: status `resolved`; owner `cloudevents maintainers`;
+classification `ambiguity`; decision scope `normative`; specification
+`CloudEvents JSON event format 1.0.2`; version `v1.0.2`; source authority
+`cloudevents-json-v1.0.2`; source URL
+`https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/formats/json-format.md`;
+section `3.1 Handling of data`; requirement strength `MUST`; documentation
+`docs/specification-decisions.md`. `data and data_base64 cannot coexist, and
+base64 must be canonical padded RFC 4648 encoding.`
+
+Evidence bindings: `FuzzDecodeJSON` and
+`testdata/interoperability/javascript-edge-batch.json`.
+
 | Field | Decision |
 | --- | --- |
 | Status and owner | `resolved`; `cloudevents` maintainers |
@@ -66,6 +102,17 @@ resource, wire, executable-evidence, and changelog review when changed.
 | Reconsider when | CloudEvents changes data-presence semantics, introduces another JSON payload member, or standardizes a different binary conversion rule. |
 
 ## CLOUDEVENTS-DEC-004: Unknown extension abstract types
+
+Machine authority: status `resolved`; owner `cloudevents maintainers`;
+classification `omission`; decision scope `defensive`; specification
+`CloudEvents JSON event format 1.0.2`; version `v1.0.2`; source authority
+`cloudevents-json-v1.0.2`; source URL
+`https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/formats/json-format.md`;
+section `2.2 Type System Mapping`; requirement strength `not specified`;
+documentation `docs/specification-decisions.md`.
+
+Evidence bindings: `FuzzDecodeJSON` and
+`testdata/interoperability/javascript-event.json`.
 
 | Field | Decision |
 | --- | --- |
@@ -85,6 +132,17 @@ resource, wire, executable-evidence, and changelog review when changed.
 
 ## CLOUDEVENTS-DEC-005: Duplicate and null context attributes
 
+Machine authority: status `resolved`; owner `cloudevents maintainers`;
+classification `ambiguity`; decision scope `defensive`; specification
+`CloudEvents JSON event format 1.0.2`; version `v1.0.2`; source authority
+`cloudevents-json-v1.0.2`; source URL
+`https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/formats/json-format.md`;
+section `3 Envelope`; requirement strength `not specified`; documentation
+`docs/specification-decisions.md`. Duplicate rejection incorporates the
+reviewed stable-line clarification identified in the specification matrix.
+
+Evidence binding: `FuzzDecodeJSON`.
+
 | Field | Decision |
 | --- | --- |
 | Status and owner | `resolved`; `cloudevents` maintainers |
@@ -102,6 +160,14 @@ resource, wire, executable-evidence, and changelog review when changed.
 | Reconsider when | A supported CloudEvents binding defines deterministic repeated-value semantics that cannot be represented by this singleton model. |
 
 ## CLOUDEVENTS-DEC-006: URI and URI-reference input strictness
+
+Machine authority: status `resolved`; owner `cloudevents maintainers`;
+classification `interoperability policy`; decision scope `defensive`;
+specification `CloudEvents specification 1.0.2`; version `v1.0.2`; source
+authority `cloudevents-core-v1.0.2`; source URL
+`https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/spec.md`;
+section `Type System`; requirement strength `not specified`; documentation
+`docs/specification-decisions.md`.
 
 | Field | Decision |
 | --- | --- |
@@ -121,6 +187,17 @@ resource, wire, executable-evidence, and changelog review when changed.
 
 ## CLOUDEVENTS-DEC-007: Deterministic JSON bytes
 
+Machine authority: status `resolved`; owner `cloudevents maintainers`;
+classification `implementation-defined behavior`; decision scope
+`application-policy`; specification `CloudEvents JSON event format 1.0.2`;
+version `v1.0.2`; source authority `cloudevents-json-v1.0.2`; source URL
+`https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/formats/json-format.md`;
+section `JSON Event Format`; requirement strength `not specified`;
+documentation `docs/specification-decisions.md`.
+
+Differential evidence: `testdata/interoperability/golib-event.json` and
+`testdata/interoperability/javascript-event.json`.
+
 | Field | Decision |
 | --- | --- |
 | Status and owner | `resolved`; `cloudevents` maintainers |
@@ -138,6 +215,20 @@ resource, wire, executable-evidence, and changelog review when changed.
 | Reconsider when | CloudEvents adopts a canonicalization profile or byte-level interoperability requires a versioned alternative serializer. |
 
 ## CLOUDEVENTS-DEC-008: Structured metadata conflicts and mode selection
+
+Machine authority: status `resolved`; owner `cloudevents maintainers`;
+classification `ambiguity`; decision scope `transport-specific`;
+specification `CloudEvents HTTP protocol binding 1.0.2`; version `v1.0.2`;
+source authority `cloudevents-http-v1.0.2`; source URL
+`https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/bindings/http-protocol-binding.md`;
+section `1.3 Content Modes`; requirement strength `not specified`;
+documentation `docs/specification-decisions.md`. Additional authoritative
+source: `{"id":"cloudevents-kafka-v1.0.2","version":"v1.0.2","url":"https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/bindings/kafka-protocol-binding.md","specifications":["CloudEvents Kafka protocol binding 1.0.2"]}`
+
+Evidence bindings: `testdata/conformance/http-protocol-binding.feature`,
+`testdata/conformance/kafka-protocol-binding.feature`, `FuzzDecodeHTTP`,
+`FuzzDecodeKafka`, `testdata/interoperability/javascript-http-structured.json`,
+and `testdata/interoperability/javascript-kafka-structured.json`.
 
 | Field | Decision |
 | --- | --- |
@@ -157,6 +248,17 @@ resource, wire, executable-evidence, and changelog review when changed.
 
 ## CLOUDEVENTS-DEC-009: HTTP body presence, ownership, and cancellation
 
+Machine authority: status `resolved`; owner `cloudevents maintainers`;
+classification `omission`; decision scope `transport-specific`; specification
+`CloudEvents HTTP protocol binding 1.0.2`; version `v1.0.2`; source authority
+`cloudevents-http-v1.0.2`; source URL
+`https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/bindings/http-protocol-binding.md`;
+section `3.1 Binary Content Mode`; requirement strength `not specified`;
+documentation `docs/specification-decisions.md`. Cancellation cannot leak an
+internal goroutine. Body size is bounded with overflow-safe accounting.
+
+Evidence binding: `FuzzDecodeHTTP`.
+
 | Field | Decision |
 | --- | --- |
 | Status and owner | `resolved`; `cloudevents` maintainers |
@@ -174,6 +276,19 @@ resource, wire, executable-evidence, and changelog review when changed.
 | Reconsider when | The decoder accepts a transport type whose close and cancellation lifecycle it explicitly owns. |
 
 ## CLOUDEVENTS-DEC-010: Kafka tombstones, keys, and batch scope
+
+Machine authority: status `resolved`; owner `cloudevents maintainers`;
+classification `optional behavior`; decision scope `transport-specific`;
+specification `CloudEvents Kafka protocol binding 1.0.2`; version `v1.0.2`;
+source authority `cloudevents-kafka-v1.0.2`; source URL
+`https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/bindings/kafka-protocol-binding.md`;
+section `Kafka Protocol Binding`; requirement strength `not specified`;
+documentation `docs/specification-decisions.md`. Additional authoritative
+source: `{"id":"cloudevents-partitioning-v1.0.2","version":"v1.0.2","url":"https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/extensions/partitioning.md","specifications":["CloudEvents partitioning extension 1.0.2"]}`
+
+Evidence bindings: `testdata/conformance/kafka-protocol-binding.feature`,
+`FuzzDecodeKafka`, `testdata/interoperability/golib-kafka-binary.json`, and
+`testdata/interoperability/javascript-kafka-binary.json`.
 
 | Field | Decision |
 | --- | --- |
@@ -193,6 +308,16 @@ resource, wire, executable-evidence, and changelog review when changed.
 
 ## CLOUDEVENTS-DEC-011: Explicit schema validation without implicit I/O
 
+Machine authority: status `resolved`; owner `cloudevents maintainers`;
+classification `optional behavior`; decision scope `application-policy`;
+specification `CloudEvents specification 1.0.2`; version `v1.0.2`; source
+authority `cloudevents-core-v1.0.2`; source URL
+`https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/spec.md`;
+section `Data Schema`; requirement strength `not specified`; documentation
+`docs/specification-decisions.md`. `dataschema identifies a schema but
+CloudEvents does not require receivers to fetch it or define a resolver, trust
+policy, dialect, cache, or SSRF boundary.`
+
 | Field | Decision |
 | --- | --- |
 | Status and owner | `resolved`; `cloudevents` maintainers |
@@ -208,6 +333,32 @@ resource, wire, executable-evidence, and changelog review when changed.
 | Public surface | `SchemaValidator`, `ValidateSchema`, `Event.DataSchema`, `RegistryJSONSchemaConfig`, `NewRegistryJSONSchemaValidator`, and schema-related errors |
 | Upstream record | CloudEvents provides schema identity but no mandatory retrieval or validation algorithm; the no-I/O default is package-owned. |
 | Reconsider when | CloudEvents publishes normative schema retrieval and validation behavior or the core adopts an explicit resolver interface with equivalent fail-closed policy. |
+
+## CLOUDEVENTS-DEC-012: Distributed tracing lifecycle ownership
+
+Machine authority: status `resolved`; owner `cloudevents maintainers`;
+classification `omission`; decision scope `extension-specific`; specification
+`CloudEvents distributed tracing extension 1.0.2`; version `v1.0.2`; source
+authority `cloudevents-tracing-v1.0.2`; source URL
+`https://raw.githubusercontent.com/cloudevents/spec/fc1f6f31f5f011a72183f1bcea20c987cb683ade/cloudevents/extensions/distributed-tracing.md`;
+section `Distributed Tracing Extension`; requirement strength `not specified`.
+
+| Field | Decision |
+| --- | --- |
+| Issue | The extension requires multi-hop trace lifecycle behavior but the transport-independent event model does not own span creation or hop boundaries. |
+| Credible interpretations | rewrite tracing metadata during every codec operation; preserve syntax without lifecycle policy; require applications and adapters to own explicit propagation policy. |
+| Known peer behavior | SDK and telemetry integrations attach tracing lifecycle policy at different boundaries. |
+| Selected behavior | The core validates traceparent and tracestate without starting spans or rewriting valid metadata. |
+| Rationale | Single-hop propagation is explicit and multi-hop lifecycle compliance is not claimed by the core codec. |
+| Security consequences | Untrusted tracing values are grammar-checked before retention. |
+| Resource consequences | Validation performs no telemetry I/O or background work. |
+| Compatibility consequences | Existing valid tracing attributes round-trip unchanged. |
+| Wire consequences | Applications must preserve the starting trace across hops through their owned propagation boundary. |
+| Executable evidence | `TestTracingExtensionsRejectEveryGrammarBoundary` |
+| Public APIs | `NewTraceParentAttribute`, `NewTraceStateAttribute` |
+| Documentation | `docs/specification-decisions.md`, `docs/specification-matrix.md` |
+| Upstream status | The pinned extension defines lifecycle requirements but no transport-independent Go ownership model. |
+| Reconsider when | The core adopts an explicit tracing lifecycle abstraction or the extension revises multi-hop ownership. |
 
 ## Unresolved decisions
 

@@ -60,7 +60,7 @@
         "cloudevents/conformance v0.4.1 HTTP and Kafka features"
       ],
       "provenance": [
-        "specification/manifest.json"
+        "specification/monitoring.json"
       ],
       "goal_files": [],
       "goal_status": "not-applicable",
