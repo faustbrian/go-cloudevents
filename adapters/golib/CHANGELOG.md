@@ -14,6 +14,8 @@ All notable changes to this module are documented here.
 
 ### Documentation
 
+- Bind ecosystem and protocols-and-descriptions family navigation to the
+  immutable v1.4.0 documentation.
 - Publish schema-v2 family, selection, ownership, lifecycle, compatibility,
   and documentation metadata and link to the versioned Golib ecosystem index.
 - Move detailed module guidance behind a concise README and documentation index.
