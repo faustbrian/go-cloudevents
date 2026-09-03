@@ -7,6 +7,9 @@ versioning.
 
 ### Changed
 
+- Adopt schema-v2 cohesion metadata for both releasable modules, the pinned
+  `go-library-tools` v1.3.0 CLI, repository-local cohesion validation, and the
+  immutable shared workflow that enforces it in CI.
 - Adopt the pinned `go-library-tools` v1.2.0 CLI and reusable workflow so CI
   enforces specification decisions, conformance bindings, source monitoring,
   and change control while preserving module-owned policy, interoperability
@@ -16,6 +19,8 @@ versioning.
 
 ### Documentation
 
+- Link both releasable modules to the versioned Golib ecosystem index and
+  shared package-selection, construction, ownership, and lifecycle guidance.
 - Replace archived monorepo links with a package-owned documentation index.
 - Enforce the [specification decision register](docs/specification-decisions.md),
   conformance bindings, immutable authority pins, release monitoring, and
