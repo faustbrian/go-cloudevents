@@ -100,6 +100,10 @@ and [changelog](CHANGELOG.md). Interoperability evidence covers the official Go
 SDK and the independent JavaScript SDK; importing the package never invokes
 either SDK or a runtime outside Go.
 
+For shared package families, selection guidance, construction, ownership, and
+lifecycle vocabulary, see the versioned [Golib ecosystem
+index](https://github.com/faustbrian/go-library-tools/blob/v1.3.0/docs/ecosystem/README.md).
+
 ## Documentation
 
 Start with the [documentation index](docs/README.md) for specification,

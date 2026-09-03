@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "repository": "github.com/faustbrian/go-cloudevents",
   "go_version": "1.26.6",
   "modules": [
@@ -29,6 +29,83 @@
       "family_label": "Protocols And Descriptions",
       "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
       "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "data-encoding",
+          "eventing-and-messaging",
+          "protocols-and-schemas",
+          "transport-and-networking"
+        ],
+        "responsibility": "Provide a transport-independent CloudEvents 1.0 envelope with bounded JSON, HTTP, and Kafka mappings.",
+        "non_goals": [
+          "Own application event taxonomies, brokers, dispatch, persistence, workflow, audit, or schema registries.",
+          "Perform hidden transport I/O, schema lookup, registration, telemetry initialization, or background work."
+        ],
+        "public_package_identifier": "cloudevents",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents": "Use for CloudEvents information-model and wire interoperability; retain a richer domain envelope when it owns application, persistence, workflow, or settlement state."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function",
+          "validated-value"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [
+          "github.com/faustbrian/go-cloudevents/adapters/golib"
+        ],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2",
+          "http",
+          "kafka"
+        ],
+        "documentation": {
+          "readme": "README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents",
+          "adoption": "README.md",
+          "security": "SECURITY.md",
+          "compatibility": "COMPATIBILITY.md",
+          "performance": "docs/benchmarks.md",
+          "examples": "README.md",
+          "faq": null,
+          "changelog": "CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.3.0/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "not-started",
+          "hardening": "not-started",
+          "release": "not-started"
+        }
+      },
       "version": "1.0.0",
       "tag_prefix": "v",
       "owned_dependencies": [],
@@ -105,6 +182,88 @@
       "family_label": "Protocols And Descriptions",
       "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
       "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "data-encoding",
+          "database-and-storage",
+          "eventing-and-messaging",
+          "observability",
+          "protocols-and-schemas",
+          "transport-and-networking"
+        ],
+        "responsibility": "Bridge CloudEvents explicitly to selected Golib event, transport, workflow, metadata, audit, telemetry, and schema contracts.",
+        "non_goals": [
+          "Replace the canonical domain, store, queue, workflow, audit, telemetry, or transport state owned by another package.",
+          "Perform import-time registration, network access, schema lookup, telemetry emission, or background work.",
+          "Provide a new umbrella runtime or require the adapter for core CloudEvents use."
+        ],
+        "public_package_identifier": "golib",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/golib"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/golib": "Use only at a boundary that already owns both a Golib canonical value and a CloudEvents interoperability requirement; use the root module for CloudEvents-only mapping."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "new-config",
+          "plain-function",
+          "validated-value"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "caller",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [
+          "kafka",
+          "rabbitmq",
+          "schema-registry"
+        ],
+        "supported_protocols": [
+          "cloudevents-1-0-2",
+          "opentelemetry"
+        ],
+        "documentation": {
+          "readme": "adapters/golib/README.md",
+          "api": "adapters/golib/docs/reference.md",
+          "adoption": "adapters/golib/docs/reference.md",
+          "security": "adapters/golib/SECURITY.md",
+          "compatibility": "adapters/golib/docs/reference.md",
+          "performance": "adapters/golib/docs/benchmarks.md",
+          "examples": "adapters/golib/example_test.go",
+          "faq": "adapters/golib/docs/reference.md",
+          "changelog": "adapters/golib/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/golib",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.3.0/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "not-started",
+          "hardening": "not-started",
+          "release": "not-started"
+        }
+      },
       "version": "1.0.0",
       "tag_prefix": "adapters/golib/v",
       "owned_dependencies": [
