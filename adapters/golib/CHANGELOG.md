@@ -6,6 +6,8 @@ All notable changes to this module are documented here.
 
 ### Documentation
 
+- Publish schema-v2 family, selection, ownership, lifecycle, compatibility,
+  and documentation metadata and link to the versioned Golib ecosystem index.
 - Move detailed module guidance behind a concise README and documentation index.
 - Use human-oriented section names and package-owned documentation links.
 

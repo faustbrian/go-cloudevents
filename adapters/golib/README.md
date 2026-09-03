@@ -38,6 +38,10 @@ event, retained, report, err := golib.QueueToCloudEvent(
 
 The compiling examples in this module contain complete imports and setup.
 
+For shared package families, selection guidance, construction, ownership, and
+lifecycle vocabulary, see the versioned [Golib ecosystem
+index](https://github.com/faustbrian/go-library-tools/blob/v1.3.0/docs/ecosystem/README.md).
+
 ## Guarantees and limitations
 
 The [complete guide](docs/reference.md) defines ownership, failure semantics,
