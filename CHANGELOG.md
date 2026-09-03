@@ -22,6 +22,8 @@ versioning.
 
 ### Documentation
 
+- Bind both releasable modules' ecosystem and protocols-and-descriptions family
+  navigation to the immutable v1.4.0 documentation.
 - Link both releasable modules to the versioned Golib ecosystem index and
   shared package-selection, construction, ownership, and lifecycle guidance.
 - Replace archived monorepo links with a package-owned documentation index.

@@ -40,7 +40,9 @@ The compiling examples in this module contain complete imports and setup.
 
 For shared package families, selection guidance, construction, ownership, and
 lifecycle vocabulary, see the versioned [Golib ecosystem
-index](https://github.com/faustbrian/go-library-tools/blob/v1.3.0/docs/ecosystem/README.md).
+index](https://github.com/faustbrian/go-library-tools/blob/v1.4.0/docs/ecosystem/README.md)
+and its [protocols-and-descriptions package
+guidance](https://github.com/faustbrian/go-library-tools/blob/v1.4.0/docs/ecosystem/design-language.md#package-families-and-selection).
 
 ## Guarantees and limitations
 
