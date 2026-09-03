@@ -7,6 +7,9 @@ versioning.
 
 ### Changed
 
+- Upgrade checksum-pinned `go-library-tools` and reusable CI to v1.4.0 while
+  retaining schema-v2 cohesion metadata and frozen specification decisions.
+
 - Adopt schema-v2 cohesion metadata for both releasable modules, the pinned
   `go-library-tools` v1.3.0 CLI, repository-local cohesion validation, and the
   immutable shared workflow that enforces it in CI.

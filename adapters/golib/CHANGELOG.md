@@ -4,6 +4,14 @@ All notable changes to this module are documented here.
 
 ## Unreleased
 
+### Changed
+
+- Upgrade checksum-pinned repository tooling and reusable CI to v1.4.0 while
+  retaining the adapter's schema-v2 cohesion and specification contracts.
+- Replace bootstrap-only archive checksums for all owned dependencies with
+  their canonical public v1.0.0 module identities for clean consumer
+  verification.
+
 ### Documentation
 
 - Publish schema-v2 family, selection, ownership, lifecycle, compatibility,
