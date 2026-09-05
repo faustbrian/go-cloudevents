@@ -13,7 +13,7 @@ require (
 	github.com/faustbrian/go-rabbitmq-streams v1.0.0
 	github.com/faustbrian/go-schema-registry v1.0.0
 	github.com/faustbrian/go-telemetry v1.0.0
-	github.com/faustbrian/go-tenancy v1.0.0
+	github.com/faustbrian/go-tenancy v1.1.0
 	github.com/faustbrian/go-transactional-outbox v1.0.0
 	github.com/faustbrian/go-workflow v1.0.0
 	go.opentelemetry.io/otel v1.44.0
