@@ -68,8 +68,8 @@ github.com/faustbrian/go-rabbitmq-streams v1.0.0 h1:ISa1+4dkNUOX/2/O9YjMeDSWmQGr
 github.com/faustbrian/go-rabbitmq-streams v1.0.0/go.mod h1:G+Eu/VdiBUxsFTeUNC0YK6867jIUwao0DJODi5ABN54=
 github.com/faustbrian/go-schema-registry v1.0.0 h1:x/qlOAokGGjPMcE0z/Ri0JAaEIKgNRE1/HlvpuUqzyU=
 github.com/faustbrian/go-schema-registry v1.0.0/go.mod h1:lj1jdEWEDxxWW5e5mTGol8KEkwLP3KLMN+0+vvLJusc=
-github.com/faustbrian/go-telemetry v1.0.0 h1:stE8oAr6k2vG6yQGrZT4Sq6fpMaiqtrHXKOXn9+nIQg=
-github.com/faustbrian/go-telemetry v1.0.0/go.mod h1:3bs4hcIGr0FS11ZLPmnPc+Hy56zHGCJjhxtUxp/sozU=
+github.com/faustbrian/go-telemetry v1.1.1 h1:f1sMuU2eXUzYmaXjOr+HeE/RgLXJFtQPAsrwORKfrTM=
+github.com/faustbrian/go-telemetry v1.1.1/go.mod h1:DWJbW/tD1cq8kM02aQo7CMVet6gzAw94cv0KuvsIoho=
 github.com/faustbrian/go-tenancy v1.1.0 h1:siH524OklYNzUjooYeoJl22WvtrV0BCcoctotqP2G4c=
 github.com/faustbrian/go-tenancy v1.1.0/go.mod h1:aiEdsa3aoVg41f4Xy04fUiDjcD5CkPhhSHpexm4HheQ=
 github.com/faustbrian/go-transactional-outbox v1.0.0 h1:FGCv7v4VIYFt1OPr8yyb/CX+NO9nlgjRpCsFPTJP2VI=
@@ -192,8 +192,8 @@ go.jetify.com/typeid/v2 v2.0.0-alpha.3 h1:T6RPx6bNl10lp0JN2Xz/XcgLZWSlVmL58Xqy9c
 go.jetify.com/typeid/v2 v2.0.0-alpha.3/go.mod h1:zfD1ZDHDJNgXZANsO9jDOD81XRRQ0zAOnDBEHmIV/Gw=
 go.opentelemetry.io/auto/sdk v1.2.1 h1:jXsnJ4Lmnqd11kwkBV2LgLoFMZKizbCi5fNZ/ipaZ64=
 go.opentelemetry.io/auto/sdk v1.2.1/go.mod h1:KRTj+aOaElaLi+wW1kO/DZRXwkF4C5xPbEe3ZiIhN7Y=
-go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.60.0 h1:sbiXRNDSWJOTobXh5HyQKjq6wUC5tNybqjIqDpAY4CU=
-go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.60.0/go.mod h1:69uWxva0WgAA/4bu2Yy70SLDBwZXuQ6PbBpbsa5iZrQ=
+go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.61.0 h1:F7Jx+6hwnZ41NSFTO5q4LYDtJRXBf2PD0rNBkeB/lus=
+go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.61.0/go.mod h1:UHB22Z8QsdRDrnAtX4PntOl36ajSxcdUMt1sF7Y6E7Q=
 go.opentelemetry.io/otel v1.44.0 h1:JjwHmHpA4iZ3wBxluu2fbbE7j4kqlE8jXyAyPXH7HqU=
 go.opentelemetry.io/otel v1.44.0/go.mod h1:BMgjTHL9WPRlRjL2oZCBTL4whCGtXch2H4BhOPIAyYc=
 go.opentelemetry.io/otel/metric v1.44.0 h1:1w0gILTcHdr3YI+ixLyjemwrVnsMURbTZFrSYCdDdmc=
