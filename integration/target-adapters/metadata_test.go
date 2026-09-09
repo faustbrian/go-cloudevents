@@ -1,0 +1,103 @@
+package targetadapters_test
+
+import (
+	"context"
+	"errors"
+	"testing"
+
+	"github.com/faustbrian/go-cloudevents"
+	cloudcorrelation "github.com/faustbrian/go-cloudevents/adapters/correlation"
+	cloudtelemetry "github.com/faustbrian/go-cloudevents/adapters/telemetry"
+	cloudtenancy "github.com/faustbrian/go-cloudevents/adapters/tenancy"
+	"github.com/faustbrian/go-correlation"
+	telemetrypropagation "github.com/faustbrian/go-telemetry/propagation"
+	"github.com/faustbrian/go-tenancy"
+	"go.opentelemetry.io/otel/trace"
+)
+
+func baseEvent(t *testing.T) cloudevents.Event {
+	t.Helper()
+	data, err := cloudevents.NewJSONData([]byte(`{"ok":true}`))
+	if err != nil {
+		t.Fatal(err)
+	}
+	event, err := cloudevents.NewEvent(cloudevents.Attributes{
+		ID: "event-1", Source: "/source", Type: "example.created",
+	}, data)
+	if err != nil {
+		t.Fatal(err)
+	}
+	return event
+}
+
+func TestCorrelationAndTenantMetadataRequireExplicitTrustAndRejectCollisions(t *testing.T) {
+	t.Parallel()
+
+	event := baseEvent(t)
+	values := correlation.Values{
+		CorrelationID: correlation.MustCorrelationID("correlation-1", correlation.Policy{}),
+		RequestID:     correlation.MustRequestID("request-1", correlation.Policy{}),
+		CausationID:   correlation.MustCausationID("cause-1", correlation.Policy{}),
+	}
+	withCorrelation, err := cloudcorrelation.Add(event, values)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := cloudcorrelation.Extract(withCorrelation, false, correlation.Policy{}); !errors.Is(err, cloudevents.ErrUntrustedMetadata) {
+		t.Fatalf("untrusted correlation error = %v", err)
+	}
+	extracted, err := cloudcorrelation.Extract(withCorrelation, true, correlation.Policy{})
+	if err != nil || extracted != values {
+		t.Fatalf("correlation = %#v, %v", extracted, err)
+	}
+	if _, err := cloudcorrelation.Add(withCorrelation, correlation.Values{
+		CorrelationID: correlation.MustCorrelationID("different", correlation.Policy{}),
+	}); !errors.Is(err, cloudevents.ErrMetadataCollision) {
+		t.Fatalf("correlation collision error = %v", err)
+	}
+
+	tenant := tenancy.MustTenantID("tenant-a")
+	withTenant, err := cloudtenancy.Add(withCorrelation, tenant)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := cloudtenancy.Extract(withTenant, false); !errors.Is(err, cloudevents.ErrUntrustedMetadata) {
+		t.Fatalf("untrusted tenant error = %v", err)
+	}
+	extractedTenant, err := cloudtenancy.Extract(withTenant, true)
+	if err != nil || !extractedTenant.Equal(tenant) {
+		t.Fatalf("tenant = %v, %v", extractedTenant, err)
+	}
+	if _, err := cloudtenancy.Add(withTenant, tenancy.MustTenantID("tenant-b")); !errors.Is(err, cloudevents.ErrMetadataCollision) {
+		t.Fatalf("tenant collision error = %v", err)
+	}
+	if _, ok := withTenant.Extension("correlationid"); !ok {
+		t.Fatal("adding tenant dropped an existing extension")
+	}
+}
+
+func TestTelemetryAdapterUsesExplicitGolibPropagationPolicy(t *testing.T) {
+	t.Parallel()
+
+	policy, err := telemetrypropagation.New(telemetrypropagation.DefaultConfig())
+	if err != nil {
+		t.Fatal(err)
+	}
+	spanContext := trace.NewSpanContext(trace.SpanContextConfig{
+		TraceID:    trace.TraceID{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16},
+		SpanID:     trace.SpanID{1, 2, 3, 4, 5, 6, 7, 8},
+		TraceFlags: trace.FlagsSampled,
+	})
+	ctx := trace.ContextWithRemoteSpanContext(context.Background(), spanContext)
+	event, report, err := cloudtelemetry.InjectTraceContext(ctx, baseEvent(t), policy)
+	if err != nil || len(report.Losses) != 0 {
+		t.Fatalf("inject trace context = %#v, %v", report, err)
+	}
+	if _, ok := event.Extension("traceparent"); !ok {
+		t.Fatal("traceparent extension is absent")
+	}
+	extracted := cloudtelemetry.ExtractTraceContext(context.Background(), event, policy, false)
+	if got := trace.SpanContextFromContext(extracted); !got.IsValid() || got.TraceID() != spanContext.TraceID() {
+		t.Fatalf("extracted span context = %v", got)
+	}
+}

@@ -92,6 +92,27 @@ integrity, or authorization context.
 Do not use this package as a broker, dispatcher, event taxonomy, compatibility
 policy, schema registry, audit log, or replacement for application validation.
 
+Optional Golib integrations use target-oriented modules so consumers install
+only the dependency boundary they need:
+
+| Target | Module |
+| --- | --- |
+| Audit metadata | `github.com/faustbrian/go-cloudevents/adapters/audit` |
+| Correlation identifiers | `github.com/faustbrian/go-cloudevents/adapters/correlation` |
+| Event sourcing | `github.com/faustbrian/go-cloudevents/adapters/event-sourcing` |
+| Direct JSON Schema | `github.com/faustbrian/go-cloudevents/adapters/jsonschema` |
+| Kafka records | `github.com/faustbrian/go-cloudevents/adapters/kafka` |
+| Transactional outbox | `github.com/faustbrian/go-cloudevents/adapters/outbox` |
+| Queue jobs | `github.com/faustbrian/go-cloudevents/adapters/queue` |
+| RabbitMQ Streams | `github.com/faustbrian/go-cloudevents/adapters/rabbitstream` |
+| Schema registry | `github.com/faustbrian/go-cloudevents/adapters/schema-registry` |
+| Golib telemetry | `github.com/faustbrian/go-cloudevents/adapters/telemetry` |
+| Tenancy | `github.com/faustbrian/go-cloudevents/adapters/tenancy` |
+| Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow` |
+
+The released `adapters/golib` module remains a compatibility facade. New code
+should select the target module directly.
+
 See the canonical [specification decision register](docs/specification-decisions.md),
 [interoperability overview](docs/decisions.md), [security policy](SECURITY.md),
 [security and cardinality review](docs/security-review.md),
