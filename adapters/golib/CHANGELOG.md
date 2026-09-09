@@ -14,6 +14,9 @@ All notable changes to this module are documented here.
 
 ### Documentation
 
+- Add an executable Kafka, schema-registry, JSON Schema, and CloudEvents
+  composition with explicit validation, settlement, failure, and shutdown
+  ownership.
 - Bind ecosystem and protocols-and-descriptions family navigation to the
   immutable v1.4.0 documentation.
 - Publish schema-v2 family, selection, ownership, lifecycle, compatibility,
