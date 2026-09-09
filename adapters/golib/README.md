@@ -38,6 +38,37 @@ event, retained, report, err := golib.QueueToCloudEvent(
 
 The compiling examples in this module contain complete imports and setup.
 
+### Kafka event flow with a registry schema
+
+[`Example_kafkaSchemaCloudEventFlow`](kafka_schema_cloudevents_example_test.go)
+is the executable, non-releasable reference composition for CloudEvents,
+Kafka, JSON Schema, and schema registry. It uses only public package APIs and
+keeps orchestration in the application:
+
+1. The application selects the schema URI and bounded registry lookup, then
+   constructs the JSON Schema adapter, resolution cache, and validator.
+2. The producer validates the immutable event before the adapter encodes a
+   Kafka record. The application-owned Kafka producer takes ownership of the
+   encoded bytes when it accepts the record.
+3. A public `kafka.HandlerFunc` borrows the Kafka record, decodes it into an
+   owned CloudEvent, resolves and validates its schema, and returns the
+   application result. `kafka.Consumer` owns offset commits and commits only a
+   successfully handled contiguous prefix.
+4. Validation and handler failures therefore remain uncommitted. Publish and
+   commit timeouts may have unknown outcomes and must be reconciled rather than
+   blindly retried.
+5. Shutdown uses its own bounded context: intake stops first, the consumer
+   drains and closes, then the producer drains and closes even if consumer
+   shutdown fails. Operation and cleanup failures are joined so no cause is
+   discarded.
+
+`go-cloudevents/adapters/golib` owns only mapping and validation. The
+application owns registry credentials and availability policy, Kafka brokers,
+topics, retry and dead-letter policy, acknowledgements, correlation and
+telemetry, and the runtime lifecycle. The required module versions are the
+independent versions declared in this adapter module's `go.mod`; optional
+provider and telemetry adapters remain application choices.
+
 For shared package families, selection guidance, construction, ownership, and
 lifecycle vocabulary, see the versioned [Golib ecosystem
 index](https://github.com/faustbrian/go-library-tools/blob/v1.4.0/docs/ecosystem/README.md)
