@@ -14,6 +14,8 @@ github.com/eapache/go-xerial-snappy v0.0.0-20230731223053-c322873962e3 h1:Oy0F4A
 github.com/eapache/go-xerial-snappy v0.0.0-20230731223053-c322873962e3/go.mod h1:YvSRo5mw33fLEx1+DlK6L2VV43tJt5Eyel9n9XBcR+0=
 github.com/eapache/queue v1.1.0 h1:YOEu7KNc61ntiQlcEeUIoDTJ2o8mQznoNvUhiigpIqc=
 github.com/eapache/queue v1.1.0/go.mod h1:6eCeP0CKFpHLu8blIFXhExK/dRa7WDZfr6jVFPTqq+I=
+github.com/faustbrian/go-cloudevents v1.1.0 h1:YJUxH5XkWMCzhSY5QD9a8HSiLGf2TP+g7s8PZElLw+8=
+github.com/faustbrian/go-cloudevents v1.1.0/go.mod h1:icPshOQcLVwjqQoaAlDDQFotOPTEm2dlS8cFWuQ4OVM=
 github.com/faustbrian/go-telemetry v1.2.0 h1:moTGe8fFYVCtH9VxlD3PPQ1BuHL03A5RAxIau6n7auE=
 github.com/faustbrian/go-telemetry v1.2.0/go.mod h1:DWJbW/tD1cq8kM02aQo7CMVet6gzAw94cv0KuvsIoho=
 github.com/go-logr/logr v1.4.3 h1:CjnDlHq8ikf6E492q6eKboGOC0T8CDaOvkHCIg8idEI=

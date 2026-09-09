@@ -12,6 +12,8 @@ github.com/eapache/go-xerial-snappy v0.0.0-20230731223053-c322873962e3 h1:Oy0F4A
 github.com/eapache/go-xerial-snappy v0.0.0-20230731223053-c322873962e3/go.mod h1:YvSRo5mw33fLEx1+DlK6L2VV43tJt5Eyel9n9XBcR+0=
 github.com/eapache/queue v1.1.0 h1:YOEu7KNc61ntiQlcEeUIoDTJ2o8mQznoNvUhiigpIqc=
 github.com/eapache/queue v1.1.0/go.mod h1:6eCeP0CKFpHLu8blIFXhExK/dRa7WDZfr6jVFPTqq+I=
+github.com/faustbrian/go-cloudevents v1.1.0 h1:YJUxH5XkWMCzhSY5QD9a8HSiLGf2TP+g7s8PZElLw+8=
+github.com/faustbrian/go-cloudevents v1.1.0/go.mod h1:icPshOQcLVwjqQoaAlDDQFotOPTEm2dlS8cFWuQ4OVM=
 github.com/faustbrian/go-rabbitmq-streams v1.0.0 h1:ISa1+4dkNUOX/2/O9YjMeDSWmQGrPndtidsARX9RGZY=
 github.com/faustbrian/go-rabbitmq-streams v1.0.0/go.mod h1:G+Eu/VdiBUxsFTeUNC0YK6867jIUwao0DJODi5ABN54=
 github.com/golang/snappy v1.0.0 h1:Oy607GVXHs7RtbggtPBnr2RmDArIsAefDwvrdWvRhGs=
