@@ -15,6 +15,18 @@
       "build_tags": []
     },
     {
+      "module_directory": ".",
+      "directory": "internal/adapter",
+      "name": "adapter",
+      "import_path": "github.com/faustbrian/go-cloudevents/internal/adapter",
+      "kind": "internal",
+      "production": true,
+      "executable": true,
+      "coverage_required": true,
+      "build_required": true,
+      "build_tags": []
+    },
+    {
       "module_directory": "adapters/golib",
       "directory": ".",
       "name": "golib",

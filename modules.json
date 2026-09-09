@@ -19,6 +19,18 @@
           "coverage_required": true,
           "build_required": true,
           "build_tags": []
+        },
+        {
+          "module_directory": ".",
+          "directory": "internal/adapter",
+          "name": "adapter",
+          "import_path": "github.com/faustbrian/go-cloudevents/internal/adapter",
+          "kind": "internal",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
         }
       ],
       "purpose": "`cloudevents` is Golib's transport-independent CloudEvents interoperability envelope. It implements the stable 1.0 information model, deterministic JSON event and batch serialization, and selected HTTP and Kafka mappings. It does not replace richer domain, event-sourcing, outbox, queue, workflow, audit, or application envelopes.",

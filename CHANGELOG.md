@@ -5,6 +5,12 @@ versioning.
 
 ## Unreleased
 
+### Added
+
+- Add canonical optional-adapter error categories and explicit conversion-loss
+  value types so independently released target adapters preserve one public
+  classification contract without a shared runtime.
+
 ### Changed
 
 - Upgrade checksum-pinned `go-library-tools` and reusable CI to v1.4.0 while

@@ -21,6 +21,38 @@ var ErrInvalidAttribute = errors.New("cloudevents: invalid attribute")
 // allocation or conversion.
 var ErrLimitExceeded = errors.New("cloudevents: limit exceeded")
 
+// ErrInvalidAdapterInput classifies an absent or malformed optional adapter
+// input. Target adapters wrap this sentinel while preserving the safe cause.
+var ErrInvalidAdapterInput = errors.New("cloudevents golib adapter: invalid input")
+
+// ErrMetadataCollision reports canonical metadata that conflicts with an
+// existing CloudEvents value and therefore cannot be overwritten.
+var ErrMetadataCollision = errors.New("cloudevents golib adapter: metadata collision")
+
+// ErrUntrustedMetadata reports an attempt to adopt inbound identity metadata
+// without an explicit trust decision.
+var ErrUntrustedMetadata = errors.New("cloudevents golib adapter: metadata is untrusted")
+
+// ErrSchemaViolation reports a valid event payload that does not satisfy the
+// explicitly selected schema.
+var ErrSchemaViolation = errors.New("cloudevents golib adapter: schema violation")
+
+// ErrSchemaMapping reports an absent, conflicting, or unsupported explicit
+// schema selection in an optional adapter.
+var ErrSchemaMapping = errors.New("cloudevents golib adapter: schema mapping")
+
+// AdapterLoss describes one value that a selected adapter target cannot
+// represent. It contains field names and reasons, never field values.
+type AdapterLoss struct {
+	Field  string
+	Reason string
+}
+
+// AdapterReport makes every optional-adapter conversion loss explicit.
+type AdapterReport struct {
+	Losses []AdapterLoss
+}
+
 // IssueCode is a stable, value-free validation diagnostic.
 type IssueCode string
 
