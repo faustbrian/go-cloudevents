@@ -86,12 +86,12 @@ additional guarantees beyond the documented module boundary.
 - [Documentation index](docs/README.md)
 - [Complete technical guide](docs/reference.md)
 - [Go API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/golib)
-- [Parent package documentation](../../docs/README.md)
+- [Parent package documentation](https://github.com/faustbrian/go-cloudevents/tree/main/docs)
 
 ## Compatibility and support
 
 This module follows Semantic Versioning. Report vulnerabilities through the
-[parent security policy](../../SECURITY.md).
+[parent security policy](https://github.com/faustbrian/go-cloudevents/security/policy).
 
 ## License
 
