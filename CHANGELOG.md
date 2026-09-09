@@ -5,6 +5,8 @@ versioning.
 
 ## Unreleased
 
+## 1.1.0 - 2026-09-09
+
 ### Added
 
 - Add canonical optional-adapter error categories and explicit conversion-loss
