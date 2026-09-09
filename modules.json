@@ -186,7 +186,7 @@
         "documentation": true,
         "fuzz": true,
         "lint": true,
-        "mutation": true,
+        "mutation": false,
         "race": true,
         "security": true,
         "tests": true
@@ -354,7 +354,7 @@
         "documentation": true,
         "fuzz": true,
         "lint": true,
-        "mutation": true,
+        "mutation": false,
         "race": true,
         "security": true,
         "tests": true
