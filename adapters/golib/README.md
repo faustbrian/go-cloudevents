@@ -5,6 +5,10 @@ CloudEvents package and Golib's canonical event, transport, workflow,
 metadata, audit, and schema contracts. Importing it performs no registration,
 network access, schema lookup, telemetry emission, or background work.
 
+This released path is a compatibility facade. New code should import the
+target-oriented module listed in the parent [adoption guide](https://github.com/faustbrian/go-cloudevents#adoption-guidance)
+so it carries only the relevant optional dependencies.
+
 Conversions retain canonical state that CloudEvents cannot represent and
 return explicit loss reports. Queue and outbox conversions are Golib mappings,
 not official CloudEvents protocol bindings. Schema resolution occurs only when

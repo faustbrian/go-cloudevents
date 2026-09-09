@@ -80,7 +80,19 @@
         },
         "optional_owned_dependencies": [],
         "adapters": [
-          "github.com/faustbrian/go-cloudevents/adapters/golib"
+          "github.com/faustbrian/go-cloudevents/adapters/audit",
+          "github.com/faustbrian/go-cloudevents/adapters/correlation",
+          "github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+          "github.com/faustbrian/go-cloudevents/adapters/golib",
+          "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+          "github.com/faustbrian/go-cloudevents/adapters/kafka",
+          "github.com/faustbrian/go-cloudevents/adapters/outbox",
+          "github.com/faustbrian/go-cloudevents/adapters/queue",
+          "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
+          "github.com/faustbrian/go-cloudevents/adapters/schema-registry",
+          "github.com/faustbrian/go-cloudevents/adapters/telemetry",
+          "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+          "github.com/faustbrian/go-cloudevents/adapters/workflow"
         ],
         "companions": [],
         "supported_go": {
@@ -118,11 +130,23 @@
           "release": "not-started"
         }
       },
-      "version": "1.0.0",
+      "version": "1.1.0",
       "tag_prefix": "v",
       "owned_dependencies": [],
       "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib"
+        "github.com/faustbrian/go-cloudevents/adapters/audit",
+        "github.com/faustbrian/go-cloudevents/adapters/correlation",
+        "github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+        "github.com/faustbrian/go-cloudevents/adapters/golib",
+        "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+        "github.com/faustbrian/go-cloudevents/adapters/kafka",
+        "github.com/faustbrian/go-cloudevents/adapters/outbox",
+        "github.com/faustbrian/go-cloudevents/adapters/queue",
+        "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
+        "github.com/faustbrian/go-cloudevents/adapters/schema-registry",
+        "github.com/faustbrian/go-cloudevents/adapters/telemetry",
+        "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+        "github.com/faustbrian/go-cloudevents/adapters/workflow"
       ],
       "external_runtime_dependencies": [
         "github.com/IBM/sarama",
@@ -276,22 +300,34 @@
           "release": "not-started"
         }
       },
-      "version": "1.0.0",
+      "version": "1.1.0",
       "tag_prefix": "adapters/golib/v",
       "owned_dependencies": [
         "github.com/faustbrian/go-audit",
         "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-cloudevents/adapters/audit",
+        "github.com/faustbrian/go-cloudevents/adapters/correlation",
+        "github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+        "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+        "github.com/faustbrian/go-cloudevents/adapters/kafka",
+        "github.com/faustbrian/go-cloudevents/adapters/outbox",
+        "github.com/faustbrian/go-cloudevents/adapters/queue",
+        "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
+        "github.com/faustbrian/go-cloudevents/adapters/schema-registry",
+        "github.com/faustbrian/go-cloudevents/adapters/telemetry",
+        "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+        "github.com/faustbrian/go-cloudevents/adapters/workflow",
         "github.com/faustbrian/go-correlation",
         "github.com/faustbrian/go-event-sourcing",
         "github.com/faustbrian/go-identifier",
         "github.com/faustbrian/go-json-schema",
         "github.com/faustbrian/go-kafka",
-        "github.com/faustbrian/go-transactional-outbox",
         "github.com/faustbrian/go-queue",
         "github.com/faustbrian/go-rabbitmq-streams",
         "github.com/faustbrian/go-schema-registry",
         "github.com/faustbrian/go-telemetry",
         "github.com/faustbrian/go-tenancy",
+        "github.com/faustbrian/go-transactional-outbox",
         "github.com/faustbrian/go-workflow"
       ],
       "reverse_owned_dependencies": [],
@@ -319,6 +355,1632 @@
         "fuzz": true,
         "lint": true,
         "mutation": true,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "adapters/audit",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/audit",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "adapters/audit",
+          "directory": ".",
+          "name": "audit",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/audit",
+          "kind": "public",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Map CloudEvents explicitly to and from Golib audit metadata while preserving target-owned state and reporting conversion loss.",
+      "lifecycle": "stable",
+      "kind": "adapter",
+      "releasable": true,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "eventing-and-messaging",
+          "protocols-and-schemas"
+        ],
+        "responsibility": "Provide an explicit target-oriented CloudEvents boundary for Golib audit metadata.",
+        "non_goals": [
+          "Own transport resources, application orchestration, trust policy, or background work."
+        ],
+        "public_package_identifier": "audit",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/audit"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/audit": "Use when an application owns both a CloudEvent and Golib audit metadata contract."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2"
+        ],
+        "documentation": {
+          "readme": "adapters/audit/README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/audit",
+          "adoption": "adapters/audit/README.md",
+          "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
+          "compatibility": "adapters/audit/README.md",
+          "performance": null,
+          "examples": null,
+          "faq": "adapters/audit/README.md",
+          "changelog": "adapters/audit/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/audit",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "in-progress",
+          "hardening": "in-progress",
+          "release": "in-progress"
+        }
+      },
+      "version": "1.0.0",
+      "tag_prefix": "adapters/audit/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-cloudevents/adapters/correlation",
+        "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+        "github.com/faustbrian/go-audit",
+        "github.com/faustbrian/go-correlation",
+        "github.com/faustbrian/go-tenancy"
+      ],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib"
+      ],
+      "external_runtime_dependencies": [],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": true,
+        "documentation": true,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "adapters/correlation",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/correlation",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "adapters/correlation",
+          "directory": ".",
+          "name": "correlation",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/correlation",
+          "kind": "public",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Map CloudEvents explicitly to and from Golib correlation identifiers while preserving target-owned state and reporting conversion loss.",
+      "lifecycle": "stable",
+      "kind": "adapter",
+      "releasable": true,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "eventing-and-messaging",
+          "protocols-and-schemas"
+        ],
+        "responsibility": "Provide an explicit target-oriented CloudEvents boundary for Golib correlation identifiers.",
+        "non_goals": [
+          "Own transport resources, application orchestration, trust policy, or background work."
+        ],
+        "public_package_identifier": "correlation",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/correlation"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/correlation": "Use when an application owns both a CloudEvent and Golib correlation identifiers contract."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2"
+        ],
+        "documentation": {
+          "readme": "adapters/correlation/README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/correlation",
+          "adoption": "adapters/correlation/README.md",
+          "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
+          "compatibility": "adapters/correlation/README.md",
+          "performance": null,
+          "examples": null,
+          "faq": "adapters/correlation/README.md",
+          "changelog": "adapters/correlation/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/correlation",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "in-progress",
+          "hardening": "in-progress",
+          "release": "in-progress"
+        }
+      },
+      "version": "1.0.0",
+      "tag_prefix": "adapters/correlation/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-correlation"
+      ],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/audit",
+        "github.com/faustbrian/go-cloudevents/adapters/golib"
+      ],
+      "external_runtime_dependencies": [],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": true,
+        "documentation": true,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "adapters/event-sourcing",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "adapters/event-sourcing",
+          "directory": ".",
+          "name": "eventsourcing",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+          "kind": "public",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Map CloudEvents explicitly to and from Golib event-sourcing messages while preserving target-owned state and reporting conversion loss.",
+      "lifecycle": "stable",
+      "kind": "adapter",
+      "releasable": true,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "eventing-and-messaging",
+          "protocols-and-schemas"
+        ],
+        "responsibility": "Provide an explicit target-oriented CloudEvents boundary for Golib event-sourcing messages.",
+        "non_goals": [
+          "Own transport resources, application orchestration, trust policy, or background work."
+        ],
+        "public_package_identifier": "eventsourcing",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/event-sourcing"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/event-sourcing": "Use when an application owns both a CloudEvent and Golib event-sourcing messages contract."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2"
+        ],
+        "documentation": {
+          "readme": "adapters/event-sourcing/README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+          "adoption": "adapters/event-sourcing/README.md",
+          "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
+          "compatibility": "adapters/event-sourcing/README.md",
+          "performance": null,
+          "examples": null,
+          "faq": "adapters/event-sourcing/README.md",
+          "changelog": "adapters/event-sourcing/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "in-progress",
+          "hardening": "in-progress",
+          "release": "in-progress"
+        }
+      },
+      "version": "1.0.0",
+      "tag_prefix": "adapters/event-sourcing/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-event-sourcing",
+        "github.com/faustbrian/go-tenancy"
+      ],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib"
+      ],
+      "external_runtime_dependencies": [],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": true,
+        "documentation": true,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "adapters/jsonschema",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "adapters/jsonschema",
+          "directory": ".",
+          "name": "jsonschema",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+          "kind": "public",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Map CloudEvents explicitly to and from Golib compiled JSON Schema validation while preserving target-owned state and reporting conversion loss.",
+      "lifecycle": "stable",
+      "kind": "adapter",
+      "releasable": true,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "eventing-and-messaging",
+          "protocols-and-schemas"
+        ],
+        "responsibility": "Provide an explicit target-oriented CloudEvents boundary for Golib compiled JSON Schema validation.",
+        "non_goals": [
+          "Own transport resources, application orchestration, trust policy, or background work."
+        ],
+        "public_package_identifier": "jsonschema",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/jsonschema"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/jsonschema": "Use when an application owns both a CloudEvent and Golib compiled JSON Schema validation contract."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2"
+        ],
+        "documentation": {
+          "readme": "adapters/jsonschema/README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+          "adoption": "adapters/jsonschema/README.md",
+          "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
+          "compatibility": "adapters/jsonschema/README.md",
+          "performance": null,
+          "examples": null,
+          "faq": "adapters/jsonschema/README.md",
+          "changelog": "adapters/jsonschema/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "in-progress",
+          "hardening": "in-progress",
+          "release": "in-progress"
+        }
+      },
+      "version": "1.0.0",
+      "tag_prefix": "adapters/jsonschema/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-json-schema"
+      ],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib"
+      ],
+      "external_runtime_dependencies": [],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": true,
+        "documentation": true,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "adapters/kafka",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/kafka",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "adapters/kafka",
+          "directory": ".",
+          "name": "kafka",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/kafka",
+          "kind": "public",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Map CloudEvents explicitly to and from Golib Kafka records while preserving target-owned state and reporting conversion loss.",
+      "lifecycle": "stable",
+      "kind": "adapter",
+      "releasable": true,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "eventing-and-messaging",
+          "protocols-and-schemas"
+        ],
+        "responsibility": "Provide an explicit target-oriented CloudEvents boundary for Golib Kafka records.",
+        "non_goals": [
+          "Own transport resources, application orchestration, trust policy, or background work."
+        ],
+        "public_package_identifier": "kafka",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/kafka"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/kafka": "Use when an application owns both a CloudEvent and Golib Kafka records contract."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2"
+        ],
+        "documentation": {
+          "readme": "adapters/kafka/README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/kafka",
+          "adoption": "adapters/kafka/README.md",
+          "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
+          "compatibility": "adapters/kafka/README.md",
+          "performance": null,
+          "examples": null,
+          "faq": "adapters/kafka/README.md",
+          "changelog": "adapters/kafka/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/kafka",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "in-progress",
+          "hardening": "in-progress",
+          "release": "in-progress"
+        }
+      },
+      "version": "1.0.0",
+      "tag_prefix": "adapters/kafka/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-kafka"
+      ],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib"
+      ],
+      "external_runtime_dependencies": [],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": true,
+        "documentation": true,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "adapters/outbox",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/outbox",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "adapters/outbox",
+          "directory": ".",
+          "name": "outbox",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/outbox",
+          "kind": "public",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Map CloudEvents explicitly to and from Golib transactional outbox envelopes while preserving target-owned state and reporting conversion loss.",
+      "lifecycle": "stable",
+      "kind": "adapter",
+      "releasable": true,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "eventing-and-messaging",
+          "protocols-and-schemas"
+        ],
+        "responsibility": "Provide an explicit target-oriented CloudEvents boundary for Golib transactional outbox envelopes.",
+        "non_goals": [
+          "Own transport resources, application orchestration, trust policy, or background work."
+        ],
+        "public_package_identifier": "outbox",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/outbox"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/outbox": "Use when an application owns both a CloudEvent and Golib transactional outbox envelopes contract."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2"
+        ],
+        "documentation": {
+          "readme": "adapters/outbox/README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/outbox",
+          "adoption": "adapters/outbox/README.md",
+          "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
+          "compatibility": "adapters/outbox/README.md",
+          "performance": null,
+          "examples": null,
+          "faq": "adapters/outbox/README.md",
+          "changelog": "adapters/outbox/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/outbox",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "in-progress",
+          "hardening": "in-progress",
+          "release": "in-progress"
+        }
+      },
+      "version": "1.0.0",
+      "tag_prefix": "adapters/outbox/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-transactional-outbox"
+      ],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib"
+      ],
+      "external_runtime_dependencies": [],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": true,
+        "documentation": true,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "adapters/queue",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/queue",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "adapters/queue",
+          "directory": ".",
+          "name": "queue",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/queue",
+          "kind": "public",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Map CloudEvents explicitly to and from Golib queue jobs while preserving target-owned state and reporting conversion loss.",
+      "lifecycle": "stable",
+      "kind": "adapter",
+      "releasable": true,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "eventing-and-messaging",
+          "protocols-and-schemas"
+        ],
+        "responsibility": "Provide an explicit target-oriented CloudEvents boundary for Golib queue jobs.",
+        "non_goals": [
+          "Own transport resources, application orchestration, trust policy, or background work."
+        ],
+        "public_package_identifier": "queue",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/queue"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/queue": "Use when an application owns both a CloudEvent and Golib queue jobs contract."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2"
+        ],
+        "documentation": {
+          "readme": "adapters/queue/README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/queue",
+          "adoption": "adapters/queue/README.md",
+          "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
+          "compatibility": "adapters/queue/README.md",
+          "performance": null,
+          "examples": null,
+          "faq": "adapters/queue/README.md",
+          "changelog": "adapters/queue/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/queue",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "in-progress",
+          "hardening": "in-progress",
+          "release": "in-progress"
+        }
+      },
+      "version": "1.0.0",
+      "tag_prefix": "adapters/queue/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-queue",
+        "github.com/faustbrian/go-tenancy"
+      ],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib"
+      ],
+      "external_runtime_dependencies": [],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": true,
+        "documentation": true,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "adapters/rabbitstream",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "adapters/rabbitstream",
+          "directory": ".",
+          "name": "rabbitstream",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
+          "kind": "public",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Map CloudEvents explicitly to and from Golib RabbitMQ Streams messages while preserving target-owned state and reporting conversion loss.",
+      "lifecycle": "stable",
+      "kind": "adapter",
+      "releasable": true,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "eventing-and-messaging",
+          "protocols-and-schemas"
+        ],
+        "responsibility": "Provide an explicit target-oriented CloudEvents boundary for Golib RabbitMQ Streams messages.",
+        "non_goals": [
+          "Own transport resources, application orchestration, trust policy, or background work."
+        ],
+        "public_package_identifier": "rabbitstream",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/rabbitstream"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/rabbitstream": "Use when an application owns both a CloudEvent and Golib RabbitMQ Streams messages contract."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2"
+        ],
+        "documentation": {
+          "readme": "adapters/rabbitstream/README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
+          "adoption": "adapters/rabbitstream/README.md",
+          "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
+          "compatibility": "adapters/rabbitstream/README.md",
+          "performance": null,
+          "examples": null,
+          "faq": "adapters/rabbitstream/README.md",
+          "changelog": "adapters/rabbitstream/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "in-progress",
+          "hardening": "in-progress",
+          "release": "in-progress"
+        }
+      },
+      "version": "1.0.0",
+      "tag_prefix": "adapters/rabbitstream/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-rabbitmq-streams"
+      ],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib"
+      ],
+      "external_runtime_dependencies": [],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": true,
+        "documentation": true,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "adapters/schema-registry",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/schema-registry",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "adapters/schema-registry",
+          "directory": ".",
+          "name": "schemaregistry",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/schema-registry",
+          "kind": "public",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Map CloudEvents explicitly to and from Golib schema-registry JSON Schema resolution while preserving target-owned state and reporting conversion loss.",
+      "lifecycle": "stable",
+      "kind": "adapter",
+      "releasable": true,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "eventing-and-messaging",
+          "protocols-and-schemas"
+        ],
+        "responsibility": "Provide an explicit target-oriented CloudEvents boundary for Golib schema-registry JSON Schema resolution.",
+        "non_goals": [
+          "Own transport resources, application orchestration, trust policy, or background work."
+        ],
+        "public_package_identifier": "schemaregistry",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/schema-registry"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/schema-registry": "Use when an application owns both a CloudEvent and Golib schema-registry JSON Schema resolution contract."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2"
+        ],
+        "documentation": {
+          "readme": "adapters/schema-registry/README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/schema-registry",
+          "adoption": "adapters/schema-registry/README.md",
+          "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
+          "compatibility": "adapters/schema-registry/README.md",
+          "performance": null,
+          "examples": null,
+          "faq": "adapters/schema-registry/README.md",
+          "changelog": "adapters/schema-registry/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/schema-registry",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "in-progress",
+          "hardening": "in-progress",
+          "release": "in-progress"
+        }
+      },
+      "version": "1.0.0",
+      "tag_prefix": "adapters/schema-registry/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-schema-registry"
+      ],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib"
+      ],
+      "external_runtime_dependencies": [],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": true,
+        "documentation": true,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "adapters/telemetry",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/telemetry",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "adapters/telemetry",
+          "directory": ".",
+          "name": "telemetry",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/telemetry",
+          "kind": "public",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Map CloudEvents explicitly to and from Golib telemetry trace context while preserving target-owned state and reporting conversion loss.",
+      "lifecycle": "stable",
+      "kind": "adapter",
+      "releasable": true,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "eventing-and-messaging",
+          "protocols-and-schemas"
+        ],
+        "responsibility": "Provide an explicit target-oriented CloudEvents boundary for Golib telemetry trace context.",
+        "non_goals": [
+          "Own transport resources, application orchestration, trust policy, or background work."
+        ],
+        "public_package_identifier": "telemetry",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/telemetry"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/telemetry": "Use when an application owns both a CloudEvent and Golib telemetry trace context contract."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2"
+        ],
+        "documentation": {
+          "readme": "adapters/telemetry/README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/telemetry",
+          "adoption": "adapters/telemetry/README.md",
+          "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
+          "compatibility": "adapters/telemetry/README.md",
+          "performance": null,
+          "examples": null,
+          "faq": "adapters/telemetry/README.md",
+          "changelog": "adapters/telemetry/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/telemetry",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "in-progress",
+          "hardening": "in-progress",
+          "release": "in-progress"
+        }
+      },
+      "version": "1.0.0",
+      "tag_prefix": "adapters/telemetry/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-telemetry"
+      ],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib"
+      ],
+      "external_runtime_dependencies": [
+        "go.opentelemetry.io/otel"
+      ],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": true,
+        "documentation": true,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "adapters/tenancy",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "adapters/tenancy",
+          "directory": ".",
+          "name": "tenancy",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+          "kind": "public",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Map CloudEvents explicitly to and from Golib tenant routing identity while preserving target-owned state and reporting conversion loss.",
+      "lifecycle": "stable",
+      "kind": "adapter",
+      "releasable": true,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "eventing-and-messaging",
+          "protocols-and-schemas"
+        ],
+        "responsibility": "Provide an explicit target-oriented CloudEvents boundary for Golib tenant routing identity.",
+        "non_goals": [
+          "Own transport resources, application orchestration, trust policy, or background work."
+        ],
+        "public_package_identifier": "tenancy",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/tenancy"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/tenancy": "Use when an application owns both a CloudEvent and Golib tenant routing identity contract."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2"
+        ],
+        "documentation": {
+          "readme": "adapters/tenancy/README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/tenancy",
+          "adoption": "adapters/tenancy/README.md",
+          "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
+          "compatibility": "adapters/tenancy/README.md",
+          "performance": null,
+          "examples": null,
+          "faq": "adapters/tenancy/README.md",
+          "changelog": "adapters/tenancy/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/tenancy",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "in-progress",
+          "hardening": "in-progress",
+          "release": "in-progress"
+        }
+      },
+      "version": "1.0.0",
+      "tag_prefix": "adapters/tenancy/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-tenancy"
+      ],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/audit",
+        "github.com/faustbrian/go-cloudevents/adapters/golib"
+      ],
+      "external_runtime_dependencies": [],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": true,
+        "documentation": true,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "adapters/workflow",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/workflow",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "adapters/workflow",
+          "directory": ".",
+          "name": "workflow",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/workflow",
+          "kind": "public",
+          "production": true,
+          "executable": true,
+          "coverage_required": true,
+          "build_required": true,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Map CloudEvents explicitly to and from Golib durable workflow history while preserving target-owned state and reporting conversion loss.",
+      "lifecycle": "stable",
+      "kind": "adapter",
+      "releasable": true,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "cohesion": {
+        "family": "protocols-and-descriptions",
+        "secondary_capabilities": [
+          "eventing-and-messaging",
+          "protocols-and-schemas"
+        ],
+        "responsibility": "Provide an explicit target-oriented CloudEvents boundary for Golib durable workflow history.",
+        "non_goals": [
+          "Own transport resources, application orchestration, trust policy, or background work."
+        ],
+        "public_package_identifier": "workflow",
+        "primary_entry_packages": [
+          "github.com/faustbrian/go-cloudevents/adapters/workflow"
+        ],
+        "package_selection": {
+          "github.com/faustbrian/go-cloudevents/adapters/workflow": "Use when an application owns both a CloudEvent and Golib durable workflow history contract."
+        },
+        "lifecycle_status": "active",
+        "maturity": "stable",
+        "construction_styles": [
+          "plain-function"
+        ],
+        "lifecycle_styles": [
+          "stateless"
+        ],
+        "ownership": {
+          "configuration": "caller",
+          "mutable_inputs": [
+            "copy"
+          ],
+          "runtime_resources": "none",
+          "background_work": "none"
+        },
+        "optional_owned_dependencies": [],
+        "adapters": [],
+        "companions": [],
+        "supported_go": {
+          "minimum": "1.26.6",
+          "tested": [
+            "1.26.6"
+          ]
+        },
+        "supported_platforms": [
+          "portable-go"
+        ],
+        "supported_backends": [],
+        "supported_protocols": [
+          "cloudevents-1-0-2"
+        ],
+        "documentation": {
+          "readme": "adapters/workflow/README.md",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/workflow",
+          "adoption": "adapters/workflow/README.md",
+          "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
+          "compatibility": "adapters/workflow/README.md",
+          "performance": null,
+          "examples": null,
+          "faq": "adapters/workflow/README.md",
+          "changelog": "adapters/workflow/CHANGELOG.md",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/workflow",
+          "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
+        },
+        "known_good_compatibility_sets": [],
+        "delivery": {
+          "implementation": "in-progress",
+          "hardening": "in-progress",
+          "release": "in-progress"
+        }
+      },
+      "version": "1.0.0",
+      "tag_prefix": "adapters/workflow/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents",
+        "github.com/faustbrian/go-workflow"
+      ],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib"
+      ],
+      "external_runtime_dependencies": [],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": true,
+        "documentation": true,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
+        "race": true,
+        "security": true,
+        "tests": true
+      }
+    },
+    {
+      "directory": "integration/target-adapters",
+      "module_path": "github.com/faustbrian/go-cloudevents/integration/target-adapters",
+      "go_version": "1.26.6",
+      "packages": [
+        {
+          "module_directory": "integration/target-adapters",
+          "directory": ".",
+          "name": "targetadapters",
+          "import_path": "github.com/faustbrian/go-cloudevents/integration/target-adapters",
+          "kind": "integration",
+          "production": false,
+          "executable": false,
+          "coverage_required": false,
+          "build_required": false,
+          "build_tags": []
+        }
+      ],
+      "purpose": "Exercise the complete target-adapter compatibility and conversion contract without creating a releasable umbrella.",
+      "lifecycle": "internal",
+      "kind": "integration",
+      "releasable": false,
+      "family": "protocols-and-descriptions",
+      "family_label": "Protocols And Descriptions",
+      "family_description": "Standards, envelopes, schemas, descriptions, signatures, and wire interoperability.",
+      "family_order": 3,
+      "version": "0.0.0",
+      "tag_prefix": "integration/target-adapters/v",
+      "owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/audit",
+        "github.com/faustbrian/go-cloudevents/adapters/correlation",
+        "github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+        "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+        "github.com/faustbrian/go-cloudevents/adapters/kafka",
+        "github.com/faustbrian/go-cloudevents/adapters/outbox",
+        "github.com/faustbrian/go-cloudevents/adapters/queue",
+        "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
+        "github.com/faustbrian/go-cloudevents/adapters/schema-registry",
+        "github.com/faustbrian/go-cloudevents/adapters/telemetry",
+        "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+        "github.com/faustbrian/go-cloudevents/adapters/workflow"
+      ],
+      "reverse_owned_dependencies": [],
+      "external_runtime_dependencies": [],
+      "required_services": [],
+      "build_tags": [],
+      "test_tags": [],
+      "interoperability_tools": [],
+      "specifications": [],
+      "conformance_corpora": [],
+      "provenance": [],
+      "goal_files": [],
+      "goal_status": "not-applicable",
+      "goal_evidence": [],
+      "gates": {
+        "api_compatibility": false,
+        "benchmarks": false,
+        "conformance": false,
+        "coverage": false,
+        "documentation": false,
+        "fuzz": false,
+        "lint": true,
+        "mutation": false,
         "race": true,
         "security": true,
         "tests": true

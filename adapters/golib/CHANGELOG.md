@@ -6,6 +6,9 @@ All notable changes to this module are documented here.
 
 ### Changed
 
+- Preserve the released umbrella import path as a compatibility facade while
+  delegating behavior to independently released target adapter modules.
+- Require CloudEvents v1.1.0 and target adapter v1.0.0 module identities.
 - Upgrade checksum-pinned repository tooling and reusable CI to v1.4.0 while
   retaining the adapter's schema-v2 cohesion and specification contracts.
 - Replace bootstrap-only archive checksums for all owned dependencies with

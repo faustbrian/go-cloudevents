@@ -10,8 +10,14 @@ versioning.
 - Add canonical optional-adapter error categories and explicit conversion-loss
   value types so independently released target adapters preserve one public
   classification contract without a shared runtime.
+- Add independently adoptable target adapter modules for audit, correlation,
+  event sourcing, JSON Schema, Kafka, outbox, queue, RabbitMQ Streams, schema
+  registry, telemetry, tenancy, and workflow boundaries.
 
 ### Changed
+
+- Upgrade checksum-pinned `go-library-tools` and reusable CI to v1.6.2 so
+  valid nested-module documentation links remain supported.
 
 - Upgrade checksum-pinned `go-library-tools` and reusable CI to v1.4.0 while
   retaining schema-v2 cohesion metadata and frozen specification decisions.
