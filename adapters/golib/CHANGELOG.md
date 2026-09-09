@@ -4,6 +4,8 @@ All notable changes to this module are documented here.
 
 ## Unreleased
 
+## 1.1.0 - 2026-09-09
+
 ### Changed
 
 - Preserve the released umbrella import path as a compatibility facade while
