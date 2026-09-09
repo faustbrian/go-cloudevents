@@ -45,8 +45,9 @@ shown here.
 ## Safety And Concurrency
 
 - Shared mutable state MUST have one documented synchronization owner.
-- Goroutines MUST have explicit lifetime, cancellation, shutdown, and leak
-  tests. Fire-and-forget goroutines are forbidden.
+- Goroutines MUST have explicit lifetime, cancellation, and shutdown.
+  Goroutine lifecycle changes MUST include targeted leak tests.
+  Fire-and-forget goroutines are forbidden.
 - Channels MUST have documented ownership and closure rules.
 - Locks MUST NOT be held across caller callbacks, network IO, blocking channel
   operations, or unbounded work.
@@ -180,13 +181,14 @@ shown here.
 
 ## Changelogs
 
-- Every user-visible change MUST update the affected module `CHANGELOG.md` in
-  the same commit.
+- Material user-visible behavior, API, dependency, compatibility, security, or
+  documentation changes MUST update the affected module `CHANGELOG.md` in the
+  same commit.
 - Entries MUST describe behavior and migration impact, not internal activity.
-- Changes to multiple modules MUST update every affected changelog.
+- Changes to multiple modules MUST update each materially affected changelog.
 - Unreleased entries MUST NOT be silently rewritten or removed.
 - Generated, dependency, security, compatibility, and deprecation changes are
-  user-visible and require entries.
+  user-visible and require entries when they affect consumers or operators.
 
 ## Completion
 
