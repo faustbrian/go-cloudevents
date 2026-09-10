@@ -1,12 +1,12 @@
 {
   "schema_version": 2,
   "repository": "github.com/faustbrian/go-cloudevents",
-  "go_version": "1.26.6",
+  "go_version": "1.27.0",
   "modules": [
     {
       "directory": ".",
       "module_path": "github.com/faustbrian/go-cloudevents",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": ".",
@@ -96,9 +96,9 @@
         ],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -195,7 +195,7 @@
     {
       "directory": "adapters/golib",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/golib",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/golib",
@@ -263,9 +263,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -363,7 +363,7 @@
     {
       "directory": "adapters/audit",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/audit",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/audit",
@@ -423,9 +423,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -496,7 +496,7 @@
     {
       "directory": "adapters/correlation",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/correlation",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/correlation",
@@ -556,9 +556,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -626,7 +626,7 @@
     {
       "directory": "adapters/event-sourcing",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/event-sourcing",
@@ -686,9 +686,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -756,7 +756,7 @@
     {
       "directory": "adapters/jsonschema",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/jsonschema",
@@ -816,9 +816,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -885,7 +885,7 @@
     {
       "directory": "adapters/kafka",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/kafka",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/kafka",
@@ -945,9 +945,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -1014,7 +1014,7 @@
     {
       "directory": "adapters/outbox",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/outbox",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/outbox",
@@ -1074,9 +1074,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -1143,7 +1143,7 @@
     {
       "directory": "adapters/queue",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/queue",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/queue",
@@ -1203,9 +1203,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -1273,7 +1273,7 @@
     {
       "directory": "adapters/rabbitstream",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/rabbitstream",
@@ -1333,9 +1333,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -1402,7 +1402,7 @@
     {
       "directory": "adapters/schema-registry",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/schema-registry",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/schema-registry",
@@ -1462,9 +1462,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -1531,7 +1531,7 @@
     {
       "directory": "adapters/telemetry",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/telemetry",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/telemetry",
@@ -1591,9 +1591,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -1662,7 +1662,7 @@
     {
       "directory": "adapters/tenancy",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/tenancy",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/tenancy",
@@ -1722,9 +1722,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -1792,7 +1792,7 @@
     {
       "directory": "adapters/workflow",
       "module_path": "github.com/faustbrian/go-cloudevents/adapters/workflow",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/workflow",
@@ -1852,9 +1852,9 @@
         "adapters": [],
         "companions": [],
         "supported_go": {
-          "minimum": "1.26.6",
+          "minimum": "1.27.0",
           "tested": [
-            "1.26.6"
+            "1.27.0"
           ]
         },
         "supported_platforms": [
@@ -1921,7 +1921,7 @@
     {
       "directory": "integration/target-adapters",
       "module_path": "github.com/faustbrian/go-cloudevents/integration/target-adapters",
-      "go_version": "1.26.6",
+      "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "integration/target-adapters",

@@ -1,6 +1,6 @@
 module github.com/faustbrian/go-cloudevents
 
-go 1.26.6
+go 1.27.0
 
 require (
 	github.com/IBM/sarama v1.45.2
