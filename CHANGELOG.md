@@ -5,6 +5,12 @@ versioning.
 
 ## Unreleased
 
+### Documentation
+
+- Mark the broad `adapters/golib` compatibility facade as deprecated for new
+  adoption and point applications to the target-oriented adapters and their
+  non-releasable Kafka and schema validation recipe.
+
 ## 1.1.0 - 2026-09-09
 
 ### Added

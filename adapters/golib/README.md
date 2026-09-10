@@ -5,9 +5,11 @@ CloudEvents package and Golib's canonical event, transport, workflow,
 metadata, audit, and schema contracts. Importing it performs no registration,
 network access, schema lookup, telemetry emission, or background work.
 
-This released path is a compatibility facade. New code should import the
-target-oriented module listed in the parent [adoption guide](https://github.com/faustbrian/go-cloudevents#adoption-guidance)
-so it carries only the relevant optional dependencies.
+This released path is a deprecated compatibility facade retained throughout
+v1. It is excluded from the recommended set because its broad bridge owns 26
+module dependencies. New code and migrations should import the target-oriented
+module listed in the parent [adoption guide](https://github.com/faustbrian/go-cloudevents#adoption-guidance)
+so they carry only the relevant optional dependencies.
 
 Conversions retain canonical state that CloudEvents cannot represent and
 return explicit loss reports. Queue and outbox conversions are Golib mappings,
@@ -44,10 +46,11 @@ The compiling examples in this module contain complete imports and setup.
 
 ### Kafka event flow with a registry schema
 
-[`Example_kafkaSchemaCloudEventFlow`](kafka_schema_cloudevents_example_test.go)
+[`Example_kafkaSchemaCloudEventFlow`](../../integration/target-adapters/kafka_schema_cloudevents_example_test.go)
 is the executable, non-releasable reference composition for CloudEvents,
-Kafka, JSON Schema, and schema registry. It uses only public package APIs and
-keeps orchestration in the application:
+Kafka, JSON Schema, and schema registry. It lives in the target-adapter
+integration module, imports the three target adapters directly, and keeps
+orchestration in the application:
 
 1. The application selects the schema URI and bounded registry lookup, then
    constructs the JSON Schema adapter, resolution cache, and validator.
@@ -66,12 +69,11 @@ keeps orchestration in the application:
    shutdown fails. Operation and cleanup failures are joined so no cause is
    discarded.
 
-`go-cloudevents/adapters/golib` owns only mapping and validation. The
-application owns registry credentials and availability policy, Kafka brokers,
-topics, retry and dead-letter policy, acknowledgements, correlation and
-telemetry, and the runtime lifecycle. The required module versions are the
-independent versions declared in this adapter module's `go.mod`; optional
-provider and telemetry adapters remain application choices.
+The target adapters own only mapping and validation. The application owns
+registry credentials and availability policy, Kafka brokers, topics, retry and
+dead-letter policy, acknowledgements, correlation and telemetry, and the
+runtime lifecycle. Optional provider and telemetry adapters remain application
+choices.
 
 For shared package families, selection guidance, construction, ownership, and
 lifecycle vocabulary, see the versioned [Golib ecosystem

@@ -110,8 +110,12 @@ only the dependency boundary they need:
 | Tenancy | `github.com/faustbrian/go-cloudevents/adapters/tenancy` |
 | Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow` |
 
-The released `adapters/golib` module remains a compatibility facade. New code
-should select the target module directly.
+The released `adapters/golib` module is a deprecated compatibility facade. It
+remains available throughout v1, but is excluded from the recommended set
+because its broad bridge owns 26 module dependencies. New code and migrations
+should select the target module directly. The
+[Kafka and schema validation recipe](integration/target-adapters/kafka_schema_cloudevents_example_test.go)
+shows the target-oriented composition without depending on the facade.
 
 See the canonical [specification decision register](docs/specification-decisions.md),
 [interoperability overview](docs/decisions.md), [security policy](SECURITY.md),

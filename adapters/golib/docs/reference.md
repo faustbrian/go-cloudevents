@@ -8,6 +8,11 @@ CloudEvents package and Golib's canonical event, transport, workflow,
 metadata, audit, and schema contracts. Importing it performs no registration,
 network access, schema lookup, telemetry emission, or background work.
 
+This module is a deprecated compatibility facade retained throughout v1. It is
+excluded from the recommended set because its broad bridge owns 26 module
+dependencies. New code and migrations should select only the target-oriented
+adapters listed in the parent [adoption guide](../../../README.md#adoption-guidance).
+
 Conversions retain canonical state that CloudEvents cannot represent and
 return explicit loss reports. Queue and outbox conversions are Golib mappings,
 not official CloudEvents protocol bindings. Schema resolution occurs only when
@@ -108,12 +113,13 @@ their owning Golib packages.
 
 ## Adoption and migration
 
-Adopt this nested module only at a boundary that already owns both a Golib
-canonical value and a CloudEvents interoperability requirement. Keep existing
-domain, event-store, outbox, queue, workflow, audit, and transport envelopes as
-the source of truth. During migration, persist or carry the returned retained
-state before replacing any bespoke envelope mapping, and reject unexpected
-losses or collisions explicitly.
+Retain this nested module only for existing v1 consumers. Replace each facade
+import with the target adapter for that application-owned boundary; do not
+replace one broad facade with another umbrella. Keep existing domain,
+event-store, outbox, queue, workflow, audit, and transport envelopes as the
+source of truth. During migration, persist or carry the returned retained state
+before replacing any bespoke envelope mapping, and reject unexpected losses or
+collisions explicitly.
 
 Registry-backed validation now requires construction instead of an exported
 field literal. Replace `RegistryJSONSchemaValidator{Resolver: ..., Adapter: ...,

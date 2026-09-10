@@ -1,4 +1,4 @@
-package golib_test
+package targetadapters_test
 
 import (
 	"context"
@@ -8,13 +8,17 @@ import (
 	"time"
 
 	"github.com/faustbrian/go-cloudevents"
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib"
+	cloudjsonschema "github.com/faustbrian/go-cloudevents/adapters/jsonschema"
+	cloudkafka "github.com/faustbrian/go-cloudevents/adapters/kafka"
+	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry"
+	golibjsonschema "github.com/faustbrian/go-json-schema"
 	"github.com/faustbrian/go-kafka"
 	schemaregistry "github.com/faustbrian/go-schema-registry"
 	registryjsonschema "github.com/faustbrian/go-schema-registry/formats/jsonschema"
 )
 
 const recipeSchemaURI = "https://schemas.example/orders/created/v1"
+const recipeSchemaDefinition = `{"type":"object","required":["order_id"],"properties":{"order_id":{"type":"string"}},"additionalProperties":false}`
 
 var (
 	errRecipeKafkaClosed = errors.New("recipe kafka runtime: closed")
@@ -63,7 +67,7 @@ func TestKafkaSchemaCloudEventRecipeRejectsInvalidEventBeforePublish(t *testing.
 		context.Background(), context.Background(), runtime, []byte(`{}`),
 		func(cloudevents.Event) error { return nil },
 	)
-	if !errors.Is(err, golib.ErrSchemaViolation) {
+	if !errors.Is(err, cloudjsonschema.ErrSchemaViolation) {
 		t.Fatalf("recipe error = %v, want schema violation", err)
 	}
 	if len(runtime.records) != 0 {
@@ -91,6 +95,29 @@ func TestKafkaSchemaCloudEventRecipeDoesNotAcknowledgeHandlerFailure(t *testing.
 	}
 	if fmt.Sprint(runtime.shutdownOrder) != "[consumer producer]" {
 		t.Fatalf("shutdown order = %v", runtime.shutdownOrder)
+	}
+}
+
+func TestKafkaSchemaCloudEventRecipeRejectsInvalidConsumedEventBeforeHandling(t *testing.T) {
+	t.Parallel()
+
+	handlerCalled := false
+	runtime := &recipeKafkaRuntime{consumedValue: []byte(`{}`)}
+	err := runKafkaSchemaCloudEventRecipe(
+		context.Background(), context.Background(), runtime, []byte(`{"order_id":"A-123"}`),
+		func(cloudevents.Event) error {
+			handlerCalled = true
+			return nil
+		},
+	)
+	if !errors.Is(err, cloudregistry.ErrSchemaViolation) {
+		t.Fatalf("recipe error = %v, want registry schema violation", err)
+	}
+	if handlerCalled {
+		t.Fatal("invalid consumed event reached application handler")
+	}
+	if runtime.commitAttempted != nil || runtime.committed != nil {
+		t.Fatal("invalid consumed event reached offset commit")
 	}
 }
 
@@ -149,7 +176,7 @@ func runKafkaSchemaCloudEventRecipe(
 		resultErr = errors.Join(resultErr, runtime.Shutdown(shutdownCtx))
 	}()
 
-	validator, err := newRecipeRegistryValidator(operationCtx)
+	directValidator, registryValidator, err := newRecipeValidators(operationCtx)
 	if err != nil {
 		return err
 	}
@@ -167,10 +194,10 @@ func runKafkaSchemaCloudEventRecipe(
 	if err != nil {
 		return err
 	}
-	if err := cloudevents.ValidateSchema(operationCtx, event, validator); err != nil {
+	if err := cloudevents.ValidateSchema(operationCtx, event, directValidator); err != nil {
 		return err
 	}
-	record, err := golib.EncodeKafka(event, cloudevents.BinaryMode, golib.KafkaTransport{
+	record, err := cloudkafka.Encode(event, cloudevents.BinaryMode, cloudkafka.Transport{
 		Topic: "orders.created.v1",
 		Key:   []byte("A-123"),
 	})
@@ -183,11 +210,11 @@ func runKafkaSchemaCloudEventRecipe(
 		return err
 	}
 	handler := kafka.HandlerFunc(func(ctx context.Context, consumed kafka.ConsumedRecord) error {
-		message, _, err := golib.DecodeKafka(consumed, cloudevents.DefaultLimits())
+		message, _, err := cloudkafka.Decode(consumed, cloudevents.DefaultLimits())
 		if err != nil {
 			return err
 		}
-		if err := cloudevents.ValidateSchema(ctx, message.Event, validator); err != nil {
+		if err := cloudevents.ValidateSchema(ctx, message.Event, registryValidator); err != nil {
 			return err
 		}
 		// Returning an error leaves the borrowed record unsettled. A real
@@ -197,20 +224,30 @@ func runKafkaSchemaCloudEventRecipe(
 	return runtime.RunOnce(operationCtx, handler)
 }
 
-func newRecipeRegistryValidator(ctx context.Context) (golib.RegistryJSONSchemaValidator, error) {
+func newRecipeValidators(ctx context.Context) (cloudjsonschema.Validator, cloudregistry.JSONSchemaValidator, error) {
+	compiler, err := golibjsonschema.NewCompiler()
+	if err != nil {
+		return cloudjsonschema.Validator{}, cloudregistry.JSONSchemaValidator{}, err
+	}
+	directSchema, err := compiler.Compile(ctx, []byte(recipeSchemaDefinition))
+	if err != nil {
+		return cloudjsonschema.Validator{}, cloudregistry.JSONSchemaValidator{}, err
+	}
+	directValidator := cloudjsonschema.Validator{URI: recipeSchemaURI, Schema: directSchema}
+
 	adapter, err := registryjsonschema.New(registryjsonschema.Config{
 		MaxSchemaBytes: 1024, MaxTotalSchemaBytes: 1024,
 		MaxPayloadBytes: 1024, MaxResources: 1,
 	})
 	if err != nil {
-		return golib.RegistryJSONSchemaValidator{}, err
+		return cloudjsonschema.Validator{}, cloudregistry.JSONSchemaValidator{}, err
 	}
 	schema, err := schemaregistry.Compile(ctx, schemaregistry.Definition{
 		Format:  schemaregistry.FormatJSONSchema,
-		Content: []byte(`{"type":"object","required":["order_id"],"properties":{"order_id":{"type":"string"}},"additionalProperties":false}`),
+		Content: []byte(recipeSchemaDefinition),
 	}, adapter)
 	if err != nil {
-		return golib.RegistryJSONSchemaValidator{}, err
+		return cloudjsonschema.Validator{}, cloudregistry.JSONSchemaValidator{}, err
 	}
 	subject := schemaregistry.Subject{Name: "orders.created.v1"}
 	lookup := schemaregistry.Latest(subject)
@@ -231,12 +268,16 @@ func newRecipeRegistryValidator(ctx context.Context) (golib.RegistryJSONSchemaVa
 		},
 	)
 	if err != nil {
-		return golib.RegistryJSONSchemaValidator{}, err
+		return cloudjsonschema.Validator{}, cloudregistry.JSONSchemaValidator{}, err
 	}
-	return golib.NewRegistryJSONSchemaValidator(golib.RegistryJSONSchemaConfig{
+	registryValidator, err := cloudregistry.NewJSONSchemaValidator(cloudregistry.JSONSchemaConfig{
 		Cache: cache, SchemaLookups: map[string]schemaregistry.Lookup{recipeSchemaURI: lookup},
 		Adapter: adapter, AvailabilityPolicy: schemaregistry.FailClosed, Timeout: time.Second,
 	})
+	if err != nil {
+		return cloudjsonschema.Validator{}, cloudregistry.JSONSchemaValidator{}, err
+	}
+	return directValidator, registryValidator, nil
 }
 
 type recipeSchemaResolver struct {
@@ -261,6 +302,7 @@ func (clock recipeClock) Now() time.Time { return clock.now }
 
 type recipeKafkaRuntime struct {
 	records             []kafka.ProducerRecord
+	consumedValue       []byte
 	publishErr          error
 	commitErr           error
 	consumerShutdownErr error
@@ -292,6 +334,9 @@ func (runtime *recipeKafkaRuntime) RunOnce(ctx context.Context, handler kafka.Ha
 		return errRecipeKafkaEmpty
 	}
 	record := runtime.records[0]
+	if runtime.consumedValue != nil {
+		record.Value = append([]byte(nil), runtime.consumedValue...)
+	}
 	consumed := kafka.ConsumedRecord{
 		Topic: record.Topic, Key: record.Key, Value: record.Value, Headers: record.Headers,
 		Timestamp: record.Timestamp, TimestampType: kafka.TimestampCreateTime,
