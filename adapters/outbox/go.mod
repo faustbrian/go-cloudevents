@@ -6,3 +6,5 @@ require (
 	github.com/faustbrian/go-cloudevents v1.1.0
 	github.com/faustbrian/go-transactional-outbox v1.0.0
 )
+
+require github.com/pierrec/lz4/v4 v4.1.26 // indirect
