@@ -1,6 +1,6 @@
 module github.com/faustbrian/go-cloudevents/adapters/golib
 
-go 1.26.6
+go 1.27.0
 
 require (
 	github.com/faustbrian/go-audit v1.0.0

@@ -7,6 +7,8 @@ versioning.
 
 ### Documentation
 
+- Require Go 1.27.0 across the repository's module language, minimum
+  compatibility, development, and CI toolchain claims.
 - Mark the broad `adapters/golib` compatibility facade as deprecated for new
   adoption and point applications to the target-oriented adapters and their
   non-releasable Kafka and schema validation recipe.
