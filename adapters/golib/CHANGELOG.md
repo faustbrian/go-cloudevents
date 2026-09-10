@@ -4,6 +4,19 @@ All notable changes to this module are documented here.
 
 ## Unreleased
 
+### Deprecated
+
+- Deprecate the broad compatibility facade for new adoption while retaining it
+  throughout v1. Migrate to the target-oriented adapters in the parent adoption
+  guide; the facade is excluded from the recommended set because it owns 26
+  module dependencies.
+
+### Documentation
+
+- Relocate the Kafka and schema validation recipe to the non-releasable
+  target-adapter integration module so recommended composition no longer
+  imports the deprecated facade.
+
 ## 1.1.0 - 2026-09-09
 
 ### Changed
