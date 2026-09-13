@@ -4,8 +4,41 @@ All notable changes to this module are documented here.
 
 ## Unreleased
 
+### Deprecated
+
+- Deprecate the broad compatibility facade for new adoption while retaining it
+  throughout v1. Migrate to the target-oriented adapters in the parent adoption
+  guide; the facade is excluded from the recommended set because it owns 26
+  module dependencies.
+
 ### Documentation
 
+- Relocate the Kafka and schema validation recipe to the non-releasable
+  target-adapter integration module so recommended composition no longer
+  imports the deprecated facade.
+
+## 1.1.0 - 2026-09-09
+
+### Changed
+
+- Preserve the released umbrella import path as a compatibility facade while
+  delegating behavior to independently released target adapter modules.
+- Require CloudEvents v1.1.0 and target adapter v1.0.0 module identities.
+- Upgrade checksum-pinned repository tooling and reusable CI to v1.4.0 while
+  retaining the adapter's schema-v2 cohesion and specification contracts.
+- Replace bootstrap-only archive checksums for all owned dependencies with
+  their canonical public v1.0.0 module identities for clean consumer
+  verification.
+
+### Documentation
+
+- Add an executable Kafka, schema-registry, JSON Schema, and CloudEvents
+  composition with explicit validation, settlement, failure, and shutdown
+  ownership.
+- Bind ecosystem and protocols-and-descriptions family navigation to the
+  immutable v1.4.0 documentation.
+- Publish schema-v2 family, selection, ownership, lifecycle, compatibility,
+  and documentation metadata and link to the versioned Golib ecosystem index.
 - Move detailed module guidance behind a concise README and documentation index.
 - Use human-oriented section names and package-owned documentation links.
 

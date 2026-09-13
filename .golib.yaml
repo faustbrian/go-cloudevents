@@ -1,20 +1,11 @@
 schema_version: 1
-tool_version: v1.2.0
-tool_checksums_sha256: 7de6de3a14184eced8c0114bf802cb24a808f3e1592d358f6f6f3d02552d0e27
+tool_version: v1.6.2
+tool_checksums_sha256: 2a740a44fee468f042b4a66e086fc01a02d8d28877c9b1866e278102665b35ad
 manifest:
   modules: modules.json
   packages: packages.json
 evidence:
   root: ".verification"
-mutation:
-  root: ".verification/mutation"
-  imports:
-  - module: "."
-    archive: ".verification/mutation/bootstrap/root.zip"
-    ledger: ".verification/mutation/migration-ledger.json"
-  - module: adapters/golib
-    archive: ".verification/mutation/bootstrap/adapters-golib.zip"
-    ledger: ".verification/mutation/migration-ledger.json"
 api:
   baselines:
   - module: "."
@@ -23,6 +14,42 @@ api:
   - module: adapters/golib
     mode: apidiff
     path: adapters/golib/api/baseline.txt
+  - module: adapters/audit
+    mode: apidiff
+    path: adapters/audit/api/baseline.txt
+  - module: adapters/correlation
+    mode: apidiff
+    path: adapters/correlation/api/baseline.txt
+  - module: adapters/event-sourcing
+    mode: apidiff
+    path: adapters/event-sourcing/api/baseline.txt
+  - module: adapters/jsonschema
+    mode: apidiff
+    path: adapters/jsonschema/api/baseline.txt
+  - module: adapters/kafka
+    mode: apidiff
+    path: adapters/kafka/api/baseline.txt
+  - module: adapters/outbox
+    mode: apidiff
+    path: adapters/outbox/api/baseline.txt
+  - module: adapters/queue
+    mode: apidiff
+    path: adapters/queue/api/baseline.txt
+  - module: adapters/rabbitstream
+    mode: apidiff
+    path: adapters/rabbitstream/api/baseline.txt
+  - module: adapters/schema-registry
+    mode: apidiff
+    path: adapters/schema-registry/api/baseline.txt
+  - module: adapters/telemetry
+    mode: apidiff
+    path: adapters/telemetry/api/baseline.txt
+  - module: adapters/tenancy
+    mode: apidiff
+    path: adapters/tenancy/api/baseline.txt
+  - module: adapters/workflow
+    mode: apidiff
+    path: adapters/workflow/api/baseline.txt
 operations:
 - module: "."
   gate: fuzz

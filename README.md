@@ -7,7 +7,7 @@
 [![Documentation](https://img.shields.io/badge/docs-checked_in_CI-blue)](docs/)
 [![Go Reference](https://pkg.go.dev/badge/github.com/faustbrian/go-cloudevents.svg)](https://pkg.go.dev/github.com/faustbrian/go-cloudevents)
 [![Release](https://img.shields.io/github/v/release/faustbrian/go-cloudevents?sort=semver)](https://github.com/faustbrian/go-cloudevents/releases)
-[![Go](https://img.shields.io/badge/go-1.26.6-00ADD8?logo=go)](https://go.dev/)
+[![Go](https://img.shields.io/badge/go-1.27.0-00ADD8?logo=go)](https://go.dev/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 `cloudevents` is Golib's transport-independent CloudEvents interoperability
@@ -92,6 +92,31 @@ integrity, or authorization context.
 Do not use this package as a broker, dispatcher, event taxonomy, compatibility
 policy, schema registry, audit log, or replacement for application validation.
 
+Optional Golib integrations use target-oriented modules so consumers install
+only the dependency boundary they need:
+
+| Target | Module |
+| --- | --- |
+| Audit metadata | `github.com/faustbrian/go-cloudevents/adapters/audit` |
+| Correlation identifiers | `github.com/faustbrian/go-cloudevents/adapters/correlation` |
+| Event sourcing | `github.com/faustbrian/go-cloudevents/adapters/event-sourcing` |
+| Direct JSON Schema | `github.com/faustbrian/go-cloudevents/adapters/jsonschema` |
+| Kafka records | `github.com/faustbrian/go-cloudevents/adapters/kafka` |
+| Transactional outbox | `github.com/faustbrian/go-cloudevents/adapters/outbox` |
+| Queue jobs | `github.com/faustbrian/go-cloudevents/adapters/queue` |
+| RabbitMQ Streams | `github.com/faustbrian/go-cloudevents/adapters/rabbitstream` |
+| Schema registry | `github.com/faustbrian/go-cloudevents/adapters/schema-registry` |
+| Golib telemetry | `github.com/faustbrian/go-cloudevents/adapters/telemetry` |
+| Tenancy | `github.com/faustbrian/go-cloudevents/adapters/tenancy` |
+| Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow` |
+
+The released `adapters/golib` module is a deprecated compatibility facade. It
+remains available throughout v1, but is excluded from the recommended set
+because its broad bridge owns 26 module dependencies. New code and migrations
+should select the target module directly. The
+[Kafka and schema validation recipe](integration/target-adapters/kafka_schema_cloudevents_example_test.go)
+shows the target-oriented composition without depending on the facade.
+
 See the canonical [specification decision register](docs/specification-decisions.md),
 [interoperability overview](docs/decisions.md), [security policy](SECURITY.md),
 [security and cardinality review](docs/security-review.md),
@@ -99,6 +124,12 @@ See the canonical [specification decision register](docs/specification-decisions
 and [changelog](CHANGELOG.md). Interoperability evidence covers the official Go
 SDK and the independent JavaScript SDK; importing the package never invokes
 either SDK or a runtime outside Go.
+
+For shared package families, selection guidance, construction, ownership, and
+lifecycle vocabulary, see the versioned [Golib ecosystem
+index](https://github.com/faustbrian/go-library-tools/blob/v1.4.0/docs/ecosystem/README.md)
+and its [protocols-and-descriptions package
+guidance](https://github.com/faustbrian/go-library-tools/blob/v1.4.0/docs/ecosystem/design-language.md#package-families-and-selection).
 
 ## Documentation
 

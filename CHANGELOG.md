@@ -5,8 +5,36 @@ versioning.
 
 ## Unreleased
 
+### Documentation
+
+- Require Go 1.27.0 across the repository's module language, minimum
+  compatibility, development, and CI toolchain claims.
+- Mark the broad `adapters/golib` compatibility facade as deprecated for new
+  adoption and point applications to the target-oriented adapters and their
+  non-releasable Kafka and schema validation recipe.
+
+## 1.1.0 - 2026-09-09
+
+### Added
+
+- Add canonical optional-adapter error categories and explicit conversion-loss
+  value types so independently released target adapters preserve one public
+  classification contract without a shared runtime.
+- Add independently adoptable target adapter modules for audit, correlation,
+  event sourcing, JSON Schema, Kafka, outbox, queue, RabbitMQ Streams, schema
+  registry, telemetry, tenancy, and workflow boundaries.
+
 ### Changed
 
+- Upgrade checksum-pinned `go-library-tools` and reusable CI to v1.6.2 so
+  valid nested-module documentation links remain supported.
+
+- Upgrade checksum-pinned `go-library-tools` and reusable CI to v1.4.0 while
+  retaining schema-v2 cohesion metadata and frozen specification decisions.
+
+- Adopt schema-v2 cohesion metadata for both releasable modules, the pinned
+  `go-library-tools` v1.3.0 CLI, repository-local cohesion validation, and the
+  immutable shared workflow that enforces it in CI.
 - Adopt the pinned `go-library-tools` v1.2.0 CLI and reusable workflow so CI
   enforces specification decisions, conformance bindings, source monitoring,
   and change control while preserving module-owned policy, interoperability
@@ -16,6 +44,10 @@ versioning.
 
 ### Documentation
 
+- Bind both releasable modules' ecosystem and protocols-and-descriptions family
+  navigation to the immutable v1.4.0 documentation.
+- Link both releasable modules to the versioned Golib ecosystem index and
+  shared package-selection, construction, ownership, and lifecycle guidance.
 - Replace archived monorepo links with a package-owned documentation index.
 - Enforce the [specification decision register](docs/specification-decisions.md),
   conformance bindings, immutable authority pins, release monitoring, and

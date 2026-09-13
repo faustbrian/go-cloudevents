@@ -1,6 +1,45 @@
-go 1.26.6
+go 1.27.0
 
 use (
 	.
+	./adapters/audit
+	./adapters/correlation
+	./adapters/event-sourcing
 	./adapters/golib
+	./adapters/jsonschema
+	./adapters/kafka
+	./adapters/outbox
+	./adapters/queue
+	./adapters/rabbitstream
+	./adapters/schema-registry
+	./adapters/telemetry
+	./adapters/tenancy
+	./adapters/workflow
+	./integration/target-adapters
 )
+
+replace github.com/faustbrian/go-cloudevents v1.1.0 => .
+
+replace github.com/faustbrian/go-cloudevents/adapters/audit v1.0.0 => ./adapters/audit
+
+replace github.com/faustbrian/go-cloudevents/adapters/correlation v1.0.0 => ./adapters/correlation
+
+replace github.com/faustbrian/go-cloudevents/adapters/event-sourcing v1.0.0 => ./adapters/event-sourcing
+
+replace github.com/faustbrian/go-cloudevents/adapters/jsonschema v1.0.0 => ./adapters/jsonschema
+
+replace github.com/faustbrian/go-cloudevents/adapters/kafka v1.0.0 => ./adapters/kafka
+
+replace github.com/faustbrian/go-cloudevents/adapters/outbox v1.0.0 => ./adapters/outbox
+
+replace github.com/faustbrian/go-cloudevents/adapters/queue v1.0.0 => ./adapters/queue
+
+replace github.com/faustbrian/go-cloudevents/adapters/rabbitstream v1.0.0 => ./adapters/rabbitstream
+
+replace github.com/faustbrian/go-cloudevents/adapters/schema-registry v1.0.0 => ./adapters/schema-registry
+
+replace github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0 => ./adapters/telemetry
+
+replace github.com/faustbrian/go-cloudevents/adapters/tenancy v1.0.0 => ./adapters/tenancy
+
+replace github.com/faustbrian/go-cloudevents/adapters/workflow v1.0.0 => ./adapters/workflow
