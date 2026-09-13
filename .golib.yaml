@@ -14,6 +14,42 @@ api:
   - module: adapters/golib
     mode: apidiff
     path: adapters/golib/api/baseline.txt
+  - module: adapters/audit
+    mode: apidiff
+    path: adapters/audit/api/baseline.txt
+  - module: adapters/correlation
+    mode: apidiff
+    path: adapters/correlation/api/baseline.txt
+  - module: adapters/event-sourcing
+    mode: apidiff
+    path: adapters/event-sourcing/api/baseline.txt
+  - module: adapters/jsonschema
+    mode: apidiff
+    path: adapters/jsonschema/api/baseline.txt
+  - module: adapters/kafka
+    mode: apidiff
+    path: adapters/kafka/api/baseline.txt
+  - module: adapters/outbox
+    mode: apidiff
+    path: adapters/outbox/api/baseline.txt
+  - module: adapters/queue
+    mode: apidiff
+    path: adapters/queue/api/baseline.txt
+  - module: adapters/rabbitstream
+    mode: apidiff
+    path: adapters/rabbitstream/api/baseline.txt
+  - module: adapters/schema-registry
+    mode: apidiff
+    path: adapters/schema-registry/api/baseline.txt
+  - module: adapters/telemetry
+    mode: apidiff
+    path: adapters/telemetry/api/baseline.txt
+  - module: adapters/tenancy
+    mode: apidiff
+    path: adapters/tenancy/api/baseline.txt
+  - module: adapters/workflow
+    mode: apidiff
+    path: adapters/workflow/api/baseline.txt
 operations:
 - module: "."
   gate: fuzz
