@@ -9,6 +9,6 @@ require (
 )
 
 require (
-	github.com/pierrec/lz4/v4 v4.1.26 // indirect
+	github.com/IBM/sarama v1.60.2 // indirect
 	github.com/stretchr/testify v1.12.1 // indirect
 )
