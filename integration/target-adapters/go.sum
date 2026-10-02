@@ -84,8 +84,8 @@ github.com/faustbrian/go-kafka v1.0.0 h1:gnYGw1zif6Qa2UcNQB5YTFNzNDTRjBMpVZJmHnF
 github.com/faustbrian/go-kafka v1.0.0/go.mod h1:5RqX6tuSHTWu052ZromHx8uRUDqsv07IVesA+/4p664=
 github.com/faustbrian/go-queue v1.1.0 h1:sxRMw2xtl9htffQjEzCtG05vaR98YVMyRephzNHX+44=
 github.com/faustbrian/go-queue v1.1.0/go.mod h1:CvcBqytHzhV6CD3hmshmrNEB07DhM5KhU5VsL9CB0tY=
-github.com/faustbrian/go-rabbitmq-streams v1.0.0 h1:ISa1+4dkNUOX/2/O9YjMeDSWmQGrPndtidsARX9RGZY=
-github.com/faustbrian/go-rabbitmq-streams v1.0.0/go.mod h1:G+Eu/VdiBUxsFTeUNC0YK6867jIUwao0DJODi5ABN54=
+github.com/faustbrian/go-rabbitmq-streams v1.1.1 h1:WITOrJbR86OC+zb4JsdYOH5voH3Boie+Ghi4NLuD800=
+github.com/faustbrian/go-rabbitmq-streams v1.1.1/go.mod h1:G+Eu/VdiBUxsFTeUNC0YK6867jIUwao0DJODi5ABN54=
 github.com/faustbrian/go-schema-registry/v2 v2.0.0 h1:OJtzMygiLcxK1jOV26P++9LOYA436rcbHSKxRQbCvg4=
 github.com/faustbrian/go-schema-registry/v2 v2.0.0/go.mod h1:XxbE5Z5KZaOP1PSppSZiI5dvhFyUOh9yshsVAxHzx3w=
 github.com/faustbrian/go-telemetry v1.2.0 h1:moTGe8fFYVCtH9VxlD3PPQ1BuHL03A5RAxIau6n7auE=

@@ -36,7 +36,7 @@ require (
 	github.com/deszhou/jcs v1.0.0 // indirect
 	github.com/dlclark/regexp2/v2 v2.5.1 // indirect
 	github.com/faustbrian/go-identifier v1.0.0 // indirect
-	github.com/faustbrian/go-rabbitmq-streams v1.0.0 // indirect
+	github.com/faustbrian/go-rabbitmq-streams v1.1.1 // indirect
 	github.com/jackc/pgx/v5 v5.10.0 // indirect
 	github.com/klauspost/compress v1.19.2 // indirect
 	github.com/pierrec/lz4/v4 v4.1.29 // indirect

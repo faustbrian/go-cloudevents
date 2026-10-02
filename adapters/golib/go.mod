@@ -22,7 +22,7 @@ require (
 	github.com/faustbrian/go-json-schema v1.0.0
 	github.com/faustbrian/go-kafka v1.0.0
 	github.com/faustbrian/go-queue v1.1.0
-	github.com/faustbrian/go-rabbitmq-streams v1.0.0
+	github.com/faustbrian/go-rabbitmq-streams v1.1.1
 	github.com/faustbrian/go-schema-registry v1.0.0
 	github.com/faustbrian/go-telemetry v1.2.0
 	github.com/faustbrian/go-tenancy v1.1.0
