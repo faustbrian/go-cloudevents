@@ -36,7 +36,7 @@ replace github.com/faustbrian/go-cloudevents/adapters/queue v1.0.0 => ./adapters
 
 replace github.com/faustbrian/go-cloudevents/adapters/rabbitstream v1.0.0 => ./adapters/rabbitstream
 
-replace github.com/faustbrian/go-cloudevents/adapters/schema-registry v1.0.0 => ./adapters/schema-registry
+replace github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2 v2.0.0 => ./adapters/schema-registry
 
 replace github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0 => ./adapters/telemetry
 

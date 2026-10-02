@@ -138,7 +138,7 @@
       "module_directory": "adapters/schema-registry",
       "directory": ".",
       "name": "schemaregistry",
-      "import_path": "github.com/faustbrian/go-cloudevents/adapters/schema-registry",
+      "import_path": "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
       "kind": "public",
       "production": true,
       "executable": true,

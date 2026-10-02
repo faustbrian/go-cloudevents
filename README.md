@@ -105,7 +105,7 @@ only the dependency boundary they need:
 | Transactional outbox | `github.com/faustbrian/go-cloudevents/adapters/outbox` |
 | Queue jobs | `github.com/faustbrian/go-cloudevents/adapters/queue` |
 | RabbitMQ Streams | `github.com/faustbrian/go-cloudevents/adapters/rabbitstream` |
-| Schema registry | `github.com/faustbrian/go-cloudevents/adapters/schema-registry` |
+| Schema registry | `github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2` |
 | Golib telemetry | `github.com/faustbrian/go-cloudevents/adapters/telemetry` |
 | Tenancy | `github.com/faustbrian/go-cloudevents/adapters/tenancy` |
 | Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow` |
