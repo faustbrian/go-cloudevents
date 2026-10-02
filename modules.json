@@ -1500,7 +1500,9 @@
         "github.com/faustbrian/go-cloudevents",
         "github.com/faustbrian/go-schema-registry/v2"
       ],
-      "reverse_owned_dependencies": [],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/integration/target-adapters"
+      ],
       "external_runtime_dependencies": [],
       "required_services": [],
       "build_tags": [],
@@ -1953,7 +1955,7 @@
         "github.com/faustbrian/go-cloudevents/adapters/outbox",
         "github.com/faustbrian/go-cloudevents/adapters/queue",
         "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
-        "github.com/faustbrian/go-cloudevents/adapters/schema-registry",
+        "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
         "github.com/faustbrian/go-cloudevents/adapters/telemetry",
         "github.com/faustbrian/go-cloudevents/adapters/tenancy",
         "github.com/faustbrian/go-cloudevents/adapters/workflow"

@@ -10,11 +10,11 @@ import (
 	"github.com/faustbrian/go-cloudevents"
 	cloudjsonschema "github.com/faustbrian/go-cloudevents/adapters/jsonschema"
 	cloudkafka "github.com/faustbrian/go-cloudevents/adapters/kafka"
-	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry"
+	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2"
 	golibjsonschema "github.com/faustbrian/go-json-schema"
 	"github.com/faustbrian/go-kafka"
-	schemaregistry "github.com/faustbrian/go-schema-registry"
-	registryjsonschema "github.com/faustbrian/go-schema-registry/formats/jsonschema"
+	schemaregistry "github.com/faustbrian/go-schema-registry/v2"
+	registryjsonschema "github.com/faustbrian/go-schema-registry/v2/formats/jsonschema"
 )
 
 const recipeSchemaURI = "https://schemas.example/orders/created/v1"

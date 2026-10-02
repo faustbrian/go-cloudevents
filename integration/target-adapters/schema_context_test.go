@@ -8,9 +8,9 @@ import (
 
 	"github.com/faustbrian/go-cloudevents"
 	cloudjsonschema "github.com/faustbrian/go-cloudevents/adapters/jsonschema"
-	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry"
+	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2"
 	jsonschema "github.com/faustbrian/go-json-schema"
-	schemaregistry "github.com/faustbrian/go-schema-registry"
+	schemaregistry "github.com/faustbrian/go-schema-registry/v2"
 )
 
 func TestSchemaValidatorsRejectNilContext(t *testing.T) {
