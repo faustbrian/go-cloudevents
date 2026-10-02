@@ -90,8 +90,8 @@ github.com/faustbrian/go-schema-registry/v2 v2.0.0 h1:OJtzMygiLcxK1jOV26P++9LOYA
 github.com/faustbrian/go-schema-registry/v2 v2.0.0/go.mod h1:XxbE5Z5KZaOP1PSppSZiI5dvhFyUOh9yshsVAxHzx3w=
 github.com/faustbrian/go-telemetry v1.2.0 h1:moTGe8fFYVCtH9VxlD3PPQ1BuHL03A5RAxIau6n7auE=
 github.com/faustbrian/go-telemetry v1.2.0/go.mod h1:DWJbW/tD1cq8kM02aQo7CMVet6gzAw94cv0KuvsIoho=
-github.com/faustbrian/go-tenancy v1.1.0 h1:siH524OklYNzUjooYeoJl22WvtrV0BCcoctotqP2G4c=
-github.com/faustbrian/go-tenancy v1.1.0/go.mod h1:aiEdsa3aoVg41f4Xy04fUiDjcD5CkPhhSHpexm4HheQ=
+github.com/faustbrian/go-tenancy v1.1.1 h1:JsBHYiTJxXJ44dcCrl6ZlmE5vO9Q2uslheePcYT1v1k=
+github.com/faustbrian/go-tenancy v1.1.1/go.mod h1:xcY3M/LHEN9Rp47PsTHeJubX0KFbpTCnHgnHuKvihp0=
 github.com/faustbrian/go-transactional-outbox v1.0.0 h1:FGCv7v4VIYFt1OPr8yyb/CX+NO9nlgjRpCsFPTJP2VI=
 github.com/faustbrian/go-transactional-outbox v1.0.0/go.mod h1:xfUyb0Wxg9+fN2RttzFgoAHZdHhG64WJRfpoDrKIJ58=
 github.com/faustbrian/go-workflow v1.0.0 h1:u81r6/CPm3a/KDjFWRqk62vu9INi0RFTjBI8OBznLXA=
