@@ -3,13 +3,14 @@ package schemaregistry_test
 import (
 	"context"
 	"errors"
+	"strings"
 	"testing"
 	"time"
 
 	"github.com/faustbrian/go-cloudevents"
-	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry"
-	golibregistry "github.com/faustbrian/go-schema-registry"
-	registryjsonschema "github.com/faustbrian/go-schema-registry/formats/jsonschema"
+	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2"
+	golibregistry "github.com/faustbrian/go-schema-registry/v2"
+	registryjsonschema "github.com/faustbrian/go-schema-registry/v2/formats/jsonschema"
 )
 
 type resolverFunc func(context.Context, golibregistry.Lookup) (golibregistry.ResolveResult, error)
@@ -188,6 +189,26 @@ func TestJSONSchemaValidatorOwnsLookupSnapshot(t *testing.T) {
 	}
 	if err := validator.Validate(context.Background(), "untrusted", "application/json", []byte(`{"id":1}`)); !errors.Is(err, cloudregistry.ErrSchemaMapping) {
 		t.Fatalf("post-construction map injection error = %v, want %v", err, cloudregistry.ErrSchemaMapping)
+	}
+}
+
+func TestJSONSchemaValidatorPreservesV2BoundsAndPrivatePayloadDiagnostics(t *testing.T) {
+	adapter := newAdapter(t)
+	schema := compileJSONSchema(t, adapter)
+	validator := newValidator(t, resolverFunc(func(context.Context, golibregistry.Lookup) (golibregistry.ResolveResult, error) {
+		return schemaResult(schema), nil
+	}))
+
+	if err := validator.Validate(context.Background(), "schema", "application/json", []byte(strings.Repeat(" ", 1025))); !errors.Is(err, golibregistry.ErrLimitExceeded) {
+		t.Fatalf("oversized payload error = %v, want registry limit", err)
+	}
+	const privatePayload = `{"private-customer-token":1,"private-customer-token":2}`
+	err := validator.Validate(context.Background(), "schema", "application/json", []byte(privatePayload))
+	if !errors.Is(err, cloudregistry.ErrSchemaViolation) || !errors.Is(err, registryjsonschema.ErrPayloadInvalid) {
+		t.Fatal("invalid payload lost CloudEvents or registry classifications")
+	}
+	if strings.Contains(err.Error(), "private-customer-token") {
+		t.Fatal("invalid payload diagnostic exposes the private member")
 	}
 }
 
