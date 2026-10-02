@@ -12,7 +12,7 @@ import (
 	cloudoutbox "github.com/faustbrian/go-cloudevents/adapters/outbox"
 	cloudqueue "github.com/faustbrian/go-cloudevents/adapters/queue"
 	cloudrabbitstream "github.com/faustbrian/go-cloudevents/adapters/rabbitstream"
-	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry"
+	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2"
 	cloudtelemetry "github.com/faustbrian/go-cloudevents/adapters/telemetry"
 	cloudtenancy "github.com/faustbrian/go-cloudevents/adapters/tenancy"
 	cloudworkflow "github.com/faustbrian/go-cloudevents/adapters/workflow"

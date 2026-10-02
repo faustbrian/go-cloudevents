@@ -64,8 +64,8 @@ github.com/faustbrian/go-cloudevents/adapters/queue v1.0.0 h1:OdTBggIgOknkjuCuIV
 github.com/faustbrian/go-cloudevents/adapters/queue v1.0.0/go.mod h1:CWRuUIqkxc0VUIYSP5UD2YdTFDlEnLhH+Mfb8DtJ6So=
 github.com/faustbrian/go-cloudevents/adapters/rabbitstream v1.0.0 h1:KPxKkO9Tg//xdZaLcL6LdIwUp7/KV1bXvdtzXmEc2F8=
 github.com/faustbrian/go-cloudevents/adapters/rabbitstream v1.0.0/go.mod h1:lxfmKrT301X7AMreWYN1E6IK3e028LPcrLlYa20NVJE=
-github.com/faustbrian/go-cloudevents/adapters/schema-registry v1.0.0 h1:T5DeU6ow7Q1c8msfFZdgXvr06merZrkFXxq5xLjfiLU=
-github.com/faustbrian/go-cloudevents/adapters/schema-registry v1.0.0/go.mod h1:l2TEL7A0SWKmsAFi7na2dRVzMY/S1Xd/Tasbh0reMm0=
+github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2 v2.0.0 h1:BSuwNQNIdimlKjRyjaQqRKfURJXKV+VWoyl+S8k7SwA=
+github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2 v2.0.0/go.mod h1:Dz3Q7TqDRd9yEgzL+pIBCpxT97WLmNay+ZWUDdCBlqQ=
 github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0 h1:y5W8rnvTDZlhzzk4pA4MSEGJHtATF94TG8nbXEp1OIY=
 github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0/go.mod h1:263H5bE7p1WNH9pCPafQQnbKTh+EQ6ZnJHwOKjFGtG8=
 github.com/faustbrian/go-cloudevents/adapters/tenancy v1.0.0 h1:Vhw6csSWY/EqS8Im7zEAvYYPtYHzhnizIpyc/rA8x94=
@@ -86,8 +86,8 @@ github.com/faustbrian/go-queue v1.1.0 h1:sxRMw2xtl9htffQjEzCtG05vaR98YVMyRephzNH
 github.com/faustbrian/go-queue v1.1.0/go.mod h1:CvcBqytHzhV6CD3hmshmrNEB07DhM5KhU5VsL9CB0tY=
 github.com/faustbrian/go-rabbitmq-streams v1.0.0 h1:ISa1+4dkNUOX/2/O9YjMeDSWmQGrPndtidsARX9RGZY=
 github.com/faustbrian/go-rabbitmq-streams v1.0.0/go.mod h1:G+Eu/VdiBUxsFTeUNC0YK6867jIUwao0DJODi5ABN54=
-github.com/faustbrian/go-schema-registry v1.0.0 h1:x/qlOAokGGjPMcE0z/Ri0JAaEIKgNRE1/HlvpuUqzyU=
-github.com/faustbrian/go-schema-registry v1.0.0/go.mod h1:lj1jdEWEDxxWW5e5mTGol8KEkwLP3KLMN+0+vvLJusc=
+github.com/faustbrian/go-schema-registry/v2 v2.0.0 h1:OJtzMygiLcxK1jOV26P++9LOYA436rcbHSKxRQbCvg4=
+github.com/faustbrian/go-schema-registry/v2 v2.0.0/go.mod h1:XxbE5Z5KZaOP1PSppSZiI5dvhFyUOh9yshsVAxHzx3w=
 github.com/faustbrian/go-telemetry v1.2.0 h1:moTGe8fFYVCtH9VxlD3PPQ1BuHL03A5RAxIau6n7auE=
 github.com/faustbrian/go-telemetry v1.2.0/go.mod h1:DWJbW/tD1cq8kM02aQo7CMVet6gzAw94cv0KuvsIoho=
 github.com/faustbrian/go-tenancy v1.1.0 h1:siH524OklYNzUjooYeoJl22WvtrV0BCcoctotqP2G4c=

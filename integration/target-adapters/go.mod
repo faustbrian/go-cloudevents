@@ -13,7 +13,7 @@ require (
 	github.com/faustbrian/go-cloudevents/adapters/outbox v1.0.0
 	github.com/faustbrian/go-cloudevents/adapters/queue v1.0.0
 	github.com/faustbrian/go-cloudevents/adapters/rabbitstream v1.0.0
-	github.com/faustbrian/go-cloudevents/adapters/schema-registry v1.0.0
+	github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2 v2.0.0
 	github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0
 	github.com/faustbrian/go-cloudevents/adapters/tenancy v1.0.0
 	github.com/faustbrian/go-cloudevents/adapters/workflow v1.0.0
@@ -22,7 +22,7 @@ require (
 	github.com/faustbrian/go-json-schema v1.0.0
 	github.com/faustbrian/go-kafka v1.0.0
 	github.com/faustbrian/go-queue v1.1.0
-	github.com/faustbrian/go-schema-registry v1.0.0
+	github.com/faustbrian/go-schema-registry/v2 v2.0.0
 	github.com/faustbrian/go-telemetry v1.2.0
 	github.com/faustbrian/go-tenancy v1.1.0
 	github.com/faustbrian/go-transactional-outbox v1.0.0
@@ -32,7 +32,6 @@ require (
 )
 
 require (
-	github.com/IBM/sarama v1.60.2 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/deszhou/jcs v1.0.0 // indirect
 	github.com/dlclark/regexp2/v2 v2.5.1 // indirect
