@@ -82,8 +82,8 @@ github.com/faustbrian/go-json-schema v1.0.0 h1:clgfSg5qL5wvrbZz6klFUQlH+dc9E0l2R
 github.com/faustbrian/go-json-schema v1.0.0/go.mod h1:8FEVyrKHwaYqo+fG+dIaVaFiF9m1Ut/fHpk6WcIE1fE=
 github.com/faustbrian/go-kafka v1.0.0 h1:gnYGw1zif6Qa2UcNQB5YTFNzNDTRjBMpVZJmHnFG7bE=
 github.com/faustbrian/go-kafka v1.0.0/go.mod h1:5RqX6tuSHTWu052ZromHx8uRUDqsv07IVesA+/4p664=
-github.com/faustbrian/go-queue v1.1.0 h1:sxRMw2xtl9htffQjEzCtG05vaR98YVMyRephzNHX+44=
-github.com/faustbrian/go-queue v1.1.0/go.mod h1:CvcBqytHzhV6CD3hmshmrNEB07DhM5KhU5VsL9CB0tY=
+github.com/faustbrian/go-queue v1.1.1 h1:McwWoZ8kA5ZH3q/NVZxOqk/TLL/4mIsCtQqX+xujBWE=
+github.com/faustbrian/go-queue v1.1.1/go.mod h1:R2E+40RM/8AznMOdVnhA++yrCJ0CyLdULZNGgvIn9Ok=
 github.com/faustbrian/go-rabbitmq-streams v1.0.0 h1:ISa1+4dkNUOX/2/O9YjMeDSWmQGrPndtidsARX9RGZY=
 github.com/faustbrian/go-rabbitmq-streams v1.0.0/go.mod h1:G+Eu/VdiBUxsFTeUNC0YK6867jIUwao0DJODi5ABN54=
 github.com/faustbrian/go-schema-registry v1.0.0 h1:x/qlOAokGGjPMcE0z/Ri0JAaEIKgNRE1/HlvpuUqzyU=
