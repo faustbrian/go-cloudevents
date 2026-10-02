@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/faustbrian/go-cloudevents"
-	golibeventsourcing "github.com/faustbrian/go-event-sourcing"
+	golibeventsourcing "github.com/faustbrian/go-event-sourcing/v2"
 	"github.com/faustbrian/go-tenancy"
 )
 

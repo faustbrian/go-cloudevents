@@ -8,10 +8,10 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/eapache/go-resiliency v1.7.0 h1:n3NRTnBn5N0Cbi/IeOHuQn9s2UwVUH7Ga0ZWcP+9JTA=
 github.com/eapache/go-resiliency v1.7.0/go.mod h1:5yPzW0MIvSe0JDsv0v+DvcjEv2FyD6iZYSs1ZI+iQho=
-github.com/faustbrian/go-cloudevents v1.1.0 h1:YJUxH5XkWMCzhSY5QD9a8HSiLGf2TP+g7s8PZElLw+8=
-github.com/faustbrian/go-cloudevents v1.1.0/go.mod h1:icPshOQcLVwjqQoaAlDDQFotOPTEm2dlS8cFWuQ4OVM=
-github.com/faustbrian/go-event-sourcing v1.0.0 h1:q5SNNrqirTHf0qit6SztV1x2/gEfH2DCsu6IZYYduRY=
-github.com/faustbrian/go-event-sourcing v1.0.0/go.mod h1:YnepDoU9pM7GqLFf+hjuD1ttfaOoO1BZ37lvsNlByZA=
+github.com/faustbrian/go-cloudevents v1.1.1 h1:tfXWkIV4METcSeuy9tKMw3zw7r1/sGmPkwQ7/40ejx4=
+github.com/faustbrian/go-cloudevents v1.1.1/go.mod h1:wqBW14DTosV9cE0ZR5LslcHTHPegk3Eiq8uzkegqIyw=
+github.com/faustbrian/go-event-sourcing/v2 v2.0.0 h1:DZO5ijZmBHUGdR3+2zWDKODDNsU5Rinc+tQ8t5PYL+s=
+github.com/faustbrian/go-event-sourcing/v2 v2.0.0/go.mod h1:zpgsIX//Nb+4dN3DYoqIRPSbjLmiSGc3zUs93ZQXoa0=
 github.com/faustbrian/go-tenancy v1.1.0 h1:siH524OklYNzUjooYeoJl22WvtrV0BCcoctotqP2G4c=
 github.com/faustbrian/go-tenancy v1.1.0/go.mod h1:aiEdsa3aoVg41f4Xy04fUiDjcD5CkPhhSHpexm4HheQ=
 github.com/hashicorp/go-uuid v1.0.3 h1:2gKiV6YVmrJ1i2CKKa9obLvRieoRGviZFL26PcT/Co8=
