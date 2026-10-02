@@ -17,7 +17,7 @@ require (
 	github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0
 	github.com/faustbrian/go-cloudevents/adapters/tenancy v1.0.0
 	github.com/faustbrian/go-cloudevents/adapters/workflow v1.0.0
-	github.com/faustbrian/go-correlation v1.0.0
+	github.com/faustbrian/go-correlation v1.1.0
 	github.com/faustbrian/go-event-sourcing v1.0.0
 	github.com/faustbrian/go-json-schema v1.0.0
 	github.com/faustbrian/go-kafka v1.0.0

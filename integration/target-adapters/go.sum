@@ -72,8 +72,8 @@ github.com/faustbrian/go-cloudevents/adapters/tenancy v1.0.0 h1:Vhw6csSWY/EqS8Im
 github.com/faustbrian/go-cloudevents/adapters/tenancy v1.0.0/go.mod h1:bBWVyXGHfTpC9dMCm5kp+d6omMReEEFqTG9JC/oioZQ=
 github.com/faustbrian/go-cloudevents/adapters/workflow v1.0.0 h1:p7xCM59frdLEPONK5JRz+lID8zuF6+tR2hWrQZPa6tk=
 github.com/faustbrian/go-cloudevents/adapters/workflow v1.0.0/go.mod h1:Ue4Bd4wMGsA3oAH0E57b9Z4ZzoqEj7+4/eUDCUDBGrg=
-github.com/faustbrian/go-correlation v1.0.0 h1:2Z+tlY59nNBdlGFBadPTeuDo9/029IvS/DytFFxsMlk=
-github.com/faustbrian/go-correlation v1.0.0/go.mod h1:upLcV0fqKC8IUUx11R6c69CVwC3DO1EeXsw2BQU2PKE=
+github.com/faustbrian/go-correlation v1.1.0 h1:+sw0DOXwL/TVYHSwAO0zK8bkGV6ejo05hqqNlUakuB8=
+github.com/faustbrian/go-correlation v1.1.0/go.mod h1:upLcV0fqKC8IUUx11R6c69CVwC3DO1EeXsw2BQU2PKE=
 github.com/faustbrian/go-event-sourcing v1.0.0 h1:q5SNNrqirTHf0qit6SztV1x2/gEfH2DCsu6IZYYduRY=
 github.com/faustbrian/go-event-sourcing v1.0.0/go.mod h1:YnepDoU9pM7GqLFf+hjuD1ttfaOoO1BZ37lvsNlByZA=
 github.com/faustbrian/go-identifier v1.0.0 h1:5lXZbS2wK4NelWv4ekRocwOwjkWt1ch/nh7TScxsFO4=
