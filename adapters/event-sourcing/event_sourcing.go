@@ -10,7 +10,7 @@ import (
 
 	"github.com/faustbrian/go-cloudevents"
 	"github.com/faustbrian/go-cloudevents/internal/adapter"
-	golibeventsourcing "github.com/faustbrian/go-event-sourcing"
+	golibeventsourcing "github.com/faustbrian/go-event-sourcing/v2"
 	"github.com/faustbrian/go-tenancy"
 )
 

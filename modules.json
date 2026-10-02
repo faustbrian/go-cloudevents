@@ -82,7 +82,7 @@
         "adapters": [
           "github.com/faustbrian/go-cloudevents/adapters/audit",
           "github.com/faustbrian/go-cloudevents/adapters/correlation",
-          "github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+          "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
           "github.com/faustbrian/go-cloudevents/adapters/golib",
           "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
           "github.com/faustbrian/go-cloudevents/adapters/kafka",
@@ -136,7 +136,7 @@
       "reverse_owned_dependencies": [
         "github.com/faustbrian/go-cloudevents/adapters/audit",
         "github.com/faustbrian/go-cloudevents/adapters/correlation",
-        "github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+        "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
         "github.com/faustbrian/go-cloudevents/adapters/golib",
         "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
         "github.com/faustbrian/go-cloudevents/adapters/kafka",
@@ -625,14 +625,14 @@
     },
     {
       "directory": "adapters/event-sourcing",
-      "module_path": "github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
       "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/event-sourcing",
           "directory": ".",
           "name": "eventsourcing",
-          "import_path": "github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
           "kind": "public",
           "production": true,
           "executable": true,
@@ -661,10 +661,10 @@
         ],
         "public_package_identifier": "eventsourcing",
         "primary_entry_packages": [
-          "github.com/faustbrian/go-cloudevents/adapters/event-sourcing"
+          "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2"
         ],
         "package_selection": {
-          "github.com/faustbrian/go-cloudevents/adapters/event-sourcing": "Use when an application owns both a CloudEvent and Golib event-sourcing messages contract."
+          "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2": "Use when an application owns both a CloudEvent and Golib event-sourcing v2 messages contract."
         },
         "lifecycle_status": "active",
         "maturity": "stable",
@@ -700,7 +700,7 @@
         ],
         "documentation": {
           "readme": "adapters/event-sourcing/README.md",
-          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
           "adoption": "adapters/event-sourcing/README.md",
           "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
           "compatibility": "adapters/event-sourcing/README.md",
@@ -708,7 +708,7 @@
           "examples": null,
           "faq": "adapters/event-sourcing/README.md",
           "changelog": "adapters/event-sourcing/CHANGELOG.md",
-          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/event-sourcing",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
           "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
         },
         "known_good_compatibility_sets": [],
@@ -718,16 +718,14 @@
           "release": "in-progress"
         }
       },
-      "version": "1.0.0",
+      "version": "2.0.0",
       "tag_prefix": "adapters/event-sourcing/v",
       "owned_dependencies": [
         "github.com/faustbrian/go-cloudevents",
-        "github.com/faustbrian/go-event-sourcing",
+        "github.com/faustbrian/go-event-sourcing/v2",
         "github.com/faustbrian/go-tenancy"
       ],
-      "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib"
-      ],
+      "reverse_owned_dependencies": [],
       "external_runtime_dependencies": [],
       "required_services": [],
       "build_tags": [],
