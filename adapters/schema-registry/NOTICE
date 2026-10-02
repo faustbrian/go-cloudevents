@@ -1,0 +1,8 @@
+CloudEvents schema-registry adapter
+Copyright (c) 2026 Brian Faust
+
+This module integrates caller-owned schema-registry JSON Schema resolution with
+the parent CloudEvents module. It contains no copied CloudEvents specification
+fixtures or third-party source code. Normative source revisions and license
+provenance for the parent module are recorded at
+https://github.com/faustbrian/go-cloudevents/blob/main/docs/provenance.md.

@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.0.0 - 2026-10-02
 
 - Adopt schema-registry v2 through the `/adapters/schema-registry/v2` module
   path. Configuration now accepts registry v2 cache, lookup, availability, and
