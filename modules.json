@@ -92,7 +92,7 @@
           "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
           "github.com/faustbrian/go-cloudevents/adapters/telemetry",
           "github.com/faustbrian/go-cloudevents/adapters/tenancy",
-          "github.com/faustbrian/go-cloudevents/adapters/workflow"
+          "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"
         ],
         "companions": [],
         "supported_go": {
@@ -146,7 +146,7 @@
         "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
         "github.com/faustbrian/go-cloudevents/adapters/telemetry",
         "github.com/faustbrian/go-cloudevents/adapters/tenancy",
-        "github.com/faustbrian/go-cloudevents/adapters/workflow"
+        "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"
       ],
       "external_runtime_dependencies": [
         "github.com/IBM/sarama",
@@ -1789,14 +1789,14 @@
     },
     {
       "directory": "adapters/workflow",
-      "module_path": "github.com/faustbrian/go-cloudevents/adapters/workflow",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/workflow/v2",
       "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/workflow",
           "directory": ".",
           "name": "workflow",
-          "import_path": "github.com/faustbrian/go-cloudevents/adapters/workflow",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/workflow/v2",
           "kind": "public",
           "production": true,
           "executable": true,
@@ -1825,10 +1825,10 @@
         ],
         "public_package_identifier": "workflow",
         "primary_entry_packages": [
-          "github.com/faustbrian/go-cloudevents/adapters/workflow"
+          "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"
         ],
         "package_selection": {
-          "github.com/faustbrian/go-cloudevents/adapters/workflow": "Use when an application owns both a CloudEvent and Golib durable workflow history contract."
+          "github.com/faustbrian/go-cloudevents/adapters/workflow/v2": "Use when an application owns both a CloudEvent and Golib durable workflow v2 history contract."
         },
         "lifecycle_status": "active",
         "maturity": "stable",
@@ -1864,7 +1864,7 @@
         ],
         "documentation": {
           "readme": "adapters/workflow/README.md",
-          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/workflow",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/workflow/v2",
           "adoption": "adapters/workflow/README.md",
           "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
           "compatibility": "adapters/workflow/README.md",
@@ -1872,7 +1872,7 @@
           "examples": null,
           "faq": "adapters/workflow/README.md",
           "changelog": "adapters/workflow/CHANGELOG.md",
-          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/workflow",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/workflow/v2",
           "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
         },
         "known_good_compatibility_sets": [],
@@ -1882,15 +1882,13 @@
           "release": "in-progress"
         }
       },
-      "version": "1.0.0",
+      "version": "2.0.0",
       "tag_prefix": "adapters/workflow/v",
       "owned_dependencies": [
         "github.com/faustbrian/go-cloudevents",
-        "github.com/faustbrian/go-workflow"
+        "github.com/faustbrian/go-workflow/v2"
       ],
-      "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib"
-      ],
+      "reverse_owned_dependencies": [],
       "external_runtime_dependencies": [],
       "required_services": [],
       "build_tags": [],

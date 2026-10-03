@@ -7,6 +7,9 @@ versioning.
 
 ### Documentation
 
+- Document staged adoption of the independently versioned Workflow v2 adapter;
+  the CloudEvents root and released-v1 facade and integration dependencies
+  remain unchanged.
 - Require Go 1.27.0 across the repository's module language, minimum
   compatibility, development, and CI toolchain claims.
 - Mark the broad `adapters/golib` compatibility facade as deprecated for new
