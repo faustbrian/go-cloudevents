@@ -108,7 +108,7 @@ only the dependency boundary they need:
 | Schema registry | `github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2` |
 | Golib telemetry | `github.com/faustbrian/go-cloudevents/adapters/telemetry` |
 | Tenancy | `github.com/faustbrian/go-cloudevents/adapters/tenancy` |
-| Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow` |
+| Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow/v2` (after public v2 publication) |
 
 The released `adapters/golib` module is a deprecated compatibility facade. It
 remains available throughout v1, but is excluded from the recommended set

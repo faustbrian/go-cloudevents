@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/faustbrian/go-cloudevents"
-	golibworkflow "github.com/faustbrian/go-workflow"
+	golibworkflow "github.com/faustbrian/go-workflow/v2"
 )
 
 func TestWorkflowRoundTripPreservesOwnedStateWithoutAliasing(t *testing.T) {

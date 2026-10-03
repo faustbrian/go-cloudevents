@@ -174,7 +174,7 @@
       "module_directory": "adapters/workflow",
       "directory": ".",
       "name": "workflow",
-      "import_path": "github.com/faustbrian/go-cloudevents/adapters/workflow",
+      "import_path": "github.com/faustbrian/go-cloudevents/adapters/workflow/v2",
       "kind": "public",
       "production": true,
       "executable": true,

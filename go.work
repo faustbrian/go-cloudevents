@@ -40,4 +40,4 @@ replace github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0 => ./adap
 
 replace github.com/faustbrian/go-cloudevents/adapters/tenancy v1.0.0 => ./adapters/tenancy
 
-replace github.com/faustbrian/go-cloudevents/adapters/workflow v1.0.0 => ./adapters/workflow
+replace github.com/faustbrian/go-cloudevents/adapters/workflow/v2 v2.0.0 => ./adapters/workflow

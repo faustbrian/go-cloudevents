@@ -10,7 +10,7 @@ import (
 
 	"github.com/faustbrian/go-cloudevents"
 	"github.com/faustbrian/go-cloudevents/internal/adapter"
-	golibworkflow "github.com/faustbrian/go-workflow"
+	golibworkflow "github.com/faustbrian/go-workflow/v2"
 )
 
 // ErrInvalidInput reports workflow state or a CloudEvent that cannot satisfy
