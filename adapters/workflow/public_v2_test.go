@@ -27,7 +27,8 @@ func TestPublicWorkflowV2Composition(t *testing.T) {
 	if err != nil || len(report.Losses) != 0 {
 		t.Fatalf("ToCloudEvent() = %#v, %v", report, err)
 	}
-	var retainedDefinition workflow.DefinitionReference = state.Definition
+	var retainedDefinition workflow.DefinitionReference
+	retainedDefinition = state.Definition
 	if retainedDefinition != reference {
 		t.Fatal("retained definition differs from source")
 	}
