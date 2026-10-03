@@ -1908,7 +1908,7 @@
         "documentation": true,
         "fuzz": false,
         "lint": true,
-        "mutation": false,
+        "mutation": true,
         "race": true,
         "security": true,
         "tests": true
