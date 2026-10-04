@@ -15,7 +15,7 @@ import (
 	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2"
 	cloudtelemetry "github.com/faustbrian/go-cloudevents/adapters/telemetry"
 	cloudtenancy "github.com/faustbrian/go-cloudevents/adapters/tenancy"
-	cloudworkflow "github.com/faustbrian/go-cloudevents/adapters/workflow"
+	cloudworkflow "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"
 )
 
 func TestTargetAdaptersExposeIndependentIntegrationBoundaries(t *testing.T) {

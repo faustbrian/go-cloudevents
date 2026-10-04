@@ -9,12 +9,12 @@ import (
 	cloudeventsourcing "github.com/faustbrian/go-cloudevents/adapters/event-sourcing"
 	cloudoutbox "github.com/faustbrian/go-cloudevents/adapters/outbox"
 	cloudqueue "github.com/faustbrian/go-cloudevents/adapters/queue"
-	cloudworkflow "github.com/faustbrian/go-cloudevents/adapters/workflow"
+	cloudworkflow "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"
 	eventsourcing "github.com/faustbrian/go-event-sourcing"
 	"github.com/faustbrian/go-queue/job"
 	"github.com/faustbrian/go-tenancy"
 	"github.com/faustbrian/go-transactional-outbox"
-	"github.com/faustbrian/go-workflow"
+	"github.com/faustbrian/go-workflow/v2"
 )
 
 func TestEventSourcingAdapterRejectsEveryUnrepresentableBoundary(t *testing.T) {

@@ -70,8 +70,8 @@ github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0 h1:y5W8rnvTDZlhzz
 github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0/go.mod h1:263H5bE7p1WNH9pCPafQQnbKTh+EQ6ZnJHwOKjFGtG8=
 github.com/faustbrian/go-cloudevents/adapters/tenancy v1.0.0 h1:Vhw6csSWY/EqS8Im7zEAvYYPtYHzhnizIpyc/rA8x94=
 github.com/faustbrian/go-cloudevents/adapters/tenancy v1.0.0/go.mod h1:bBWVyXGHfTpC9dMCm5kp+d6omMReEEFqTG9JC/oioZQ=
-github.com/faustbrian/go-cloudevents/adapters/workflow v1.0.0 h1:p7xCM59frdLEPONK5JRz+lID8zuF6+tR2hWrQZPa6tk=
-github.com/faustbrian/go-cloudevents/adapters/workflow v1.0.0/go.mod h1:Ue4Bd4wMGsA3oAH0E57b9Z4ZzoqEj7+4/eUDCUDBGrg=
+github.com/faustbrian/go-cloudevents/adapters/workflow/v2 v2.0.0 h1:th/UX7nhftm5vIaeA//ICM5ACFLEQdGxaJ41xlUFS3c=
+github.com/faustbrian/go-cloudevents/adapters/workflow/v2 v2.0.0/go.mod h1:DFS8CWPpQ39C5G6SWm3K5tU2qp21hnK6DsXmK5YyH3Y=
 github.com/faustbrian/go-correlation v1.0.0 h1:2Z+tlY59nNBdlGFBadPTeuDo9/029IvS/DytFFxsMlk=
 github.com/faustbrian/go-correlation v1.0.0/go.mod h1:upLcV0fqKC8IUUx11R6c69CVwC3DO1EeXsw2BQU2PKE=
 github.com/faustbrian/go-event-sourcing v1.0.0 h1:q5SNNrqirTHf0qit6SztV1x2/gEfH2DCsu6IZYYduRY=
@@ -94,8 +94,8 @@ github.com/faustbrian/go-tenancy v1.1.0 h1:siH524OklYNzUjooYeoJl22WvtrV0BCcoctot
 github.com/faustbrian/go-tenancy v1.1.0/go.mod h1:aiEdsa3aoVg41f4Xy04fUiDjcD5CkPhhSHpexm4HheQ=
 github.com/faustbrian/go-transactional-outbox v1.0.0 h1:FGCv7v4VIYFt1OPr8yyb/CX+NO9nlgjRpCsFPTJP2VI=
 github.com/faustbrian/go-transactional-outbox v1.0.0/go.mod h1:xfUyb0Wxg9+fN2RttzFgoAHZdHhG64WJRfpoDrKIJ58=
-github.com/faustbrian/go-workflow v1.0.0 h1:u81r6/CPm3a/KDjFWRqk62vu9INi0RFTjBI8OBznLXA=
-github.com/faustbrian/go-workflow v1.0.0/go.mod h1:NFjuML2qg4CjXjeUYAWts7cMkQOEG9sGL3ZfI+hPlHs=
+github.com/faustbrian/go-workflow/v2 v2.0.0 h1:CtOrh9dzEAbdwYW16sV6Ym+8cTsDHdHKCSFVcQrC10s=
+github.com/faustbrian/go-workflow/v2 v2.0.0/go.mod h1:OBe1zV1pU5blFgN063hNK8V/XKPR+wA/tDqScqBhytU=
 github.com/felixge/httpsnoop v1.0.4 h1:NFTV2Zj1bL4mc9sqWACXbQFVBBg2W3GPvqp8/ESS2Wg=
 github.com/felixge/httpsnoop v1.0.4/go.mod h1:m8KPJKqk1gH5J9DgRY2ASl2lWCfGKXixSwevea8zH2U=
 github.com/go-logr/logr v1.4.4 h1:tG4xh9yMsRCAiodLVTxyrkzSZ9+o0L1Kg/+cPVcbP/8=

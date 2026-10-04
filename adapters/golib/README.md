@@ -5,9 +5,10 @@ CloudEvents package and Golib's canonical event, transport, workflow,
 metadata, audit, and schema contracts. Importing it performs no registration,
 network access, schema lookup, telemetry emission, or background work.
 
-This released path is a deprecated compatibility facade retained throughout
-v1. It is excluded from the recommended set because its broad bridge owns 26
-module dependencies. New code and migrations should import the target-oriented
+This is a deprecated compatibility facade. Version 2 deliberately adopts
+Workflow v2; released v1 remains available without silently changing its types.
+Both generations are excluded from the recommended set because the broad bridge
+owns 26 module dependencies. New code and migrations should import the target-oriented
 module listed in the parent [adoption guide](https://github.com/faustbrian/go-cloudevents#adoption-guidance)
 so they carry only the relevant optional dependencies.
 
@@ -20,8 +21,34 @@ registry validator.
 ## Install
 
 ```sh
-go get github.com/faustbrian/go-cloudevents/adapters/golib@v1
+go get github.com/faustbrian/go-cloudevents/adapters/golib/v2@v2.0.0
 ```
+
+This command applies after facade `adapters/golib/v2.0.0` publication.
+
+## Migration from v1
+
+Update facade imports to
+`github.com/faustbrian/go-cloudevents/adapters/golib/v2` and workflow imports to
+`github.com/faustbrian/go-workflow/v2`. `WorkflowToCloudEvent` accepts a
+workflow-v2 `HistoryEvent`, `CloudEventToWorkflow` returns one, and the
+`WorkflowState` alias retains a workflow-v2 `DefinitionReference`. The v1 and
+v2 nominal Go types are not interchangeable. Workflow options and state alias
+the actual published `adapters/workflow/v2@v2.0.0` contract.
+
+Stable IDs, sequence, occurrence time, copied payloads, nil-versus-empty data,
+retained workflow state and explicit losses keep their existing semantics.
+The CloudEvents root remains at v1.1.0. Event-sourcing and schema-registry
+adapters and core types stay on their existing v1 identities; all other direct
+dependency selections are unchanged. This major migration does not opt callers
+into unrelated adapter or core major versions.
+
+Source remains in `adapters/golib/` on main, with independent tag
+`adapters/golib/v2.0.0`. No root-module release or version-specific source
+directory is required. `api/v1.1.1.txt` preserves the exact released facade API
+from commit `5559c521abeb0ac979a06a9405185b8486033c88`;
+`api/baseline.txt` describes the current major. Prefer importing only the
+target-oriented adapters your application needs.
 
 ## Quick start
 
@@ -91,7 +118,7 @@ additional guarantees beyond the documented module boundary.
 
 - [Documentation index](docs/README.md)
 - [Complete technical guide](docs/reference.md)
-- [Go API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/golib)
+- [Go API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/golib/v2)
 - [Parent package documentation](https://github.com/faustbrian/go-cloudevents/tree/main/docs)
 
 ## Compatibility and support

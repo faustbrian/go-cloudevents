@@ -108,10 +108,12 @@ only the dependency boundary they need:
 | Schema registry | `github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2` |
 | Golib telemetry | `github.com/faustbrian/go-cloudevents/adapters/telemetry` |
 | Tenancy | `github.com/faustbrian/go-cloudevents/adapters/tenancy` |
-| Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow/v2` (after public v2 publication) |
+| Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow/v2` |
 
-The released `adapters/golib` module is a deprecated compatibility facade. It
-remains available throughout v1, but is excluded from the recommended set
+The `adapters/golib` module is a deprecated compatibility facade. Released v1
+remains available; the separate `adapters/golib/v2` identity deliberately adopts
+Workflow v2 while unrelated contracts stay on their existing versions. Both
+generations are excluded from the recommended set
 because its broad bridge owns 26 module dependencies. New code and migrations
 should select the target module directly. The
 [Kafka and schema validation recipe](integration/target-adapters/kafka_schema_cloudevents_example_test.go)

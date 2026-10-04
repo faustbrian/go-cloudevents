@@ -8,9 +8,13 @@ CloudEvents package and Golib's canonical event, transport, workflow,
 metadata, audit, and schema contracts. Importing it performs no registration,
 network access, schema lookup, telemetry emission, or background work.
 
-This module is a deprecated compatibility facade retained throughout v1. It is
-excluded from the recommended set because its broad bridge owns 26 module
-dependencies. New code and migrations should select only the target-oriented
+This module is a deprecated compatibility facade. Version 2 adopts Workflow v2
+nominal history and definition types; all unrelated direct dependency selections
+and mapping semantics stay unchanged. Released v1 remains available.
+See the [v2 migration guide](../README.md#migration-from-v1) for paired import
+updates. Both generations are excluded from the recommended set because the
+broad bridge owns 26 module dependencies. New code and migrations should select
+only the target-oriented
 adapters listed in the parent [adoption guide](../../../README.md#adoption-guidance).
 
 Conversions retain canonical state that CloudEvents cannot represent and

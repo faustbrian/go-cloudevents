@@ -30,7 +30,7 @@
       "module_directory": "adapters/golib",
       "directory": ".",
       "name": "golib",
-      "import_path": "github.com/faustbrian/go-cloudevents/adapters/golib",
+      "import_path": "github.com/faustbrian/go-cloudevents/adapters/golib/v2",
       "kind": "public",
       "production": true,
       "executable": true,

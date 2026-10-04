@@ -16,7 +16,7 @@ require (
 	github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2 v2.0.0
 	github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0
 	github.com/faustbrian/go-cloudevents/adapters/tenancy v1.0.0
-	github.com/faustbrian/go-cloudevents/adapters/workflow v1.0.0
+	github.com/faustbrian/go-cloudevents/adapters/workflow/v2 v2.0.0
 	github.com/faustbrian/go-correlation v1.0.0
 	github.com/faustbrian/go-event-sourcing v1.0.0
 	github.com/faustbrian/go-json-schema v1.0.0
@@ -26,7 +26,7 @@ require (
 	github.com/faustbrian/go-telemetry v1.2.0
 	github.com/faustbrian/go-tenancy v1.1.0
 	github.com/faustbrian/go-transactional-outbox v1.0.0
-	github.com/faustbrian/go-workflow v1.0.0
+	github.com/faustbrian/go-workflow/v2 v2.0.0
 	go.opentelemetry.io/otel v1.46.0
 	go.opentelemetry.io/otel/trace v1.46.0
 )

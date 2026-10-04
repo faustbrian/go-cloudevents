@@ -8,7 +8,7 @@ import (
 
 	"github.com/faustbrian/go-audit"
 	"github.com/faustbrian/go-cloudevents"
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v2"
 	"github.com/faustbrian/go-correlation"
 	jsonschema "github.com/faustbrian/go-json-schema"
 	"github.com/faustbrian/go-kafka"

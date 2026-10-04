@@ -4,6 +4,18 @@ All notable changes to this module are documented here.
 
 ## Unreleased
 
+### Changed
+
+- Adopt the actual public Workflow v2 adapter and core through the independent
+  `github.com/faustbrian/go-cloudevents/adapters/golib/v2` module. Update facade
+  and Workflow imports together: history inputs, outputs and retained definition
+  references now use Workflow v2 nominal types. Conversion ownership, payload
+  presence, loss reporting and unrelated direct dependency selections remain
+  unchanged. Released facade v1 stays available; new code should select only
+  the target-oriented adapters it needs.
+- Enable the existing facade mutation gate for the independent v2 release
+  policy.
+
 ### Deprecated
 
 - Deprecate the broad compatibility facade for new adoption while retaining it
