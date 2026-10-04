@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v2"
 	schemaregistry "github.com/faustbrian/go-schema-registry"
 	registryjsonschema "github.com/faustbrian/go-schema-registry/formats/jsonschema"
 )

@@ -7,7 +7,7 @@
 
 ## API reference
 
-- [Go package documentation](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/golib)
+- [Go package documentation](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/golib/v2)
 - [Benchmarks](benchmarks.md)
 
 ## Security and compatibility

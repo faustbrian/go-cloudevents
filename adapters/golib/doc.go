@@ -8,7 +8,8 @@
 // CloudEvents protocol bindings.
 //
 // Deprecated: use only the target-oriented adapters required by the
-// application boundary. This compatibility facade remains available
-// throughout v1 but is excluded from the recommended adapter set because it
+// application boundary. Version 2 adopts Workflow v2 while unrelated contracts
+// remain on their existing versions. Released v1 remains available. Both
+// generations are excluded from the recommended adapter set because the facade
 // owns the complete 26-dependency bridge.
 package golib

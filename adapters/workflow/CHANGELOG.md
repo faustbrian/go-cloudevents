@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.0.0 - 2026-10-04
 
 - Adopt Workflow v2 through the independently versioned
   `github.com/faustbrian/go-cloudevents/adapters/workflow/v2` module. Update

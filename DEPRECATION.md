@@ -15,8 +15,10 @@ review.
 
 ## `adapters/golib` compatibility facade
 
-`github.com/faustbrian/go-cloudevents/adapters/golib` is deprecated for new
-adoption. It is retained for v1 compatibility, but its broad integration
+Both `github.com/faustbrian/go-cloudevents/adapters/golib` and its `/v2` module
+are deprecated for new adoption. Released v1 remains available; v2 explicitly
+adopts Workflow v2 while unrelated contracts stay on their existing versions.
+The broad integration
 surface owns 26 module dependencies and is therefore excluded from the
 recommended adapter set.
 
@@ -28,5 +30,6 @@ tenancy, and workflow integrations. Migrate one boundary at a time; the target
 adapters preserve the same public mapping and validation contracts without
 requiring the unrelated bridge dependencies.
 
-The earliest possible removal is `adapters/golib/v2.0.0`. No removal is
-scheduled, and the facade remains supported for the v1 compatibility line.
+The earliest possible removal from the current major is
+`adapters/golib/v3.0.0`. No removal is scheduled. Published v1 remains
+available, and v2 retains the facade under an explicit new module identity.

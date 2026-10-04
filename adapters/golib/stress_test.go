@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v2"
 	"github.com/faustbrian/go-correlation"
 	"github.com/faustbrian/go-queue/job"
 )

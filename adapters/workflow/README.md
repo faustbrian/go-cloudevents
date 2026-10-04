@@ -4,7 +4,7 @@ This module maps Golib durable workflow history to CloudEvents while retaining
 workflow-owned sequence, definition, retry, compensation, and scheduling
 state outside the event.
 
-After `adapters/workflow/v2.0.0` is publicly released, install with
+Install the publicly released adapter with
 `go get github.com/faustbrian/go-cloudevents/adapters/workflow/v2@v2.0.0`.
 Use `ToCloudEvent` and retain its `State`; pass that state to `FromCloudEvent`
 when reconstructing the canonical history event. Runtime lifecycle is external.
@@ -28,11 +28,11 @@ directory is required. `api/v1.0.1.txt` preserves the exact released v1 API from
 commit `5559c521abeb0ac979a06a9405185b8486033c88`; `api/baseline.txt` describes
 the current major, not compatibility between different module identities.
 
-Published adapter v1 remains available. The deprecated `adapters/golib` facade
-and non-releasable `integration/target-adapters` composition intentionally remain
-on released adapter-v1 and workflow-v1 until this producer is publicly released.
-They require a separate deliberate import and dependency migration afterward;
-the facade's public workflow types require its own major version.
+Published adapter v1 remains available. The non-releasable
+`integration/target-adapters` composition now explicitly consumes this public v2
+adapter and Workflow v2. The deprecated facade's Workflow-v2 migration uses its
+own `adapters/golib/v2` identity; released facade v1 keeps its original types.
+Applications should prefer this target adapter over the broad facade.
 
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/workflow/v2),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),

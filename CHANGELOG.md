@@ -7,6 +7,10 @@ versioning.
 
 ### Documentation
 
+- Document the public Workflow v2 adapter and explicit facade-v2 and
+  non-releasable integration adoption without changing the CloudEvents root
+  module contract or unrelated dependency selections.
+
 - Document staged adoption of the independently versioned Workflow v2 adapter;
   the CloudEvents root and released-v1 facade and integration dependencies
   remain unchanged.

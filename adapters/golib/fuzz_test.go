@@ -11,7 +11,7 @@ import (
 
 	"github.com/faustbrian/go-audit"
 	"github.com/faustbrian/go-cloudevents"
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v2"
 	"github.com/faustbrian/go-correlation"
 	eventsourcing "github.com/faustbrian/go-event-sourcing"
 	jsonschema "github.com/faustbrian/go-json-schema"
@@ -19,7 +19,7 @@ import (
 	"github.com/faustbrian/go-queue/job"
 	"github.com/faustbrian/go-tenancy"
 	"github.com/faustbrian/go-transactional-outbox"
-	"github.com/faustbrian/go-workflow"
+	"github.com/faustbrian/go-workflow/v2"
 )
 
 const fuzzAdapterPayloadLimit = 64 << 10
