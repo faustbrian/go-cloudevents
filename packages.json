@@ -162,7 +162,7 @@
       "module_directory": "adapters/tenancy",
       "directory": ".",
       "name": "tenancy",
-      "import_path": "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+      "import_path": "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2",
       "kind": "public",
       "production": true,
       "executable": true,
