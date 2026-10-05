@@ -7,7 +7,7 @@ import (
 
 	"github.com/faustbrian/go-cloudevents"
 	"github.com/faustbrian/go-cloudevents/internal/adapter"
-	golibtenancy "github.com/faustbrian/go-tenancy"
+	golibtenancy "github.com/faustbrian/go-tenancy/v2"
 )
 
 var (

@@ -107,7 +107,7 @@ only the dependency boundary they need:
 | RabbitMQ Streams | `github.com/faustbrian/go-cloudevents/adapters/rabbitstream` |
 | Schema registry | `github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2` |
 | Golib telemetry | `github.com/faustbrian/go-cloudevents/adapters/telemetry` |
-| Tenancy | `github.com/faustbrian/go-cloudevents/adapters/tenancy` |
+| Tenancy | `github.com/faustbrian/go-cloudevents/adapters/tenancy/v2` |
 | Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow/v2` |
 
 The `adapters/golib` module is a deprecated compatibility facade. Released v1

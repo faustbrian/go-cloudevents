@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/faustbrian/go-cloudevents"
-	golibtenancy "github.com/faustbrian/go-tenancy"
+	golibtenancy "github.com/faustbrian/go-tenancy/v2"
 )
 
 func TestAddValidatesTenantPreservesInputAndRejectsCollisions(t *testing.T) {

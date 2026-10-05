@@ -46,7 +46,7 @@ api:
     path: adapters/telemetry/api/baseline.txt
   - module: adapters/tenancy
     mode: apidiff
-    path: adapters/tenancy/api/baseline.txt
+    path: adapters/tenancy/api/v2-baseline.txt
   - module: adapters/workflow
     mode: apidiff
     path: adapters/workflow/api/baseline.txt

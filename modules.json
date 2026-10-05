@@ -91,7 +91,7 @@
           "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
           "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
           "github.com/faustbrian/go-cloudevents/adapters/telemetry",
-          "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+          "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2",
           "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"
         ],
         "companions": [],
@@ -1659,14 +1659,14 @@
     },
     {
       "directory": "adapters/tenancy",
-      "module_path": "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2",
       "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/tenancy",
           "directory": ".",
           "name": "tenancy",
-          "import_path": "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2",
           "kind": "public",
           "production": true,
           "executable": true,
@@ -1695,10 +1695,10 @@
         ],
         "public_package_identifier": "tenancy",
         "primary_entry_packages": [
-          "github.com/faustbrian/go-cloudevents/adapters/tenancy"
+          "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2"
         ],
         "package_selection": {
-          "github.com/faustbrian/go-cloudevents/adapters/tenancy": "Use when an application owns both a CloudEvent and Golib tenant routing identity contract."
+          "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2": "Use when an application owns both a CloudEvent and Golib tenant routing identity contract."
         },
         "lifecycle_status": "active",
         "maturity": "stable",
@@ -1734,7 +1734,7 @@
         ],
         "documentation": {
           "readme": "adapters/tenancy/README.md",
-          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/tenancy",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/tenancy/v2",
           "adoption": "adapters/tenancy/README.md",
           "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
           "compatibility": "adapters/tenancy/README.md",
@@ -1742,7 +1742,7 @@
           "examples": null,
           "faq": "adapters/tenancy/README.md",
           "changelog": "adapters/tenancy/CHANGELOG.md",
-          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/tenancy",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/tenancy/v2",
           "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
         },
         "known_good_compatibility_sets": [],
@@ -1752,11 +1752,11 @@
           "release": "in-progress"
         }
       },
-      "version": "1.0.0",
+      "version": "2.0.0",
       "tag_prefix": "adapters/tenancy/v",
       "owned_dependencies": [
         "github.com/faustbrian/go-cloudevents",
-        "github.com/faustbrian/go-tenancy"
+        "github.com/faustbrian/go-tenancy/v2"
       ],
       "reverse_owned_dependencies": [
         "github.com/faustbrian/go-cloudevents/adapters/audit",
