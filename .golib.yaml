@@ -13,7 +13,7 @@ api:
     path: api/baseline.txt
   - module: adapters/golib
     mode: apidiff
-    path: adapters/golib/api/baseline.txt
+    path: adapters/golib/api/v3-baseline.txt
   - module: adapters/audit
     mode: apidiff
     path: adapters/audit/api/v2-baseline.txt

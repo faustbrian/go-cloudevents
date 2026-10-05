@@ -2,11 +2,11 @@ package golib
 
 import (
 	"github.com/faustbrian/go-cloudevents"
-	cloudeventsourcing "github.com/faustbrian/go-cloudevents/adapters/event-sourcing"
+	cloudeventsourcing "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2"
 	cloudoutbox "github.com/faustbrian/go-cloudevents/adapters/outbox"
-	cloudqueue "github.com/faustbrian/go-cloudevents/adapters/queue"
+	cloudqueue "github.com/faustbrian/go-cloudevents/adapters/queue/v2"
 	cloudworkflow "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"
-	eventsourcing "github.com/faustbrian/go-event-sourcing"
+	eventsourcing "github.com/faustbrian/go-event-sourcing/v2"
 	"github.com/faustbrian/go-queue/job"
 	outbox "github.com/faustbrian/go-transactional-outbox"
 	"github.com/faustbrian/go-workflow/v2"

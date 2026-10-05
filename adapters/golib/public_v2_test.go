@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v2"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v3"
 	workflow "github.com/faustbrian/go-workflow/v2"
 )
 

@@ -7,6 +7,11 @@ versioning.
 
 ### Changed
 
+- Adopt published Audit2, Queue2, EventSourcing2 and Tenancy2 adapters in the
+  target integration recipes. The deprecated facade-v3 identity also adopts
+  public Schema Registry2 nominal configuration while retaining mapping and
+  ownership semantics; prior facade releases remain available.
+
 - Declare current Audit v2, Queue v2 and Tenancy v2 adapter identities
   consistently in the family catalog while preserving legacy facade inputs.
 - Add isolated native family security qualification without substituting for

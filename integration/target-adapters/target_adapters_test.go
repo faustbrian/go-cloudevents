@@ -4,17 +4,17 @@ import (
 	"testing"
 
 	"github.com/faustbrian/go-cloudevents"
-	cloudaudit "github.com/faustbrian/go-cloudevents/adapters/audit"
+	cloudaudit "github.com/faustbrian/go-cloudevents/adapters/audit/v2"
 	cloudcorrelation "github.com/faustbrian/go-cloudevents/adapters/correlation"
-	cloudeventsourcing "github.com/faustbrian/go-cloudevents/adapters/event-sourcing"
+	cloudeventsourcing "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2"
 	cloudjsonschema "github.com/faustbrian/go-cloudevents/adapters/jsonschema"
 	cloudkafka "github.com/faustbrian/go-cloudevents/adapters/kafka"
 	cloudoutbox "github.com/faustbrian/go-cloudevents/adapters/outbox"
-	cloudqueue "github.com/faustbrian/go-cloudevents/adapters/queue"
+	cloudqueue "github.com/faustbrian/go-cloudevents/adapters/queue/v2"
 	cloudrabbitstream "github.com/faustbrian/go-cloudevents/adapters/rabbitstream"
 	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2"
 	cloudtelemetry "github.com/faustbrian/go-cloudevents/adapters/telemetry"
-	cloudtenancy "github.com/faustbrian/go-cloudevents/adapters/tenancy"
+	cloudtenancy "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2"
 	cloudworkflow "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"
 )
 

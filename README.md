@@ -110,13 +110,13 @@ only the dependency boundary they need:
 | Tenancy | `github.com/faustbrian/go-cloudevents/adapters/tenancy/v2` |
 | Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow/v2` |
 
-Audit, queue and event-sourcing adapter v2 source is prepared on main; those
-modules require independent public releases before consumer migration.
+Audit, queue and event-sourcing adapters v2.0.0 are publicly released and used
+by the target integration recipes with the public Tenancy v2 contract.
 Published v1 adapters remain available with their original contracts.
 
 The `adapters/golib` module is a deprecated compatibility facade. Released v1
-remains available; the separate `adapters/golib/v2` identity deliberately adopts
-Workflow v2 while unrelated contracts stay on their existing versions. Both
+and v2 remain available; the pending `adapters/golib/v3` identity adopts public
+Tenancy2, EventSourcing2 and Schema Registry2 types alongside Workflow2. All
 generations are excluded from the recommended set
 because its broad bridge owns 26 module dependencies. New code and migrations
 should select the target module directly. The

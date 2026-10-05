@@ -8,10 +8,10 @@ import (
 	"github.com/faustbrian/go-cloudevents"
 	cloudcorrelation "github.com/faustbrian/go-cloudevents/adapters/correlation"
 	cloudtelemetry "github.com/faustbrian/go-cloudevents/adapters/telemetry"
-	cloudtenancy "github.com/faustbrian/go-cloudevents/adapters/tenancy"
+	cloudtenancy "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2"
 	"github.com/faustbrian/go-correlation"
 	telemetrypropagation "github.com/faustbrian/go-telemetry/propagation"
-	"github.com/faustbrian/go-tenancy"
+	"github.com/faustbrian/go-tenancy/v2"
 	"go.opentelemetry.io/otel/trace"
 )
 

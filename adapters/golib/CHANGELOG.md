@@ -6,6 +6,13 @@ All notable changes to this module are documented here.
 
 ### Changed
 
+- Adopt the public Tenancy v2, EventSourcing v2 and Schema Registry v2 contracts
+  through facade `github.com/faustbrian/go-cloudevents/adapters/golib/v3`.
+  Update facade and corresponding core imports together; tenant values, audit
+  metadata, event-store messages/state and registry configuration now use their
+  actual public v2 nominal identities. Conversion, trust, retained ownership and
+  loss semantics remain unchanged. Published facade v1 and v2 remain available.
+
 - Adopt the actual public Workflow v2 adapter and core through the independent
   `github.com/faustbrian/go-cloudevents/adapters/golib/v2` module. Update facade
   and Workflow imports together: history inputs, outputs and retained definition
