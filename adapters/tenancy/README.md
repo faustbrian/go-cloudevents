@@ -4,7 +4,7 @@ This module maps validated Golib tenant routing identity through one
 CloudEvents extension. It does not authenticate or authorize the tenant.
 
 The v2 source uses `github.com/faustbrian/go-tenancy/v2` tenant identities.
-After `adapters/tenancy/v2.0.0` is published, install with
+Install the published `adapters/tenancy/v2.0.0` release with
 `go get github.com/faustbrian/go-cloudevents/adapters/tenancy/v2@v2`.
 Update both adapter and tenant imports together: v1 and v2 tenant types and
 error sentinels have distinct identities. Released v1 consumers retain the

@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v2"
-	schemaregistry "github.com/faustbrian/go-schema-registry"
-	registryjsonschema "github.com/faustbrian/go-schema-registry/formats/jsonschema"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v3"
+	schemaregistry "github.com/faustbrian/go-schema-registry/v2"
+	registryjsonschema "github.com/faustbrian/go-schema-registry/v2/formats/jsonschema"
 )
 
 type schemaHardeningResolverFunc func(context.Context, schemaregistry.Lookup) (schemaregistry.ResolveResult, error)

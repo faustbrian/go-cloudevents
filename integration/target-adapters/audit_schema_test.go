@@ -8,7 +8,7 @@ import (
 
 	"github.com/faustbrian/go-audit"
 	"github.com/faustbrian/go-cloudevents"
-	cloudaudit "github.com/faustbrian/go-cloudevents/adapters/audit"
+	cloudaudit "github.com/faustbrian/go-cloudevents/adapters/audit/v2"
 	cloudjsonschema "github.com/faustbrian/go-cloudevents/adapters/jsonschema"
 	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2"
 	jsonschema "github.com/faustbrian/go-json-schema"

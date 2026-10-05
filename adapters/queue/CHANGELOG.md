@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Documentation
+
+- Record public adapter-v2 availability and explicit facade-v3 and target
+  integration adoption; released older facade contracts remain available.
+
 - Adopt public Tenancy v2 validation through the independent `adapters/queue/v2`
   module. Migrate adapter imports and tenant-error matching to `go-tenancy/v2`
   together; queue jobs retain string tenant metadata and their existing core
