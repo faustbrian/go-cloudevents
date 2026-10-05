@@ -11,13 +11,13 @@ import (
 
 	"github.com/faustbrian/go-audit"
 	"github.com/faustbrian/go-cloudevents"
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v2"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v3"
 	"github.com/faustbrian/go-correlation"
-	eventsourcing "github.com/faustbrian/go-event-sourcing"
+	eventsourcing "github.com/faustbrian/go-event-sourcing/v2"
 	jsonschema "github.com/faustbrian/go-json-schema"
 	"github.com/faustbrian/go-kafka"
 	"github.com/faustbrian/go-queue/job"
-	"github.com/faustbrian/go-tenancy"
+	"github.com/faustbrian/go-tenancy/v2"
 	"github.com/faustbrian/go-transactional-outbox"
 	"github.com/faustbrian/go-workflow/v2"
 )

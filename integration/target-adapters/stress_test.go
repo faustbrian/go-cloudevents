@@ -8,7 +8,7 @@ import (
 	"time"
 
 	cloudcorrelation "github.com/faustbrian/go-cloudevents/adapters/correlation"
-	cloudqueue "github.com/faustbrian/go-cloudevents/adapters/queue"
+	cloudqueue "github.com/faustbrian/go-cloudevents/adapters/queue/v2"
 	"github.com/faustbrian/go-correlation"
 	"github.com/faustbrian/go-queue/job"
 )

@@ -3,7 +3,7 @@ package golib
 import (
 	"github.com/faustbrian/go-audit"
 	"github.com/faustbrian/go-cloudevents"
-	cloudaudit "github.com/faustbrian/go-cloudevents/adapters/audit"
+	cloudaudit "github.com/faustbrian/go-cloudevents/adapters/audit/v2"
 )
 
 type AuditMetadata = cloudaudit.Metadata

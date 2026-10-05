@@ -6,10 +6,10 @@ import (
 	"testing"
 
 	"github.com/faustbrian/go-cloudevents"
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v2"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v3"
 	"github.com/faustbrian/go-correlation"
 	telemetrypropagation "github.com/faustbrian/go-telemetry/propagation"
-	"github.com/faustbrian/go-tenancy"
+	"github.com/faustbrian/go-tenancy/v2"
 	"go.opentelemetry.io/otel/trace"
 )
 

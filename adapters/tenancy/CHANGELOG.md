@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Documentation
+
+- Clarify installation of the already published adapter-v2 release.
+
 - Adopt published Tenancy v2 identities and errors under the adapter's v2
   module path. Update adapter and Tenancy imports together; wire metadata,
   explicit trust, collision handling and input ownership are unchanged.

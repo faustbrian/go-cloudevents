@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Documentation
+
+- Record public adapter-v2 availability and explicit facade-v3 and target
+  integration adoption; released older facade contracts remain available.
+
 ### Changed
 
 - Use public Tenancy v2 validation in the pending Event Sourcing adapter v2;
