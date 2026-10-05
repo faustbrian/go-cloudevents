@@ -5,6 +5,12 @@ versioning.
 
 ## Unreleased
 
+### Changed
+
+- Upgrade checksum-pinned `go-library-tools` and reusable CI to v1.8.4 so
+  selected adapter releases follow the proportional assurance policy while
+  retaining every configured verification gate.
+
 ### Documentation
 
 - Document the public Workflow v2 adapter and explicit facade-v2 and
