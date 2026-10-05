@@ -1,11 +1,11 @@
-module github.com/faustbrian/go-cloudevents/adapters/queue
+module github.com/faustbrian/go-cloudevents/adapters/queue/v2
 
 go 1.27.0
 
 require (
 	github.com/faustbrian/go-cloudevents v1.1.0
 	github.com/faustbrian/go-queue v1.1.0
-	github.com/faustbrian/go-tenancy v1.1.0
+	github.com/faustbrian/go-tenancy/v2 v2.0.0
 )
 
 require (

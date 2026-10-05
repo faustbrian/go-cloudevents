@@ -7,11 +7,19 @@ versioning.
 
 ### Changed
 
+- Declare current Audit v2, Queue v2 and Tenancy v2 adapter identities
+  consistently in the family catalog while preserving legacy facade inputs.
+- Add isolated native family security qualification without substituting for
+  ordinary required CI or release checks.
+
 - Upgrade checksum-pinned `go-library-tools` and reusable CI to v1.8.4 so
   selected adapter releases follow the proportional assurance policy while
   retaining every configured verification gate.
 
 ### Documentation
+
+- Record versioned family trust boundaries and accepted collaborator risks
+  with explicit ownership, mitigations and review conditions.
 
 - Document the public Workflow v2 adapter and explicit facade-v2 and
   non-releasable integration adoption without changing the CloudEvents root

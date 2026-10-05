@@ -13,7 +13,9 @@ when reconstructing the canonical message. No storage or transport is owned.
 
 This independent module adopts public
 `github.com/faustbrian/go-event-sourcing/v2@v2.0.0` and the existing unsuffixed
-CloudEvents root at v1.1.1, rather than v1.1.0. Tenancy remains v1.1.0.
+CloudEvents root at v1.1.1, rather than v1.1.0. Tenant validation adopts public
+`github.com/faustbrian/go-tenancy/v2@v2.0.0`; match wrapped tenant errors against
+that major's sentinels while retained tenant metadata remains string-valued.
 Update adapter imports and core types together: `ToCloudEvent` accepts a
 core-v2 `Message`, `FromCloudEvent` returns one, and `State` uses core-v2
 `StreamID`, `GlobalPosition`, and `SchemaVersion`. Core-v1 and core-v2 named
@@ -31,8 +33,9 @@ interval; it does not expose this v2 adapter. The non-releasable
 publication, then requires an explicit import/dependency update.
 
 `api/v1.0.1.txt` preserves the exact released API from commit
-`5559c521abeb0ac979a06a9405185b8486033c88`; `api/baseline.txt` describes the
-current major, not compatibility between distinct Go module identities.
+`5559c521abeb0ac979a06a9405185b8486033c88`; `api/baseline.txt` retains the earlier
+snapshot, and `api/v2-baseline.txt` describes the pending current major, not
+compatibility between distinct Go module identities.
 
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),

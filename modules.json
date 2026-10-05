@@ -80,14 +80,14 @@
         },
         "optional_owned_dependencies": [],
         "adapters": [
-          "github.com/faustbrian/go-cloudevents/adapters/audit",
+          "github.com/faustbrian/go-cloudevents/adapters/audit/v2",
           "github.com/faustbrian/go-cloudevents/adapters/correlation",
           "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
           "github.com/faustbrian/go-cloudevents/adapters/golib/v2",
           "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
           "github.com/faustbrian/go-cloudevents/adapters/kafka",
           "github.com/faustbrian/go-cloudevents/adapters/outbox",
-          "github.com/faustbrian/go-cloudevents/adapters/queue",
+          "github.com/faustbrian/go-cloudevents/adapters/queue/v2",
           "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
           "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
           "github.com/faustbrian/go-cloudevents/adapters/telemetry",
@@ -134,18 +134,18 @@
       "tag_prefix": "v",
       "owned_dependencies": [],
       "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/audit",
+        "github.com/faustbrian/go-cloudevents/adapters/audit/v2",
         "github.com/faustbrian/go-cloudevents/adapters/correlation",
         "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
         "github.com/faustbrian/go-cloudevents/adapters/golib/v2",
         "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
         "github.com/faustbrian/go-cloudevents/adapters/kafka",
         "github.com/faustbrian/go-cloudevents/adapters/outbox",
-        "github.com/faustbrian/go-cloudevents/adapters/queue",
+        "github.com/faustbrian/go-cloudevents/adapters/queue/v2",
         "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
         "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
         "github.com/faustbrian/go-cloudevents/adapters/telemetry",
-        "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+        "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2",
         "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"
       ],
       "external_runtime_dependencies": [
@@ -362,14 +362,14 @@
     },
     {
       "directory": "adapters/audit",
-      "module_path": "github.com/faustbrian/go-cloudevents/adapters/audit",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/audit/v2",
       "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/audit",
           "directory": ".",
           "name": "audit",
-          "import_path": "github.com/faustbrian/go-cloudevents/adapters/audit",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/audit/v2",
           "kind": "public",
           "production": true,
           "executable": true,
@@ -398,10 +398,10 @@
         ],
         "public_package_identifier": "audit",
         "primary_entry_packages": [
-          "github.com/faustbrian/go-cloudevents/adapters/audit"
+          "github.com/faustbrian/go-cloudevents/adapters/audit/v2"
         ],
         "package_selection": {
-          "github.com/faustbrian/go-cloudevents/adapters/audit": "Use when an application owns both a CloudEvent and Golib audit metadata contract."
+          "github.com/faustbrian/go-cloudevents/adapters/audit/v2": "Use when an application owns both a CloudEvent and Golib audit metadata contract."
         },
         "lifecycle_status": "active",
         "maturity": "stable",
@@ -437,7 +437,7 @@
         ],
         "documentation": {
           "readme": "adapters/audit/README.md",
-          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/audit",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/audit/v2",
           "adoption": "adapters/audit/README.md",
           "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
           "compatibility": "adapters/audit/README.md",
@@ -445,7 +445,7 @@
           "examples": null,
           "faq": "adapters/audit/README.md",
           "changelog": "adapters/audit/CHANGELOG.md",
-          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/audit",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/audit/v2",
           "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
         },
         "known_good_compatibility_sets": [],
@@ -455,19 +455,17 @@
           "release": "in-progress"
         }
       },
-      "version": "1.0.0",
+      "version": "2.0.0",
       "tag_prefix": "adapters/audit/v",
       "owned_dependencies": [
         "github.com/faustbrian/go-cloudevents",
         "github.com/faustbrian/go-cloudevents/adapters/correlation",
-        "github.com/faustbrian/go-cloudevents/adapters/tenancy",
+        "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2",
         "github.com/faustbrian/go-audit",
         "github.com/faustbrian/go-correlation",
-        "github.com/faustbrian/go-tenancy"
+        "github.com/faustbrian/go-tenancy/v2"
       ],
-      "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v2"
-      ],
+      "reverse_owned_dependencies": [],
       "external_runtime_dependencies": [],
       "required_services": [],
       "build_tags": [],
@@ -595,7 +593,7 @@
         "github.com/faustbrian/go-correlation"
       ],
       "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/audit",
+        "github.com/faustbrian/go-cloudevents/adapters/audit/v2",
         "github.com/faustbrian/go-cloudevents/adapters/golib/v2"
       ],
       "external_runtime_dependencies": [],
@@ -723,7 +721,7 @@
       "owned_dependencies": [
         "github.com/faustbrian/go-cloudevents",
         "github.com/faustbrian/go-event-sourcing/v2",
-        "github.com/faustbrian/go-tenancy"
+        "github.com/faustbrian/go-tenancy/v2"
       ],
       "reverse_owned_dependencies": [],
       "external_runtime_dependencies": [],
@@ -1140,14 +1138,14 @@
     },
     {
       "directory": "adapters/queue",
-      "module_path": "github.com/faustbrian/go-cloudevents/adapters/queue",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/queue/v2",
       "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/queue",
           "directory": ".",
           "name": "queue",
-          "import_path": "github.com/faustbrian/go-cloudevents/adapters/queue",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/queue/v2",
           "kind": "public",
           "production": true,
           "executable": true,
@@ -1176,10 +1174,10 @@
         ],
         "public_package_identifier": "queue",
         "primary_entry_packages": [
-          "github.com/faustbrian/go-cloudevents/adapters/queue"
+          "github.com/faustbrian/go-cloudevents/adapters/queue/v2"
         ],
         "package_selection": {
-          "github.com/faustbrian/go-cloudevents/adapters/queue": "Use when an application owns both a CloudEvent and Golib queue jobs contract."
+          "github.com/faustbrian/go-cloudevents/adapters/queue/v2": "Use when an application owns both a CloudEvent and Golib queue jobs contract."
         },
         "lifecycle_status": "active",
         "maturity": "stable",
@@ -1215,7 +1213,7 @@
         ],
         "documentation": {
           "readme": "adapters/queue/README.md",
-          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/queue",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/queue/v2",
           "adoption": "adapters/queue/README.md",
           "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
           "compatibility": "adapters/queue/README.md",
@@ -1223,7 +1221,7 @@
           "examples": null,
           "faq": "adapters/queue/README.md",
           "changelog": "adapters/queue/CHANGELOG.md",
-          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/queue",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/queue/v2",
           "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
         },
         "known_good_compatibility_sets": [],
@@ -1233,16 +1231,14 @@
           "release": "in-progress"
         }
       },
-      "version": "1.0.0",
+      "version": "2.0.0",
       "tag_prefix": "adapters/queue/v",
       "owned_dependencies": [
         "github.com/faustbrian/go-cloudevents",
         "github.com/faustbrian/go-queue",
-        "github.com/faustbrian/go-tenancy"
+        "github.com/faustbrian/go-tenancy/v2"
       ],
-      "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v2"
-      ],
+      "reverse_owned_dependencies": [],
       "external_runtime_dependencies": [],
       "required_services": [],
       "build_tags": [],
@@ -1759,8 +1755,7 @@
         "github.com/faustbrian/go-tenancy/v2"
       ],
       "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/audit",
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v2"
+        "github.com/faustbrian/go-cloudevents/adapters/audit/v2"
       ],
       "external_runtime_dependencies": [],
       "required_services": [],

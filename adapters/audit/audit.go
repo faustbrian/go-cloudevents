@@ -9,10 +9,10 @@ import (
 	golibaudit "github.com/faustbrian/go-audit"
 	"github.com/faustbrian/go-cloudevents"
 	cloudcorrelation "github.com/faustbrian/go-cloudevents/adapters/correlation"
-	cloudtenancy "github.com/faustbrian/go-cloudevents/adapters/tenancy"
+	cloudtenancy "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2"
 	"github.com/faustbrian/go-cloudevents/internal/adapter"
 	golibcorrelation "github.com/faustbrian/go-correlation"
-	golibtenancy "github.com/faustbrian/go-tenancy"
+	golibtenancy "github.com/faustbrian/go-tenancy/v2"
 )
 
 const (

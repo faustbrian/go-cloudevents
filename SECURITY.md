@@ -1,5 +1,8 @@
 # Security
 
+The versioned [family threat model](docs/threat-model.md) records trust boundaries,
+accepted collaborator risks, owners and review conditions.
+
 ## Untrusted input
 
 Every decoder requires explicit limits. Choose limits no larger than the

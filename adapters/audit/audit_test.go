@@ -7,7 +7,7 @@ import (
 
 	"github.com/faustbrian/go-audit"
 	"github.com/faustbrian/go-cloudevents"
-	cloudaudit "github.com/faustbrian/go-cloudevents/adapters/audit"
+	cloudaudit "github.com/faustbrian/go-cloudevents/adapters/audit/v2"
 )
 
 func TestAuditMetadataRoundTripSelectsSafeFieldsAndReportsLoss(t *testing.T) {

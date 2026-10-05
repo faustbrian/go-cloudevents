@@ -4,6 +4,9 @@
 
 ### Changed
 
+- Use public Tenancy v2 validation in the pending Event Sourcing adapter v2;
+  wrapped tenant errors now match `go-tenancy/v2` sentinels. Retained tenant
+  state stays string-valued, with unchanged conversions, trust and ownership.
 - Adopt public Event Sourcing core v2.0.0 through the independent
   `github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2` module
   identity. Move imports and core message/state types together; conversion
