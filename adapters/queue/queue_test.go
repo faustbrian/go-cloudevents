@@ -8,7 +8,7 @@ import (
 
 	"github.com/faustbrian/go-cloudevents"
 	"github.com/faustbrian/go-queue/job"
-	"github.com/faustbrian/go-tenancy"
+	"github.com/faustbrian/go-tenancy/v2"
 )
 
 func TestQueueRoundTripPreservesOwnedStateWithoutAliasing(t *testing.T) {

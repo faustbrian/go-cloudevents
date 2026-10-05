@@ -97,18 +97,22 @@ only the dependency boundary they need:
 
 | Target | Module |
 | --- | --- |
-| Audit metadata | `github.com/faustbrian/go-cloudevents/adapters/audit` |
+| Audit metadata | `github.com/faustbrian/go-cloudevents/adapters/audit/v2` |
 | Correlation identifiers | `github.com/faustbrian/go-cloudevents/adapters/correlation` |
-| Event sourcing | `github.com/faustbrian/go-cloudevents/adapters/event-sourcing` |
+| Event sourcing | `github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2` |
 | Direct JSON Schema | `github.com/faustbrian/go-cloudevents/adapters/jsonschema` |
 | Kafka records | `github.com/faustbrian/go-cloudevents/adapters/kafka` |
 | Transactional outbox | `github.com/faustbrian/go-cloudevents/adapters/outbox` |
-| Queue jobs | `github.com/faustbrian/go-cloudevents/adapters/queue` |
+| Queue jobs | `github.com/faustbrian/go-cloudevents/adapters/queue/v2` |
 | RabbitMQ Streams | `github.com/faustbrian/go-cloudevents/adapters/rabbitstream` |
 | Schema registry | `github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2` |
 | Golib telemetry | `github.com/faustbrian/go-cloudevents/adapters/telemetry` |
 | Tenancy | `github.com/faustbrian/go-cloudevents/adapters/tenancy/v2` |
 | Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow/v2` |
+
+Audit, queue and event-sourcing adapter v2 source is prepared on main; those
+modules require independent public releases before consumer migration.
+Published v1 adapters remain available with their original contracts.
 
 The `adapters/golib` module is a deprecated compatibility facade. Released v1
 remains available; the separate `adapters/golib/v2` identity deliberately adopts

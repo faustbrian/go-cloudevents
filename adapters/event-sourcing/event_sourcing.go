@@ -11,7 +11,7 @@ import (
 	"github.com/faustbrian/go-cloudevents"
 	"github.com/faustbrian/go-cloudevents/internal/adapter"
 	golibeventsourcing "github.com/faustbrian/go-event-sourcing/v2"
-	"github.com/faustbrian/go-tenancy"
+	"github.com/faustbrian/go-tenancy/v2"
 )
 
 const eventSchemaExtension = "eventschema"

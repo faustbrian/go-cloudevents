@@ -16,13 +16,13 @@ api:
     path: adapters/golib/api/baseline.txt
   - module: adapters/audit
     mode: apidiff
-    path: adapters/audit/api/baseline.txt
+    path: adapters/audit/api/v2-baseline.txt
   - module: adapters/correlation
     mode: apidiff
     path: adapters/correlation/api/baseline.txt
   - module: adapters/event-sourcing
     mode: apidiff
-    path: adapters/event-sourcing/api/baseline.txt
+    path: adapters/event-sourcing/api/v2-baseline.txt
   - module: adapters/jsonschema
     mode: apidiff
     path: adapters/jsonschema/api/baseline.txt
@@ -34,7 +34,7 @@ api:
     path: adapters/outbox/api/baseline.txt
   - module: adapters/queue
     mode: apidiff
-    path: adapters/queue/api/baseline.txt
+    path: adapters/queue/api/v2-baseline.txt
   - module: adapters/rabbitstream
     mode: apidiff
     path: adapters/rabbitstream/api/baseline.txt

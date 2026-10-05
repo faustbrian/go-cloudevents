@@ -8,7 +8,7 @@ import (
 
 	"github.com/faustbrian/go-cloudevents"
 	golibeventsourcing "github.com/faustbrian/go-event-sourcing/v2"
-	"github.com/faustbrian/go-tenancy"
+	"github.com/faustbrian/go-tenancy/v2"
 )
 
 func TestRoundTripRetainsEventStoreStateWithoutAliasing(t *testing.T) {
