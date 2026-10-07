@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.0.1 - 2026-10-07
+
 ### Documentation
 
 - Record public adapter-v2 availability and explicit facade-v3 and target
@@ -11,6 +13,10 @@
 
 - Adopt Tenancy v2.0.1 in the adapter dependency graph while retaining
   the public v2 tenant identity.
+
+## 2.0.0 - 2026-10-05
+
+### Changed
 
 - Use public Tenancy v2 validation in the pending Event Sourcing adapter v2;
   wrapped tenant errors now match `go-tenancy/v2` sentinels. Retained tenant

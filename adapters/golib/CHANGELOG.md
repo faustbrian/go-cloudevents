@@ -4,6 +4,8 @@ All notable changes to this module are documented here.
 
 ## Unreleased
 
+## 3.0.1 - 2026-10-07
+
 ### Changed
 
 - Adopt Correlation v1.1.2 and its indirect Identifier v2 dependency
@@ -12,13 +14,15 @@ All notable changes to this module are documented here.
 - Select Kafka root module v1.1.0 while preserving record ownership,
   transport metadata, and CloudEvents binding behavior.
 
-### Changed
-
 - Adopt Queue v1.1.2 in the facade dependency graph while retaining the
   public facade v3 conversion contracts.
 
 - Adopt RabbitMQ Streams v1.1.1 and record Snappy v1.0.0 in the facade
   dependency graph while retaining the public facade v3 identity.
+
+## 3.0.0 - 2026-10-05
+
+### Changed
 
 - Adopt the public Tenancy v2, EventSourcing v2 and Schema Registry v2 contracts
   through facade `github.com/faustbrian/go-cloudevents/adapters/golib/v3`.

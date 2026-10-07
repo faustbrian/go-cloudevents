@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.0.1 - 2026-10-07
+
 ### Changed
 
 - Adopt Correlation v1.1.2 and its indirect Identifier v2 dependency
@@ -15,6 +17,8 @@
 
 - Record public adapter-v2 availability and explicit facade-v3 and target
   integration adoption; released older facade contracts remain available.
+
+## 2.0.0 - 2026-10-05
 
 - Adopt public Tenancy v2 identities and the public Tenancy adapter v2 through
   the independent `adapters/audit/v2` module. Migrate audit-adapter imports and
