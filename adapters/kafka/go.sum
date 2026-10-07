@@ -38,8 +38,8 @@ github.com/ebitengine/purego v0.10.0 h1:QIw4xfpWT6GWTzaW5XEKy3HXoqrJGx1ijYHzTF0/
 github.com/ebitengine/purego v0.10.0/go.mod h1:iIjxzd6CiRiOG0UyXP+V1+jWqUXVjPKLAI0mRfJZTmQ=
 github.com/faustbrian/go-cloudevents v1.1.0 h1:YJUxH5XkWMCzhSY5QD9a8HSiLGf2TP+g7s8PZElLw+8=
 github.com/faustbrian/go-cloudevents v1.1.0/go.mod h1:icPshOQcLVwjqQoaAlDDQFotOPTEm2dlS8cFWuQ4OVM=
-github.com/faustbrian/go-kafka v1.0.0 h1:gnYGw1zif6Qa2UcNQB5YTFNzNDTRjBMpVZJmHnFG7bE=
-github.com/faustbrian/go-kafka v1.0.0/go.mod h1:5RqX6tuSHTWu052ZromHx8uRUDqsv07IVesA+/4p664=
+github.com/faustbrian/go-kafka v1.1.0 h1:1NjBMvJPvXPyJSvXUFLQDxkjSlwsyKRC2kMAgdxJt2A=
+github.com/faustbrian/go-kafka v1.1.0/go.mod h1:5RqX6tuSHTWu052ZromHx8uRUDqsv07IVesA+/4p664=
 github.com/felixge/httpsnoop v1.0.4 h1:NFTV2Zj1bL4mc9sqWACXbQFVBBg2W3GPvqp8/ESS2Wg=
 github.com/felixge/httpsnoop v1.0.4/go.mod h1:m8KPJKqk1gH5J9DgRY2ASl2lWCfGKXixSwevea8zH2U=
 github.com/go-logr/logr v1.4.4 h1:tG4xh9yMsRCAiodLVTxyrkzSZ9+o0L1Kg/+cPVcbP/8=

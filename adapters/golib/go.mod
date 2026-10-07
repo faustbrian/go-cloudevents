@@ -20,7 +20,7 @@ require (
 	github.com/faustbrian/go-correlation v1.0.0
 	github.com/faustbrian/go-event-sourcing/v2 v2.0.0
 	github.com/faustbrian/go-json-schema v1.0.0
-	github.com/faustbrian/go-kafka v1.0.0
+	github.com/faustbrian/go-kafka v1.1.0
 	github.com/faustbrian/go-queue v1.1.2
 	github.com/faustbrian/go-rabbitmq-streams v1.1.1
 	github.com/faustbrian/go-schema-registry/v2 v2.0.0
