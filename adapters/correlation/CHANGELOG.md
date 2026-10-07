@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.0.2 - 2026-10-07
+
 ### Changed
 
 - Adopt Correlation v1.1.2 and its indirect Identifier v2 dependency

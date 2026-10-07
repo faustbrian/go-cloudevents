@@ -2,12 +2,12 @@
 
 ## Unreleased
 
+## 1.0.2 - 2026-10-07
+
 ### Changed
 
 - Select Kafka root module v1.1.0 while preserving record ownership,
   transport metadata, and CloudEvents binding behavior.
-
-### Changed
 
 - Align indirect OpenTelemetry metric and trace modules with v1.46.0 and
   reconcile their checksums without changing record mapping or ownership.

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.0.2 - 2026-10-07
+
 ### Changed
 
 - Adopt RabbitMQ Streams v1.1.1 in the adapter dependency graph.
