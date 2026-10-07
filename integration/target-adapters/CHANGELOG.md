@@ -4,6 +4,11 @@
 
 ### Changed
 
+- Select Kafka root module v1.1.0 while preserving record ownership,
+  transport metadata, and CloudEvents binding behavior.
+
+### Changed
+
 - Resolve the target-adapter integration graph with Queue v1.1.2.
 
 - Resolve the target-adapter integration graph with RabbitMQ Streams
