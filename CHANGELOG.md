@@ -7,6 +7,10 @@ versioning.
 
 ### Changed
 
+- Select the patched documentation spelling parser in the repository lock
+  and immutable shared CI tooling. Build the exact tooling source with public
+  dependency verification; published Go module dependencies are unchanged.
+
 - Align reusable CI and its executed setup tooling to one immutable source,
   retaining the configured v1.8.4 CLI and independent security qualification.
 
