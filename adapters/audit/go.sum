@@ -20,8 +20,8 @@ github.com/faustbrian/go-correlation v1.0.0 h1:2Z+tlY59nNBdlGFBadPTeuDo9/029IvS/
 github.com/faustbrian/go-correlation v1.0.0/go.mod h1:upLcV0fqKC8IUUx11R6c69CVwC3DO1EeXsw2BQU2PKE=
 github.com/faustbrian/go-identifier v1.0.0 h1:5lXZbS2wK4NelWv4ekRocwOwjkWt1ch/nh7TScxsFO4=
 github.com/faustbrian/go-identifier v1.0.0/go.mod h1:Q2yS7Hk4N4i9Wd3OmPQGh657SHtA1IjvtT4PllphNlY=
-github.com/faustbrian/go-tenancy/v2 v2.0.0 h1:mBnku3tgoqnFAYLR21sI/2DCOazicriIRdLniXV4rF0=
-github.com/faustbrian/go-tenancy/v2 v2.0.0/go.mod h1:X1W2eQH89pZQ13LI9eW4ra3bKnJtp6PoQ1MX2el7rXg=
+github.com/faustbrian/go-tenancy/v2 v2.0.1 h1:zP55Lk2FYYbv0t6nl1OOJsptLLv4JJlO2OmVPkdxawk=
+github.com/faustbrian/go-tenancy/v2 v2.0.1/go.mod h1:X1W2eQH89pZQ13LI9eW4ra3bKnJtp6PoQ1MX2el7rXg=
 github.com/gofrs/uuid/v5 v5.3.2 h1:2jfO8j3XgSwlz/wHqemAEugfnTlikAYHhnqQ8Xh4fE0=
 github.com/gofrs/uuid/v5 v5.3.2/go.mod h1:CDOjlDMVAtN56jqyRUZh58JT31Tiw7/oQyEXZV+9bD8=
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=

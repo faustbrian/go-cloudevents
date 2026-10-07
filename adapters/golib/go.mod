@@ -22,7 +22,7 @@ require (
 	github.com/faustbrian/go-json-schema v1.0.0
 	github.com/faustbrian/go-kafka v1.0.0
 	github.com/faustbrian/go-queue v1.1.0
-	github.com/faustbrian/go-rabbitmq-streams v1.0.0
+	github.com/faustbrian/go-rabbitmq-streams v1.1.1
 	github.com/faustbrian/go-schema-registry/v2 v2.0.0
 	github.com/faustbrian/go-telemetry v1.2.0
 	github.com/faustbrian/go-tenancy/v2 v2.0.1
@@ -38,6 +38,7 @@ require (
 	github.com/deszhou/jcs v1.0.0 // indirect
 	github.com/dlclark/regexp2/v2 v2.5.1 // indirect
 	github.com/faustbrian/go-identifier v1.0.0 // indirect
+	github.com/golang/snappy v1.0.0 // indirect
 	github.com/jackc/pgx/v5 v5.11.0 // indirect
 	github.com/klauspost/compress v1.19.2 // indirect
 	github.com/pierrec/lz4/v4 v4.1.29 // indirect
