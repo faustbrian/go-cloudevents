@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Changed
+
+- Adopt Tenancy v2.0.1 while retaining the adapter and core public v2
+  identities.
+
 ### Documentation
 
 - Clarify installation of the already published adapter-v2 release.
