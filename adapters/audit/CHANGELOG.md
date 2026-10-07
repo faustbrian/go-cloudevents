@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Changed
+
+- Adopt Tenancy v2.0.1 in the adapter dependency graph while retaining
+  the public v2 tenant identity.
+
 ### Documentation
 
 - Record public adapter-v2 availability and explicit facade-v3 and target

@@ -6,6 +6,9 @@ All notable changes to this module are documented here.
 
 ### Changed
 
+- Adopt RabbitMQ Streams v1.1.1 and record Snappy v1.0.0 in the facade
+  dependency graph while retaining the public facade v3 identity.
+
 - Adopt the public Tenancy v2, EventSourcing v2 and Schema Registry v2 contracts
   through facade `github.com/faustbrian/go-cloudevents/adapters/golib/v3`.
   Update facade and corresponding core imports together; tenant values, audit

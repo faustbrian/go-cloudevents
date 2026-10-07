@@ -9,6 +9,9 @@
 
 ### Changed
 
+- Adopt Tenancy v2.0.1 in the adapter dependency graph while retaining
+  the public v2 tenant identity.
+
 - Use public Tenancy v2 validation in the pending Event Sourcing adapter v2;
   wrapped tenant errors now match `go-tenancy/v2` sentinels. Retained tenant
   state stays string-valued, with unchanged conversions, trust and ownership.
