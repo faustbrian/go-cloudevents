@@ -8,7 +8,7 @@ require (
 	github.com/faustbrian/go-cloudevents/adapters/correlation v1.0.0
 	github.com/faustbrian/go-cloudevents/adapters/tenancy/v2 v2.0.0
 	github.com/faustbrian/go-correlation v1.0.0
-	github.com/faustbrian/go-tenancy/v2 v2.0.0
+	github.com/faustbrian/go-tenancy/v2 v2.0.1
 )
 
 require (
