@@ -4,6 +4,10 @@
 
 ### Changed
 
+- Adopt Correlation v1.1.2 and its indirect Identifier v2 dependency
+  while retaining the audit adapter v2 correlation values, selected metadata,
+  explicit trust, and loss-report contracts.
+
 - Adopt Tenancy v2.0.1 in the adapter dependency graph while retaining
   the public v2 tenant identity.
 

@@ -4,6 +4,9 @@
 
 ### Changed
 
+- Resolve the target-adapter integration graph with Correlation v1.1.2
+  and its indirect Identifier v2 dependency.
+
 - Select Kafka root module v1.1.0 while preserving record ownership,
   transport metadata, and CloudEvents binding behavior.
 
