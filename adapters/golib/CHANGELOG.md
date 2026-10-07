@@ -6,6 +6,9 @@ All notable changes to this module are documented here.
 
 ### Changed
 
+- Adopt Correlation v1.1.2 and its indirect Identifier v2 dependency
+  while retaining facade v3 correlation and audit metadata contracts.
+
 - Select Kafka root module v1.1.0 while preserving record ownership,
   transport metadata, and CloudEvents binding behavior.
 
