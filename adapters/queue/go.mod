@@ -4,7 +4,7 @@ go 1.27.0
 
 require (
 	github.com/faustbrian/go-cloudevents v1.1.0
-	github.com/faustbrian/go-queue v1.1.0
+	github.com/faustbrian/go-queue v1.1.2
 	github.com/faustbrian/go-tenancy/v2 v2.0.1
 )
 
