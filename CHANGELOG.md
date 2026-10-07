@@ -7,6 +7,9 @@ versioning.
 
 ### Changed
 
+- Align reusable CI and its executed setup tooling to one immutable source,
+  retaining the configured v1.8.4 CLI and independent security qualification.
+
 - Adopt published Audit2, Queue2, EventSourcing2 and Tenancy2 adapters in the
   target integration recipes. The deprecated facade-v3 identity also adopts
   public Schema Registry2 nominal configuration while retaining mapping and
