@@ -4,6 +4,9 @@
 
 ### Changed
 
+- Adopt Queue v1.1.2 while retaining the public adapter v2 job
+  conversion contract.
+
 - Adopt Tenancy v2.0.1 in the adapter dependency graph while retaining
   the public v2 tenant identity.
 
