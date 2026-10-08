@@ -8,9 +8,9 @@ import (
 	"time"
 
 	"github.com/faustbrian/go-cloudevents"
-	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2"
-	golibregistry "github.com/faustbrian/go-schema-registry/v2"
-	registryjsonschema "github.com/faustbrian/go-schema-registry/v2/formats/jsonschema"
+	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3"
+	golibregistry "github.com/faustbrian/go-schema-registry/v3"
+	registryjsonschema "github.com/faustbrian/go-schema-registry/v3/formats/jsonschema"
 )
 
 type resolverFunc func(context.Context, golibregistry.Lookup) (golibregistry.ResolveResult, error)
@@ -192,7 +192,7 @@ func TestJSONSchemaValidatorOwnsLookupSnapshot(t *testing.T) {
 	}
 }
 
-func TestJSONSchemaValidatorPreservesV2BoundsAndPrivatePayloadDiagnostics(t *testing.T) {
+func TestJSONSchemaValidatorPreservesV3BoundsAndPrivatePayloadDiagnostics(t *testing.T) {
 	adapter := newAdapter(t)
 	schema := compileJSONSchema(t, adapter)
 	validator := newValidator(t, resolverFunc(func(context.Context, golibregistry.Lookup) (golibregistry.ResolveResult, error) {

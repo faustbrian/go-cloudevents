@@ -84,12 +84,12 @@
           "github.com/faustbrian/go-cloudevents/adapters/correlation",
           "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
           "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
-          "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+          "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2",
           "github.com/faustbrian/go-cloudevents/adapters/kafka",
-          "github.com/faustbrian/go-cloudevents/adapters/outbox",
+          "github.com/faustbrian/go-cloudevents/adapters/outbox/v2",
           "github.com/faustbrian/go-cloudevents/adapters/queue/v2",
           "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
-          "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
+          "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3",
           "github.com/faustbrian/go-cloudevents/adapters/telemetry",
           "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2",
           "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"
@@ -138,12 +138,12 @@
         "github.com/faustbrian/go-cloudevents/adapters/correlation",
         "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
         "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
-        "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+        "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2",
         "github.com/faustbrian/go-cloudevents/adapters/kafka",
-        "github.com/faustbrian/go-cloudevents/adapters/outbox",
+        "github.com/faustbrian/go-cloudevents/adapters/outbox/v2",
         "github.com/faustbrian/go-cloudevents/adapters/queue/v2",
         "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
-        "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
+        "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3",
         "github.com/faustbrian/go-cloudevents/adapters/telemetry",
         "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2",
         "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"
@@ -758,14 +758,14 @@
     },
     {
       "directory": "adapters/jsonschema",
-      "module_path": "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2",
       "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/jsonschema",
           "directory": ".",
           "name": "jsonschema",
-          "import_path": "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2",
           "kind": "public",
           "production": true,
           "executable": true,
@@ -794,10 +794,10 @@
         ],
         "public_package_identifier": "jsonschema",
         "primary_entry_packages": [
-          "github.com/faustbrian/go-cloudevents/adapters/jsonschema"
+          "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2"
         ],
         "package_selection": {
-          "github.com/faustbrian/go-cloudevents/adapters/jsonschema": "Use when an application owns both a CloudEvent and Golib compiled JSON Schema validation contract."
+          "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2": "Use when an application owns both a CloudEvent and Golib compiled JSON Schema validation contract."
         },
         "lifecycle_status": "active",
         "maturity": "stable",
@@ -833,7 +833,7 @@
         ],
         "documentation": {
           "readme": "adapters/jsonschema/README.md",
-          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2",
           "adoption": "adapters/jsonschema/README.md",
           "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
           "compatibility": "adapters/jsonschema/README.md",
@@ -841,7 +841,7 @@
           "examples": null,
           "faq": "adapters/jsonschema/README.md",
           "changelog": "adapters/jsonschema/CHANGELOG.md",
-          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2",
           "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
         },
         "known_good_compatibility_sets": [],
@@ -851,16 +851,13 @@
           "release": "in-progress"
         }
       },
-      "version": "1.0.1",
+      "version": "2.0.0",
       "tag_prefix": "adapters/jsonschema/v",
       "owned_dependencies": [
         "github.com/faustbrian/go-cloudevents",
-        "github.com/faustbrian/go-json-schema"
+        "github.com/faustbrian/go-json-schema/v2"
       ],
-      "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
-        "github.com/faustbrian/go-cloudevents/integration/target-adapters"
-      ],
+      "reverse_owned_dependencies": [],
       "external_runtime_dependencies": [],
       "required_services": [],
       "build_tags": [],
@@ -1018,14 +1015,14 @@
     },
     {
       "directory": "adapters/outbox",
-      "module_path": "github.com/faustbrian/go-cloudevents/adapters/outbox",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/outbox/v2",
       "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/outbox",
           "directory": ".",
           "name": "outbox",
-          "import_path": "github.com/faustbrian/go-cloudevents/adapters/outbox",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/outbox/v2",
           "kind": "public",
           "production": true,
           "executable": true,
@@ -1054,10 +1051,10 @@
         ],
         "public_package_identifier": "outbox",
         "primary_entry_packages": [
-          "github.com/faustbrian/go-cloudevents/adapters/outbox"
+          "github.com/faustbrian/go-cloudevents/adapters/outbox/v2"
         ],
         "package_selection": {
-          "github.com/faustbrian/go-cloudevents/adapters/outbox": "Use when an application owns both a CloudEvent and Golib transactional outbox envelopes contract."
+          "github.com/faustbrian/go-cloudevents/adapters/outbox/v2": "Use when an application owns both a CloudEvent and Golib transactional outbox envelopes contract."
         },
         "lifecycle_status": "active",
         "maturity": "stable",
@@ -1093,7 +1090,7 @@
         ],
         "documentation": {
           "readme": "adapters/outbox/README.md",
-          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/outbox",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/outbox/v2",
           "adoption": "adapters/outbox/README.md",
           "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
           "compatibility": "adapters/outbox/README.md",
@@ -1101,7 +1098,7 @@
           "examples": null,
           "faq": "adapters/outbox/README.md",
           "changelog": "adapters/outbox/CHANGELOG.md",
-          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/outbox",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/outbox/v2",
           "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
         },
         "known_good_compatibility_sets": [],
@@ -1111,16 +1108,13 @@
           "release": "in-progress"
         }
       },
-      "version": "1.0.1",
+      "version": "2.0.0",
       "tag_prefix": "adapters/outbox/v",
       "owned_dependencies": [
         "github.com/faustbrian/go-cloudevents",
-        "github.com/faustbrian/go-transactional-outbox"
+        "github.com/faustbrian/go-transactional-outbox/v2"
       ],
-      "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
-        "github.com/faustbrian/go-cloudevents/integration/target-adapters"
-      ],
+      "reverse_owned_dependencies": [],
       "external_runtime_dependencies": [],
       "required_services": [],
       "build_tags": [],
@@ -1409,14 +1403,14 @@
     },
     {
       "directory": "adapters/schema-registry",
-      "module_path": "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3",
       "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/schema-registry",
           "directory": ".",
           "name": "schemaregistry",
-          "import_path": "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3",
           "kind": "public",
           "production": true,
           "executable": true,
@@ -1445,10 +1439,10 @@
         ],
         "public_package_identifier": "schemaregistry",
         "primary_entry_packages": [
-          "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2"
+          "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3"
         ],
         "package_selection": {
-          "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2": "Use when an application owns both a CloudEvent and Golib schema-registry v2 JSON Schema resolution contract."
+          "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3": "Use when an application owns both a CloudEvent and Golib schema-registry v3 JSON Schema resolution contract."
         },
         "lifecycle_status": "active",
         "maturity": "stable",
@@ -1484,7 +1478,7 @@
         ],
         "documentation": {
           "readme": "adapters/schema-registry/README.md",
-          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
+          "api": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3",
           "adoption": "adapters/schema-registry/README.md",
           "security": "https://github.com/faustbrian/go-cloudevents/blob/main/SECURITY.md",
           "compatibility": "adapters/schema-registry/README.md",
@@ -1492,7 +1486,7 @@
           "examples": null,
           "faq": "adapters/schema-registry/README.md",
           "changelog": "adapters/schema-registry/CHANGELOG.md",
-          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3",
           "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.6.2/docs/ecosystem/README.md"
         },
         "known_good_compatibility_sets": [],
@@ -1502,16 +1496,13 @@
           "release": "in-progress"
         }
       },
-      "version": "2.0.0",
+      "version": "3.0.0",
       "tag_prefix": "adapters/schema-registry/v",
       "owned_dependencies": [
         "github.com/faustbrian/go-cloudevents",
-        "github.com/faustbrian/go-schema-registry/v2"
+        "github.com/faustbrian/go-schema-registry/v3"
       ],
-      "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
-        "github.com/faustbrian/go-cloudevents/integration/target-adapters"
-      ],
+      "reverse_owned_dependencies": [],
       "external_runtime_dependencies": [],
       "required_services": [],
       "build_tags": [],

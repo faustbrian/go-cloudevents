@@ -8,7 +8,7 @@ import (
 
 	"github.com/faustbrian/go-cloudevents"
 	"github.com/faustbrian/go-cloudevents/internal/adapter"
-	goliboutbox "github.com/faustbrian/go-transactional-outbox"
+	goliboutbox "github.com/faustbrian/go-transactional-outbox/v2"
 )
 
 var (

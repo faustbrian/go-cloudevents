@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/faustbrian/go-cloudevents"
-	goliboutbox "github.com/faustbrian/go-transactional-outbox"
+	goliboutbox "github.com/faustbrian/go-transactional-outbox/v2"
 )
 
 func TestRoundTripRetainsOwnedStateWithoutAliasing(t *testing.T) {

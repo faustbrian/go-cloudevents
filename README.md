@@ -100,12 +100,12 @@ only the dependency boundary they need:
 | Audit metadata | `github.com/faustbrian/go-cloudevents/adapters/audit/v2` |
 | Correlation identifiers | `github.com/faustbrian/go-cloudevents/adapters/correlation` |
 | Event sourcing | `github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2` |
-| Direct JSON Schema | `github.com/faustbrian/go-cloudevents/adapters/jsonschema` |
+| Direct JSON Schema | `github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2` (publication pending) |
 | Kafka records | `github.com/faustbrian/go-cloudevents/adapters/kafka` |
-| Transactional outbox | `github.com/faustbrian/go-cloudevents/adapters/outbox` |
+| Transactional outbox | `github.com/faustbrian/go-cloudevents/adapters/outbox/v2` (publication pending) |
 | Queue jobs | `github.com/faustbrian/go-cloudevents/adapters/queue/v2` |
 | RabbitMQ Streams | `github.com/faustbrian/go-cloudevents/adapters/rabbitstream` |
-| Schema registry | `github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2` |
+| Schema registry | `github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3` (publication pending) |
 | Golib telemetry | `github.com/faustbrian/go-cloudevents/adapters/telemetry` |
 | Tenancy | `github.com/faustbrian/go-cloudevents/adapters/tenancy/v2` |
 | Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow/v2` |

@@ -8,7 +8,7 @@ import (
 
 	"github.com/faustbrian/go-cloudevents"
 	"github.com/faustbrian/go-cloudevents/internal/adapter"
-	golibjsonschema "github.com/faustbrian/go-json-schema"
+	golibjsonschema "github.com/faustbrian/go-json-schema/v2"
 )
 
 var (

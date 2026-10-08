@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	"github.com/faustbrian/go-cloudevents"
-	cloudjsonschema "github.com/faustbrian/go-cloudevents/adapters/jsonschema"
-	golibjsonschema "github.com/faustbrian/go-json-schema"
+	cloudjsonschema "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2"
+	golibjsonschema "github.com/faustbrian/go-json-schema/v2"
 )
 
 func TestValidatorEnforcesExplicitSchemaMapping(t *testing.T) {
@@ -75,4 +75,33 @@ func compileSchema(t *testing.T, definition string) *golibjsonschema.Schema {
 		t.Fatal(err)
 	}
 	return schema
+}
+
+func TestValidatorPreservesV2UnicodeAndCancellationBoundaries(t *testing.T) {
+	validator := cloudjsonschema.Validator{
+		URI: "schema", Schema: compileSchema(t, `{"type":"string","maxLength":2}`),
+	}
+	if err := validator.Validate(t.Context(), "schema", "application/json", []byte(`"é🙂"`)); err != nil {
+		t.Fatalf("two Unicode code points rejected: %v", err)
+	}
+	if err := validator.Validate(t.Context(), "schema", "application/json", []byte(`"é🙂x"`)); !errors.Is(err, cloudjsonschema.ErrSchemaViolation) {
+		t.Fatalf("three Unicode code points error = %v, want schema violation", err)
+	}
+	err := validator.Validate(t.Context(), "schema", "application/json", []byte{'"', 0xff, '"'})
+	if !errors.Is(err, golibjsonschema.ErrInvalidJSON) {
+		t.Fatalf("invalid UTF-8 error = %v, want underlying parser failure", err)
+	}
+	// The producer uses encoding/json string decoding: escaped unpaired
+	// surrogates become a replacement rune, unlike invalid raw UTF-8 bytes.
+	replacement := cloudjsonschema.Validator{
+		URI: "schema", Schema: compileSchema(t, `{"enum":["�"]}`),
+	}
+	if err := replacement.Validate(t.Context(), "schema", "application/json", []byte(`"\ud800"`)); err != nil {
+		t.Fatalf("producer replacement-rune semantics changed: %v", err)
+	}
+	ctx, cancel := context.WithCancel(t.Context())
+	cancel()
+	if err := validator.Validate(ctx, "schema", "application/json", []byte(`"é🙂"`)); !errors.Is(err, context.Canceled) {
+		t.Fatalf("cancellation error = %v, want context cancellation", err)
+	}
 }

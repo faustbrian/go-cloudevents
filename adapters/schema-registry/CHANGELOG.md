@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Prepare the `/v3` adapter with public `go-schema-registry/v3` v3.0.0 cache,
+  lookup, availability and JSON Schema adapter types. Upgrade both adapter
+  and registry imports together. Keep exact URI admission, bounded resolution,
+  private payload diagnostics and CloudEvents error classifications.
+
 ## 2.0.0 - 2026-10-02
 
 - Adopt schema-registry v2 through the `/adapters/schema-registry/v2` module

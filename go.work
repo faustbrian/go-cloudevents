@@ -24,17 +24,11 @@ replace github.com/faustbrian/go-cloudevents/adapters/audit v1.0.0 => ./adapters
 
 replace github.com/faustbrian/go-cloudevents/adapters/correlation v1.0.0 => ./adapters/correlation
 
-replace github.com/faustbrian/go-cloudevents/adapters/jsonschema v1.0.0 => ./adapters/jsonschema
-
 replace github.com/faustbrian/go-cloudevents/adapters/kafka v1.0.0 => ./adapters/kafka
-
-replace github.com/faustbrian/go-cloudevents/adapters/outbox v1.0.0 => ./adapters/outbox
 
 replace github.com/faustbrian/go-cloudevents/adapters/queue v1.0.0 => ./adapters/queue
 
 replace github.com/faustbrian/go-cloudevents/adapters/rabbitstream v1.0.0 => ./adapters/rabbitstream
-
-replace github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2 v2.0.0 => ./adapters/schema-registry
 
 replace github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0 => ./adapters/telemetry
 
