@@ -100,12 +100,12 @@ only the dependency boundary they need:
 | Audit metadata | `github.com/faustbrian/go-cloudevents/adapters/audit/v2` |
 | Correlation identifiers | `github.com/faustbrian/go-cloudevents/adapters/correlation` |
 | Event sourcing | `github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2` |
-| Direct JSON Schema | `github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2` (publication pending) |
+| Direct JSON Schema | `github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2` |
 | Kafka records | `github.com/faustbrian/go-cloudevents/adapters/kafka` |
-| Transactional outbox | `github.com/faustbrian/go-cloudevents/adapters/outbox/v2` (publication pending) |
+| Transactional outbox | `github.com/faustbrian/go-cloudevents/adapters/outbox/v2` |
 | Queue jobs | `github.com/faustbrian/go-cloudevents/adapters/queue/v2` |
 | RabbitMQ Streams | `github.com/faustbrian/go-cloudevents/adapters/rabbitstream` |
-| Schema registry | `github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3` (publication pending) |
+| Schema registry | `github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3` |
 | Golib telemetry | `github.com/faustbrian/go-cloudevents/adapters/telemetry` |
 | Tenancy | `github.com/faustbrian/go-cloudevents/adapters/tenancy/v2` |
 | Workflow history | `github.com/faustbrian/go-cloudevents/adapters/workflow/v2` |
@@ -114,9 +114,10 @@ Audit, queue and event-sourcing adapters v2.0.0 are publicly released and used
 by the target integration recipes with the public Tenancy v2 contract.
 Published v1 adapters remain available with their original contracts.
 
-The `adapters/golib` module is a deprecated compatibility facade. Released v1
-and v2 remain available; the pending `adapters/golib/v3` identity adopts public
-Tenancy2, EventSourcing2 and Schema Registry2 types alongside Workflow2. All
+The `adapters/golib` module is a deprecated compatibility facade. Released v1,
+v2 and v3 remain available; the pending `adapters/golib/v4` identity adopts public
+JSONSchema2, Outbox2 and Schema Registry3 alongside Tenancy2, EventSourcing2 and
+Workflow2. All
 generations are excluded from the recommended set
 because its broad bridge owns 26 module dependencies. New code and migrations
 should select the target module directly. The

@@ -1,8 +1,8 @@
 package golib
 
 import (
-	cloudjsonschema "github.com/faustbrian/go-cloudevents/adapters/jsonschema"
-	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2"
+	cloudjsonschema "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2"
+	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3"
 )
 
 var (

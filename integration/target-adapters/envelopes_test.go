@@ -7,12 +7,12 @@ import (
 
 	"github.com/faustbrian/go-cloudevents"
 	cloudeventsourcing "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2"
-	cloudoutbox "github.com/faustbrian/go-cloudevents/adapters/outbox"
+	cloudoutbox "github.com/faustbrian/go-cloudevents/adapters/outbox/v2"
 	cloudqueue "github.com/faustbrian/go-cloudevents/adapters/queue/v2"
 	cloudworkflow "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"
 	eventsourcing "github.com/faustbrian/go-event-sourcing/v2"
 	"github.com/faustbrian/go-queue/job"
-	"github.com/faustbrian/go-transactional-outbox"
+	"github.com/faustbrian/go-transactional-outbox/v2"
 	"github.com/faustbrian/go-workflow/v2"
 )
 

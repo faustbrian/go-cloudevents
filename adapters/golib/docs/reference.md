@@ -8,11 +8,11 @@ CloudEvents package and Golib's canonical event, transport, workflow,
 metadata, audit, and schema contracts. Importing it performs no registration,
 network access, schema lookup, telemetry emission, or background work.
 
-This module is a deprecated compatibility facade. Version 3 adopts public
-Tenancy v2, EventSourcing v2 and Schema Registry v2 nominal contracts alongside
-Workflow v2. Mapping, trust and ownership semantics remain unchanged; released
-v1 and v2 remain available. See the
-[v3 migration guide](../README.md#migration-from-v2) for paired import updates.
+This module is a deprecated compatibility facade. Version 4 adopts public
+JSON Schema v2, Outbox v2 and Schema Registry v3 alongside Tenancy v2,
+EventSourcing v2 and Workflow v2. Mapping, trust and ownership semantics remain
+unchanged; released v1, v2 and v3 remain available. See the
+[v4 migration guide](../README.md#migration-from-v3) for paired import updates.
 All generations are excluded from the recommended set because the
 broad bridge owns 26 module dependencies. New code and migrations should select
 only the target-oriented

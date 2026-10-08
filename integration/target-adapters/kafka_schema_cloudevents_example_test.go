@@ -8,13 +8,13 @@ import (
 	"time"
 
 	"github.com/faustbrian/go-cloudevents"
-	cloudjsonschema "github.com/faustbrian/go-cloudevents/adapters/jsonschema"
+	cloudjsonschema "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2"
 	cloudkafka "github.com/faustbrian/go-cloudevents/adapters/kafka"
-	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2"
-	golibjsonschema "github.com/faustbrian/go-json-schema"
+	cloudregistry "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3"
+	golibjsonschema "github.com/faustbrian/go-json-schema/v2"
 	"github.com/faustbrian/go-kafka"
-	schemaregistry "github.com/faustbrian/go-schema-registry/v2"
-	registryjsonschema "github.com/faustbrian/go-schema-registry/v2/formats/jsonschema"
+	schemaregistry "github.com/faustbrian/go-schema-registry/v3"
+	registryjsonschema "github.com/faustbrian/go-schema-registry/v3/formats/jsonschema"
 )
 
 const recipeSchemaURI = "https://schemas.example/orders/created/v1"

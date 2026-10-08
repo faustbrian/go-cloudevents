@@ -4,9 +4,9 @@ import (
 	"testing"
 
 	"github.com/faustbrian/go-cloudevents"
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v3"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v4"
 	eventsourcing "github.com/faustbrian/go-event-sourcing/v2"
-	registry "github.com/faustbrian/go-schema-registry/v2"
+	registry "github.com/faustbrian/go-schema-registry/v3"
 	"github.com/faustbrian/go-tenancy/v2"
 )
 

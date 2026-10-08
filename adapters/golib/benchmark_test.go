@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/faustbrian/go-cloudevents"
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v3"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v4"
 	"github.com/faustbrian/go-kafka"
 	"github.com/faustbrian/go-queue/job"
 	"github.com/faustbrian/go-rabbitmq-streams"

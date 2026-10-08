@@ -83,7 +83,7 @@
           "github.com/faustbrian/go-cloudevents/adapters/audit/v2",
           "github.com/faustbrian/go-cloudevents/adapters/correlation",
           "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
-          "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+          "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
           "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2",
           "github.com/faustbrian/go-cloudevents/adapters/kafka",
           "github.com/faustbrian/go-cloudevents/adapters/outbox/v2",
@@ -137,7 +137,7 @@
         "github.com/faustbrian/go-cloudevents/adapters/audit/v2",
         "github.com/faustbrian/go-cloudevents/adapters/correlation",
         "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
         "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2",
         "github.com/faustbrian/go-cloudevents/adapters/kafka",
         "github.com/faustbrian/go-cloudevents/adapters/outbox/v2",
@@ -194,14 +194,14 @@
     },
     {
       "directory": "adapters/golib",
-      "module_path": "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+      "module_path": "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
       "go_version": "1.27.0",
       "packages": [
         {
           "module_directory": "adapters/golib",
           "directory": ".",
           "name": "golib",
-          "import_path": "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+          "import_path": "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
           "kind": "public",
           "production": true,
           "executable": true,
@@ -210,7 +210,7 @@
           "build_tags": []
         }
       ],
-      "purpose": "`golib` is the deprecated CloudEvents compatibility facade adopting public Tenancy2, EventSourcing2 and Schema Registry2 alongside Workflow2. It retains explicit conversion, ownership, trust and loss contracts; importing it performs no registration, network access, schema lookup, telemetry emission or background work. Prefer independently versioned target adapters instead of its broad 26-dependency bridge.",
+      "purpose": "`golib` is the deprecated CloudEvents compatibility facade adopting public Tenancy2, EventSourcing2, JSONSchema2, Outbox2 and Schema Registry3 alongside Workflow2. It retains explicit conversion, ownership, trust and loss contracts; importing it performs no registration, network access, schema lookup, telemetry emission or background work. Prefer independently versioned target adapters instead of its broad 26-dependency bridge.",
       "lifecycle": "deprecated",
       "kind": "adapter",
       "releasable": true,
@@ -228,7 +228,7 @@
           "protocols-and-schemas",
           "transport-and-networking"
         ],
-        "responsibility": "Provide the deprecated broad CloudEvents bridge with current public Tenancy2, EventSourcing2, Schema Registry2 and Workflow2 nominal types while callers migrate to target adapters.",
+        "responsibility": "Provide the deprecated broad CloudEvents bridge with current public Tenancy2, EventSourcing2, JSONSchema2, Outbox2, Schema Registry3 and Workflow2 nominal types while callers migrate to target adapters.",
         "non_goals": [
           "Replace the canonical domain, store, queue, workflow, audit, telemetry, or transport state owned by another package.",
           "Perform import-time registration, network access, schema lookup, telemetry emission, or background work.",
@@ -236,10 +236,10 @@
         ],
         "public_package_identifier": "golib",
         "primary_entry_packages": [
-          "github.com/faustbrian/go-cloudevents/adapters/golib/v3"
+          "github.com/faustbrian/go-cloudevents/adapters/golib/v4"
         ],
         "package_selection": {
-          "github.com/faustbrian/go-cloudevents/adapters/golib/v3": "Deprecated compatibility facade for explicit public-v2 core adoption; prefer the relevant target-oriented adapter from the parent adoption guide."
+          "github.com/faustbrian/go-cloudevents/adapters/golib/v4": "Deprecated compatibility facade for explicit current public producer adoption; prefer the relevant target-oriented adapter from the parent adoption guide."
         },
         "lifecycle_status": "deprecated",
         "maturity": "stable",
@@ -290,7 +290,7 @@
           "examples": "adapters/golib/example_test.go",
           "faq": "adapters/golib/docs/reference.md",
           "changelog": "adapters/golib/CHANGELOG.md",
-          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+          "pkg_go_dev": "https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/golib/v4",
           "ecosystem_index": "https://github.com/faustbrian/go-library-tools/blob/v1.4.0/docs/ecosystem/README.md"
         },
         "known_good_compatibility_sets": [],
@@ -300,7 +300,7 @@
           "release": "not-started"
         }
       },
-      "version": "3.0.1",
+      "version": "4.0.0",
       "tag_prefix": "adapters/golib/v",
       "owned_dependencies": [
         "github.com/faustbrian/go-audit",
@@ -308,26 +308,26 @@
         "github.com/faustbrian/go-cloudevents/adapters/audit/v2",
         "github.com/faustbrian/go-cloudevents/adapters/correlation",
         "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
-        "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+        "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2",
         "github.com/faustbrian/go-cloudevents/adapters/kafka",
-        "github.com/faustbrian/go-cloudevents/adapters/outbox",
+        "github.com/faustbrian/go-cloudevents/adapters/outbox/v2",
         "github.com/faustbrian/go-cloudevents/adapters/queue/v2",
         "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
-        "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
+        "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3",
         "github.com/faustbrian/go-cloudevents/adapters/telemetry",
         "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2",
         "github.com/faustbrian/go-cloudevents/adapters/workflow/v2",
         "github.com/faustbrian/go-correlation",
         "github.com/faustbrian/go-event-sourcing/v2",
         "github.com/faustbrian/go-identifier",
-        "github.com/faustbrian/go-json-schema",
+        "github.com/faustbrian/go-json-schema/v2",
         "github.com/faustbrian/go-kafka",
         "github.com/faustbrian/go-queue",
         "github.com/faustbrian/go-rabbitmq-streams",
-        "github.com/faustbrian/go-schema-registry/v2",
+        "github.com/faustbrian/go-schema-registry/v3",
         "github.com/faustbrian/go-telemetry",
         "github.com/faustbrian/go-tenancy/v2",
-        "github.com/faustbrian/go-transactional-outbox",
+        "github.com/faustbrian/go-transactional-outbox/v2",
         "github.com/faustbrian/go-workflow/v2"
       ],
       "reverse_owned_dependencies": [],
@@ -466,7 +466,7 @@
         "github.com/faustbrian/go-tenancy/v2"
       ],
       "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
         "github.com/faustbrian/go-cloudevents/integration/target-adapters"
       ],
       "external_runtime_dependencies": [],
@@ -597,7 +597,7 @@
       ],
       "reverse_owned_dependencies": [
         "github.com/faustbrian/go-cloudevents/adapters/audit/v2",
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
         "github.com/faustbrian/go-cloudevents/integration/target-adapters"
       ],
       "external_runtime_dependencies": [],
@@ -728,7 +728,7 @@
         "github.com/faustbrian/go-tenancy/v2"
       ],
       "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
         "github.com/faustbrian/go-cloudevents/integration/target-adapters"
       ],
       "external_runtime_dependencies": [],
@@ -857,7 +857,10 @@
         "github.com/faustbrian/go-cloudevents",
         "github.com/faustbrian/go-json-schema/v2"
       ],
-      "reverse_owned_dependencies": [],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
+        "github.com/faustbrian/go-cloudevents/integration/target-adapters"
+      ],
       "external_runtime_dependencies": [],
       "required_services": [],
       "build_tags": [],
@@ -985,7 +988,7 @@
         "github.com/faustbrian/go-kafka"
       ],
       "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
         "github.com/faustbrian/go-cloudevents/integration/target-adapters"
       ],
       "external_runtime_dependencies": [],
@@ -1114,7 +1117,10 @@
         "github.com/faustbrian/go-cloudevents",
         "github.com/faustbrian/go-transactional-outbox/v2"
       ],
-      "reverse_owned_dependencies": [],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
+        "github.com/faustbrian/go-cloudevents/integration/target-adapters"
+      ],
       "external_runtime_dependencies": [],
       "required_services": [],
       "build_tags": [],
@@ -1243,7 +1249,7 @@
         "github.com/faustbrian/go-tenancy/v2"
       ],
       "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
         "github.com/faustbrian/go-cloudevents/integration/target-adapters"
       ],
       "external_runtime_dependencies": [],
@@ -1373,7 +1379,7 @@
         "github.com/faustbrian/go-rabbitmq-streams"
       ],
       "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
         "github.com/faustbrian/go-cloudevents/integration/target-adapters"
       ],
       "external_runtime_dependencies": [],
@@ -1502,7 +1508,10 @@
         "github.com/faustbrian/go-cloudevents",
         "github.com/faustbrian/go-schema-registry/v3"
       ],
-      "reverse_owned_dependencies": [],
+      "reverse_owned_dependencies": [
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
+        "github.com/faustbrian/go-cloudevents/integration/target-adapters"
+      ],
       "external_runtime_dependencies": [],
       "required_services": [],
       "build_tags": [],
@@ -1630,7 +1639,7 @@
         "github.com/faustbrian/go-telemetry"
       ],
       "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
         "github.com/faustbrian/go-cloudevents/integration/target-adapters"
       ],
       "external_runtime_dependencies": [
@@ -1763,7 +1772,7 @@
       ],
       "reverse_owned_dependencies": [
         "github.com/faustbrian/go-cloudevents/adapters/audit/v2",
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
         "github.com/faustbrian/go-cloudevents/integration/target-adapters"
       ],
       "external_runtime_dependencies": [],
@@ -1893,7 +1902,7 @@
         "github.com/faustbrian/go-workflow/v2"
       ],
       "reverse_owned_dependencies": [
-        "github.com/faustbrian/go-cloudevents/adapters/golib/v3",
+        "github.com/faustbrian/go-cloudevents/adapters/golib/v4",
         "github.com/faustbrian/go-cloudevents/integration/target-adapters"
       ],
       "external_runtime_dependencies": [],
@@ -1953,12 +1962,12 @@
         "github.com/faustbrian/go-cloudevents/adapters/audit/v2",
         "github.com/faustbrian/go-cloudevents/adapters/correlation",
         "github.com/faustbrian/go-cloudevents/adapters/event-sourcing/v2",
-        "github.com/faustbrian/go-cloudevents/adapters/jsonschema",
+        "github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2",
         "github.com/faustbrian/go-cloudevents/adapters/kafka",
-        "github.com/faustbrian/go-cloudevents/adapters/outbox",
+        "github.com/faustbrian/go-cloudevents/adapters/outbox/v2",
         "github.com/faustbrian/go-cloudevents/adapters/queue/v2",
         "github.com/faustbrian/go-cloudevents/adapters/rabbitstream",
-        "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v2",
+        "github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3",
         "github.com/faustbrian/go-cloudevents/adapters/telemetry",
         "github.com/faustbrian/go-cloudevents/adapters/tenancy/v2",
         "github.com/faustbrian/go-cloudevents/adapters/workflow/v2"

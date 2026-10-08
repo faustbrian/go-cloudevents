@@ -15,9 +15,10 @@ review.
 
 ## `adapters/golib` compatibility facade
 
-Both `github.com/faustbrian/go-cloudevents/adapters/golib` and its `/v2` module
-are deprecated for new adoption. Released v1 remains available; v2 explicitly
-adopts Workflow v2 while unrelated contracts stay on their existing versions.
+All generations of `github.com/faustbrian/go-cloudevents/adapters/golib`
+are deprecated for new adoption. Released v1, v2 and v3 retain their original
+contracts. The pending facade v4 adopts JSONSchema2, Outbox2 and Registry3
+alongside the existing Workflow2, Tenancy2 and EventSourcing2 contracts.
 The broad integration
 surface owns 26 module dependencies and is therefore excluded from the
 recommended adapter set.
@@ -30,6 +31,5 @@ tenancy, and workflow integrations. Migrate one boundary at a time; the target
 adapters preserve the same public mapping and validation contracts without
 requiring the unrelated bridge dependencies.
 
-The earliest possible removal from the current major is
-`adapters/golib/v3.0.0`. No removal is scheduled. Published v1 remains
-available, and v2 retains the facade under an explicit new module identity.
+No removal is scheduled. Any future removal requires a later major release;
+the facade remains present in the prepared `adapters/golib/v4.0.0` module.

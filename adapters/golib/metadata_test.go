@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/faustbrian/go-cloudevents"
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v3"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v4"
 	"github.com/faustbrian/go-correlation"
 	telemetrypropagation "github.com/faustbrian/go-telemetry/propagation"
 	"github.com/faustbrian/go-tenancy/v2"

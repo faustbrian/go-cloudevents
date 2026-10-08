@@ -4,6 +4,15 @@ All notable changes to this module are documented here.
 
 ## Unreleased
 
+### Changed
+
+- Prepare facade v4 with public JSON Schema v2, Transactional Outbox v2 and
+  Schema Registry v3 types and their independently published target adapters.
+  Update facade and paired producer imports together. Conversion ownership,
+  payload presence, loss reporting, explicit trust and cancellation semantics
+  remain unchanged; published facade v1, v2 and v3 retain their original types.
+  The CloudEvents root remains v1. Prefer target-oriented adapters for new code.
+
 ## 3.0.1 - 2026-10-07
 
 ### Changed

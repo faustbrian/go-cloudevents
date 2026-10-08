@@ -8,10 +8,10 @@ import (
 
 	"github.com/faustbrian/go-audit"
 	"github.com/faustbrian/go-cloudevents"
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v3"
-	jsonschema "github.com/faustbrian/go-json-schema"
-	schemaregistry "github.com/faustbrian/go-schema-registry/v2"
-	registryjsonschema "github.com/faustbrian/go-schema-registry/v2/formats/jsonschema"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v4"
+	jsonschema "github.com/faustbrian/go-json-schema/v2"
+	schemaregistry "github.com/faustbrian/go-schema-registry/v3"
+	registryjsonschema "github.com/faustbrian/go-schema-registry/v3/formats/jsonschema"
 )
 
 func TestAuditMetadataAdapterSelectsSafeFieldsAndRequiresTrust(t *testing.T) {

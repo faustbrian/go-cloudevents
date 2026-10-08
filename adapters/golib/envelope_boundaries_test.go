@@ -6,11 +6,11 @@ import (
 	"time"
 
 	"github.com/faustbrian/go-cloudevents"
-	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v3"
+	golib "github.com/faustbrian/go-cloudevents/adapters/golib/v4"
 	eventsourcing "github.com/faustbrian/go-event-sourcing/v2"
 	"github.com/faustbrian/go-queue/job"
 	"github.com/faustbrian/go-tenancy/v2"
-	"github.com/faustbrian/go-transactional-outbox"
+	"github.com/faustbrian/go-transactional-outbox/v2"
 	"github.com/faustbrian/go-workflow/v2"
 )
 
