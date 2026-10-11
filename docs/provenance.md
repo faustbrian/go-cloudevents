@@ -43,11 +43,12 @@ Official conformance feature digests at
 
 The two feature files are vendored under `testdata/conformance`. The vendored
 copies differ only by an added final newline; their normalized digests are
-recorded in `specification/manifest.json`. `make conformance` validates the
+recorded in `specification/manifest.json`.
+`make -f verification/package.mk conformance` validates the
 manifest, both vendored hashes, and the JavaScript lockfile hash before the
 transcribed scenarios are exercised. Update fixtures from the pinned raw GitHub
 paths, review the diff, recompute both source and vendored SHA-256 digests, and
-rerun `make conformance`.
+rerun `make -f verification/package.mk conformance`.
 
 Independent interoperability is pinned separately to `cloudevents/sdk-go/v2`
 v2.16.2 at `af3e8599b3316ab6b4b73ff69aa8ec0efddbb5bb`, the independently tagged

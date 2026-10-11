@@ -3,7 +3,7 @@
 [![CI](https://github.com/faustbrian/go-cloudevents/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/faustbrian/go-cloudevents/actions/workflows/ci.yml)
 [![CodeQL](https://img.shields.io/badge/CodeQL-required-blue)](https://github.com/faustbrian/go-cloudevents/actions/workflows/ci.yml)
 [![Coverage](https://img.shields.io/badge/coverage-100%25_required-blue)](CONTRIBUTING.md#verification)
-[![Mutation](https://img.shields.io/badge/mutation-100%25_required-blue)](CONTRIBUTING.md#verification)
+[![Mutation](https://img.shields.io/badge/mutation-local_and_scheduled-blue)](CONTRIBUTING.md#verification)
 [![Documentation](https://img.shields.io/badge/docs-checked_in_CI-blue)](docs/)
 [![Go Reference](https://pkg.go.dev/badge/github.com/faustbrian/go-cloudevents.svg)](https://pkg.go.dev/github.com/faustbrian/go-cloudevents)
 [![Release](https://img.shields.io/github/v/release/faustbrian/go-cloudevents?sort=semver)](https://github.com/faustbrian/go-cloudevents/releases)
@@ -142,3 +142,10 @@ guidance](https://github.com/faustbrian/go-library-tools/blob/v1.4.0/docs/ecosys
 
 Start with the [documentation index](docs/README.md) for specification,
 conversion, interoperability, security, and benchmark guidance.
+
+For development, use Go 1.27.2 and `GOWORK=off go test ./...` in the affected
+module. `make check` and `make ci` use the verified public tooling release for
+bounded checks across the catalog, including deterministic fuzz seeds/corpus.
+Active fuzzing is explicit or selected for changed-source CI; `make check-full`
+retains full campaigns and online pinned-source conformance. See
+[contributing](CONTRIBUTING.md#verification) for standalone commands.

@@ -34,7 +34,8 @@ interpretations and accepted errata are governed by the
 | Kafka structured, media-type parameter | `TestOfficialConformanceKafkaBindingScenarios` | Structured record decode with `charset` | arbitrary parameters and duplicate content type |
 
 `TestPinnedOfficialConformanceFixtures` verifies the exact vendored fixture
-digests before the transcribed mappings are exercised. `make conformance` first
+digests before the transcribed mappings are exercised.
+`make -f verification/package.mk conformance` first
 runs `scripts/check-specification-evidence.sh`, which validates the manifest and
 all local fixture and lockfile digests, and then runs the mapped Go scenarios.
 
