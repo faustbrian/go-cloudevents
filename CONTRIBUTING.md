@@ -34,6 +34,9 @@ that hide a failing package.
 
 ## Verification
 
+Use the checksum-pinned public Tools v2.1.3 release declared in `.golib.yaml`.
+Download its released `golib` binary rather than building the verifier from source.
+
 Use Go 1.27.2 for the producer; module/API minima remain Go 1.27.0.
 An isolated checkout needs no sibling repositories or coordination goal files.
 Run deterministic tests in the affected module (root shown):
