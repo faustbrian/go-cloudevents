@@ -272,3 +272,12 @@ change. Constructor/encoder caps, structured-header admission and hard callback
 deadlines remain caller obligations/possible future policy, not newly promised
 guarantees. No historical/signed evidence or desired normative behavior was
 silently rewritten.
+
+## Objective Enforcement
+
+The checksum-pinned public Tools v2.4.0 verifier now supplies
+`make source-docs-check` as a prerequisite of the existing local and CI Make
+routes. Ordinary shared CI selects strict source-documentation checking and
+requires its result. Native prerequisites, operation budgets, security and
+release controls are retained. Hosted exact-head evidence is recorded by the
+coordination ledger; configuration alone does not establish green delivery.
