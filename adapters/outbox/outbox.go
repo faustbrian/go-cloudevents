@@ -1,5 +1,8 @@
 // Package outbox maps Golib transactional-outbox envelopes to and from
 // CloudEvents while retaining relay-owned state outside the event.
+// ToCloudEvent/FromCloudEvent copy payload and retained state without a database
+// transaction or relay publication. Topic/version and relay policy stay external;
+// payload/context validation is not whole-envelope persistence qualification.
 package outbox
 
 import (

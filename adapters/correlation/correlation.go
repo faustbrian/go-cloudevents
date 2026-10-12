@@ -1,5 +1,7 @@
 // Package correlation maps trusted Golib correlation values to and from
 // CloudEvents extensions without hidden I/O or mutable aliases.
+// Add/Extract preserve exact identifier collisions; trusted is a caller decision,
+// not authentication. Calls own no resources and borrow the validation policy.
 package correlation
 
 import (

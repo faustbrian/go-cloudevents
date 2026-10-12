@@ -17,12 +17,13 @@ var ErrInvalidData = errors.New("cloudevents: invalid data")
 // system.
 var ErrInvalidAttribute = errors.New("cloudevents: invalid attribute")
 
-// ErrLimitExceeded identifies an input rejected before an unchecked
-// allocation or conversion.
+// ErrLimitExceeded identifies a selected byte/count/depth admission failure.
+// It does not certify that no temporary parsing or serialization allocation occurred.
 var ErrLimitExceeded = errors.New("cloudevents: limit exceeded")
 
 // ErrInvalidAdapterInput classifies an absent or malformed optional adapter
-// input. Target adapters wrap this sentinel while preserving the safe cause.
+// input. Target adapters may wrap a more specific cause; metadata names and
+// collaborator diagnostics still require caller protection before exposure.
 var ErrInvalidAdapterInput = errors.New("cloudevents golib adapter: invalid input")
 
 // ErrMetadataCollision reports canonical metadata that conflicts with an
@@ -42,14 +43,18 @@ var ErrSchemaViolation = errors.New("cloudevents golib adapter: schema violation
 var ErrSchemaMapping = errors.New("cloudevents golib adapter: schema mapping")
 
 // AdapterLoss describes one value that a selected adapter target cannot
-// represent. It contains field names and reasons, never field values.
+// represent. Package-generated reports contain field names/reasons, not values;
+// manually constructed text and untrusted identifier names are not sanitized.
 type AdapterLoss struct {
-	Field  string
+	// Field names the affected path; identifier names are not redacted.
+	Field string
+	// Reason describes the representation omission/change, not its value; custom text remains caller-owned.
 	Reason string
 }
 
 // AdapterReport makes every optional-adapter conversion loss explicit.
 type AdapterReport struct {
+	// Losses contains caller-owned ordered diagnostics; an empty slice reports no observed conversion loss.
 	Losses []AdapterLoss
 }
 
@@ -57,21 +62,31 @@ type AdapterReport struct {
 type IssueCode string
 
 const (
-	IssueRequired            IssueCode = "required"
-	IssueInvalidString       IssueCode = "invalid_string"
+	// IssueRequired marks missing required context.
+	IssueRequired IssueCode = "required"
+	// IssueInvalidString marks text outside the selected CloudEvents character policy.
+	IssueInvalidString IssueCode = "invalid_string"
+	// IssueInvalidURIReference marks an invalid serialized source URI-reference.
 	IssueInvalidURIReference IssueCode = "invalid_uri_reference"
+	// IssueAbsoluteURIRequired marks a schema URI that is not absolute serialized URI syntax.
 	IssueAbsoluteURIRequired IssueCode = "absolute_uri_required"
-	IssueInvalidMediaType    IssueCode = "invalid_media_type"
-	IssueInvalidName         IssueCode = "invalid_name"
-	IssueReservedName        IssueCode = "reserved_name"
-	IssueInvalidAttribute    IssueCode = "invalid_attribute"
+	// IssueInvalidMediaType marks an unparseable media type.
+	IssueInvalidMediaType IssueCode = "invalid_media_type"
+	// IssueInvalidName marks an extension name outside lowercase ASCII alphanumeric syntax.
+	IssueInvalidName IssueCode = "invalid_name"
+	// IssueReservedName marks a context/data name used as an extension.
+	IssueReservedName IssueCode = "reserved_name"
+	// IssueInvalidAttribute marks an unassigned or invalid abstract attribute/selected extension.
+	IssueInvalidAttribute IssueCode = "invalid_attribute"
 )
 
 // Issue identifies one invalid field without retaining or disclosing its
 // value.
 type Issue struct {
+	// Field names the affected path; identifier names are not redacted.
 	Field string
-	Code  IssueCode
+	// Code is the failed validation category, not a rejected value.
+	Code IssueCode
 }
 
 // ValidationError contains canonical, field-sorted validation diagnostics.

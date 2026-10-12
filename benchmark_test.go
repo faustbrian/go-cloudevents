@@ -8,6 +8,7 @@ import (
 	sdkevent "github.com/cloudevents/sdk-go/v2/event"
 )
 
+// BenchmarkJSONEquivalentEvent compares encode/decode of one prevalidated shared payload with SDK Go v2.16.2. Setup is outside subbench timers; measured decoders retain their own validation policies.
 func BenchmarkJSONEquivalentEvent(b *testing.B) {
 	canonical := []byte(`{"specversion":"1.0","id":"1","source":"/orders","type":"com.example.order","datacontenttype":"application/json","data":{"amount":42,"order":"A-123"}}`)
 	golibEvent, err := DecodeJSON(canonical, DefaultLimits())

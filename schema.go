@@ -20,13 +20,23 @@ var (
 )
 
 // SchemaValidator is implemented by an explicit JSON Schema or schema-registry
-// adapter. The core package never resolves schemas or performs I/O itself.
+// adapter. ValidateSchema supplies an owned data copy; direct callers choose
+// ownership. Implementations must apply trusted schema
+// selection, byte/work limits and cooperative context handling. Calls are direct:
+// panic recovery, retries, post-call cancellation checks and shutdown are not added.
+// Shared implementations must support their callers' concurrency. The core
+// package never resolves schemas or performs I/O itself.
 type SchemaValidator interface {
+	// Validate checks the exact supplied URI/type/payload under caller-owned trust
+	// policy, returning raw errors which callers must protect before exposure.
 	Validate(ctx context.Context, uri string, contentType string, data []byte) error
 }
 
 // ValidateSchema invokes a caller-supplied validator for an event that declares
-// both dataschema and data. The validator receives an owned data copy.
+// both dataschema and data. Nil contexts/typed-nil validators are rejected, and
+// cancellation is checked before calling the validator with a data copy. The
+// callback can still block/panic or succeed after cancellation; its raw error
+// and external resource policy remain caller-owned.
 func ValidateSchema(ctx context.Context, event Event, validator SchemaValidator) error {
 	if ctx == nil {
 		return ErrContextRequired

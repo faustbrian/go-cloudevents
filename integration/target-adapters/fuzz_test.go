@@ -30,6 +30,7 @@ import (
 
 const fuzzAdapterPayloadLimit = 64 << 10
 
+// FuzzDecodeKafka checks target decoding yields valid owned data after input mutation, using released dependencies without broker I/O.
 func FuzzDecodeKafka(f *testing.F) {
 	f.Add([]byte("body"), "content-type", []byte(cloudevents.JSONMediaType))
 	f.Add([]byte("{}"), "ce_specversion", []byte("1.0"))
@@ -58,6 +59,7 @@ func FuzzDecodeKafka(f *testing.F) {
 	})
 }
 
+// FuzzQueuePayloadRoundTrip checks target payload-byte round trips and tenant rejection with local retained state, not queue delivery.
 func FuzzQueuePayloadRoundTrip(f *testing.F) {
 	f.Add([]byte("body"), "tenant-a")
 	f.Add([]byte{}, "")

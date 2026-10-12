@@ -13,7 +13,9 @@ import (
 )
 
 const (
-	JSONMediaType      = "application/cloudevents+json"
+	// JSONMediaType selects the supported single-event JSON format.
+	JSONMediaType = "application/cloudevents+json"
+	// JSONBatchMediaType selects the supported JSON event-array format.
 	JSONBatchMediaType = "application/cloudevents-batch+json"
 )
 
@@ -39,7 +41,8 @@ func EncodeJSON(event Event) ([]byte, error) {
 // EncodeJSONWithReport serializes event using the CloudEvents JSON event
 // format and reports every representation change. Member names are sorted
 // lexicographically as a package determinism policy; CloudEvents does not
-// require that ordering.
+// require that ordering (CLOUDEVENTS-DEC-007, JSON 1.0.2). Payload JSON interior
+// bytes are retained, not canonicalized. No encode byte/count/depth cap is applied.
 func EncodeJSONWithReport(event Event) ([]byte, ConversionReport, error) {
 	if err := event.Validate(); err != nil {
 		return nil, ConversionReport{}, err
@@ -151,7 +154,14 @@ func newBinaryString(value []byte) string {
 }
 
 // DecodeJSON parses one CloudEvent in the JSON event format without performing
-// I/O. It takes ownership of all retained input.
+// I/O. It copies retained input and applies supplied Limits without defaults.
+// The envelope rejects duplicates/unsupported version and treats optional null
+// attributes as absent (CLOUDEVENTS-DEC-005); payload-object duplicates are not
+// rejected here. Unknown JSON extensions retain bool/int32/string semantics,
+// not inferred URI/binary/timestamp kinds (CLOUDEVENTS-DEC-004).
+// Input bytes/depth are checked before raw-message materialization, while context
+// counts are checked afterward. Field names can appear in errors; protect names
+// as well as values. Source identity and data-schema trust are not verified.
 func DecodeJSON(value []byte, limits Limits) (Event, error) {
 	if limits.MaxEventBytes <= 0 || int64(len(value)) > limits.MaxEventBytes {
 		return Event{}, ErrLimitExceeded
@@ -292,6 +302,9 @@ func countJSONAttributes(members map[string]json.RawMessage) int {
 	return count
 }
 
+// Six source bytes can encode one JSON string unit plus two quotes. Use a
+// quotient/remainder comparison to avoid multiplying an untrusted limit;
+// decoded byte length is still checked after unescaping.
 func exceedsJSONEncodedStringLimit(raw []byte, limit int64) bool {
 	if limit <= 0 {
 		return true
@@ -301,7 +314,10 @@ func exceedsJSONEncodedStringLimit(raw []byte, limit int64) bool {
 }
 
 // DecodeJSONBatch parses the normative JSON batch format. Empty batches are
-// valid. Every returned Event owns its storage.
+// valid; the current slice decoder also accepts JSON null as an empty batch.
+// Every returned Event owns storage. MaxEventBytes caps the entire batch
+// and each event; MaxDepth permits one outer array level. Raw events materialize
+// before MaxBatchEvents rejection. A failed event returns nil, not partial output.
 func DecodeJSONBatch(value []byte, limits Limits) ([]Event, error) {
 	if limits.MaxEventBytes <= 0 || int64(len(value)) > limits.MaxEventBytes {
 		return nil, ErrLimitExceeded
@@ -330,6 +346,10 @@ func DecodeJSONBatch(value []byte, limits Limits) ([]Event, error) {
 	return events, nil
 }
 
+// CloudEvents JSON 1.0.2 envelope ambiguity is resolved by DEC-005: detect
+// envelope duplicates before map normalization, not duplicates inside opaque
+// data. The token walk allocates and is separate from constructor Limits.
+// TestDecodeJSONRejectsAmbiguousAndOverLimitInput protects the envelope boundary.
 func inspectJSON(value []byte, maxDepth int) error {
 	if maxDepth <= 0 {
 		return ErrLimitExceeded
@@ -427,6 +447,8 @@ func decodeJSONData(members map[string]json.RawMessage, dataContentType string, 
 		if limits.MaxDataBytes <= 0 || int64(base64DecodedLength(encoded)) > limits.MaxDataBytes {
 			return Data{}, ErrLimitExceeded
 		}
+		// Use the padded alphabet and strict trailing-bit checks; exact lexical
+		// acceptance remains encoding/base64 policy, not a signing normalization.
 		decoded, err := base64.StdEncoding.Strict().DecodeString(encoded)
 		if err != nil {
 			return Data{}, fmt.Errorf("%w: data_base64", ErrInvalidEvent)

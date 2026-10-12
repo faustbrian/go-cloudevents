@@ -1,5 +1,8 @@
 // Package schemaregistry provides an opt-in, bounded registry-backed JSON
 // Schema validator for CloudEvents. Event decoding never performs lookup.
+// NewJSONSchemaValidator snapshots exact lookup mappings, borrowing Cache/Adapter.
+// Explicit Validate may resolve registry data; contexts are cooperative, and SDK
+// resources, retry policy and raw diagnostic exposure remain caller-owned.
 package schemaregistry
 
 import (
@@ -41,8 +44,9 @@ type JSONSchemaConfig struct {
 	// AvailabilityPolicy controls whether resolution fails closed, accepts
 	// stale cache entries, uses cache only, or reports unavailability.
 	AvailabilityPolicy golibregistry.AvailabilityPolicy
-	// Timeout is the positive upper bound applied to each resolution and payload
-	// validation operation, subject to an earlier parent-context deadline.
+	// Timeout creates one shared resolution/payload-validation deadline, subject
+	// to an earlier parent deadline. Collaborators must cooperate; no preemption
+	// or post-success cancellation check is added.
 	Timeout time.Duration
 }
 
@@ -78,7 +82,9 @@ func NewJSONSchemaValidator(config JSONSchemaConfig) (JSONSchemaValidator, error
 
 // Validate implements cloudevents.SchemaValidator. It resolves only an exact
 // URI present in the constructor-owned allowlist, accepts only JSON-compatible
-// content types and JSON Schema registry results, and bounds work by Timeout.
+// content types and JSON Schema results. One derived Timeout context covers
+// resolution and decode; success after cancellation depends on collaborators.
+// Cache/Adapter are borrowed and are not closed, retried or panic-contained here.
 // Mapping failures wrap ErrSchemaMapping; payload violations wrap
 // ErrSchemaViolation; resolution, cancellation, and other adapter failures are
 // preserved for errors.Is inspection.

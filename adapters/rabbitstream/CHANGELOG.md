@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Documentation
+
+- Clarify that decoded State.Timestamp retains the transport message timestamp,
+  while Encode supplies event occurrence time; neither is a broker-clock proof.
+
 ## 1.0.2 - 2026-10-07
 
 ### Changed

@@ -8,6 +8,7 @@ import (
 	"testing"
 )
 
+// FuzzDecodeJSON exercises a bounded JSON envelope and successful decode/strict-encode/decode acceptance; it is not complete byte equivalence.
 func FuzzDecodeJSON(f *testing.F) {
 	f.Add([]byte(`{"specversion":"1.0","id":"1","source":"/source","type":"example","data":null}`))
 	f.Add([]byte(`{"specversion":"1.0","id":"1","source":"/source","type":"example","data_base64":"AAE="}`))
@@ -33,6 +34,7 @@ func FuzzDecodeJSON(f *testing.F) {
 	})
 }
 
+// FuzzDecodeJSONBatch checks accepted batch counts across a bounded round trip, not full event equality.
 func FuzzDecodeJSONBatch(f *testing.F) {
 	f.Add([]byte(`[]`))
 	f.Add([]byte(`[
@@ -72,6 +74,7 @@ func FuzzDecodeJSONBatch(f *testing.F) {
 	})
 }
 
+// FuzzDecodeHTTP exercises in-memory headers/body admission and panic safety; it deliberately ignores semantic results and starts no service.
 func FuzzDecodeHTTP(f *testing.F) {
 	f.Add("application/json", "1.0", "1", "/source", "example", []byte(`{"value":true}`))
 	f.Add(JSONMediaType, "", "", "", "", []byte(`{"specversion":"1.0","id":"1","source":"/source","type":"example"}`))
@@ -102,6 +105,7 @@ func FuzzDecodeHTTP(f *testing.F) {
 	})
 }
 
+// FuzzDecodeKafka exercises bounded record headers/value presence and panic safety without broker I/O; it deliberately ignores semantic results.
 func FuzzDecodeKafka(f *testing.F) {
 	f.Add("application/json", "1.0", "1", "/source", "example", []byte(`{"value":true}`), true)
 	limits := DefaultLimits()

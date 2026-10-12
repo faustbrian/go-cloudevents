@@ -1,5 +1,7 @@
 // Package audit maps a deliberately small, trusted subset of Golib audit
 // metadata through CloudEvents without treating the event as an audit record.
+// AddMetadata/ExtractMetadata require caller trust and leave redaction, durable
+// append and authorization to the canonical audit owner. No writer is started.
 package audit
 
 import (

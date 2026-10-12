@@ -1,5 +1,8 @@
 // Package queue maps Golib queue jobs to and from CloudEvents while retaining
 // execution, retry, settlement, and operational state outside the event.
+// ToCloudEvent/FromCloudEvent copy portable and retained state; neither enqueues,
+// executes, retries nor acknowledges work. Callers keep mutable input stable and
+// validate retained operational fields at their real queue boundary.
 package queue
 
 import (

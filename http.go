@@ -19,8 +19,11 @@ type ContentMode uint8
 
 const (
 	_ ContentMode = iota
+	// BinaryMode places context in binding headers and data in the body/value.
 	BinaryMode
+	// StructuredMode places one event in CloudEvents JSON with a binding content type.
 	StructuredMode
+	// BatchMode places a JSON event array in HTTP; Kafka does not support it.
 	BatchMode
 )
 
@@ -31,7 +34,9 @@ var ErrUnsupportedMode = errors.New("cloudevents: unsupported content mode")
 // HTTPMessage is a decoded CloudEvents HTTP message. Binary and structured
 // messages contain one Event; batch messages may contain zero or more.
 type HTTPMessage struct {
-	Mode   ContentMode
+	// Mode records the Content-Type-selected mapping, not an authenticated transport property.
+	Mode ContentMode
+	// Events contains owned immutable events; binary/structured require one and batch permits empty.
 	Events []Event
 }
 
@@ -50,7 +55,8 @@ func EncodeHTTP(events []Event, mode ContentMode) (http.Header, []byte, error) {
 
 // EncodeHTTPWithReport maps events to HTTP headers and an owned body while
 // reporting every representation change. Binary and structured modes require
-// exactly one event; batch mode accepts zero or more events.
+// exactly one event; batch accepts zero or more. Output headers/body are owned;
+// no encode Limits, transport I/O, retries or signing canonicalization are added.
 func EncodeHTTPWithReport(events []Event, mode ContentMode) (http.Header, []byte, ConversionReport, error) {
 	switch mode {
 	case BinaryMode:
@@ -133,7 +139,13 @@ func encodeHTTPAttribute(value string) string {
 
 // DecodeHTTP maps an HTTP header and body to CloudEvents. The caller retains
 // ownership of body; DecodeHTTP never closes it. Cancellation can interrupt
-// cancellation-aware readers and is checked before and after the bounded read.
+// cooperative readers and is checked before/after the bounded read. Blocking
+// Read is not preempted; typed-nil/custom reader panics are not contained.
+// Header maps are borrowed during the call; unrelated headers are not admitted
+// by these limits. Content-Type selects mode; redundant structured Ce- values
+// must match and batch Ce- metadata is rejected (HTTP 1.0.2, DEC-008).
+// Binary data presence is inferred from a nonempty body or Content-Type, not
+// io.Reader nilness (DEC-009). A failure returns zero message, not partial events.
 func DecodeHTTP(ctx context.Context, header http.Header, body io.Reader, limits Limits) (HTTPMessage, error) {
 	if ctx == nil {
 		return HTTPMessage{}, fmt.Errorf("%w: nil context", ErrInvalidEvent)
@@ -281,6 +293,9 @@ func detectHTTPMode(header http.Header, limits Limits) (ContentMode, string, err
 	}
 }
 
+// Read at most limit+1 bytes to distinguish exact admission from overflow.
+// Reject MaxInt64 before adding the lookahead; caller retains reader/Close.
+// There is no cancellation worker: a blocked Read must cooperate itself.
 func readHTTPBody(ctx context.Context, body io.Reader, limit int64) ([]byte, error) {
 	if limit <= 0 || limit == int64(^uint64(0)>>1) {
 		return nil, ErrLimitExceeded
@@ -397,6 +412,8 @@ func cloudEventsHTTPAttributeName(name string) (string, bool) {
 	return name[len("ce-"):], true
 }
 
+// Percent escaping can expand each input byte threefold. Checked multiplication
+// avoids overflow; semantic decoded-length checks remain separately applicable.
 func exceedsHTTPEncodedAttributeLimit(value string, limit int) bool {
 	if limit <= 0 {
 		return true

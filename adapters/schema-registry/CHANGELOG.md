@@ -7,6 +7,11 @@
   and registry imports together. Keep exact URI admission, bounded resolution,
   private payload diagnostics and CloudEvents error classifications.
 
+### Documentation
+
+- Clarify the shared resolution/payload-validation timeout context and borrowed
+  cache/adapter lifecycle; deadlines require cooperative collaborators.
+
 ## 2.0.0 - 2026-10-02
 
 - Adopt schema-registry v2 through the `/adapters/schema-registry/v2` module

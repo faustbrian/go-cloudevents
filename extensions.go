@@ -3,7 +3,8 @@ package cloudevents
 import "strings"
 
 // NewTraceParentAttribute constructs the selected distributed-tracing
-// extension's W3C traceparent value.
+// extension's W3C traceparent value. Validation is the selected grammar in
+// CLOUDEVENTS-DEC-012, not proof of trace identity or span ownership.
 func NewTraceParentAttribute(value string) (Attribute, error) {
 	if !validTraceParent(value) {
 		return Attribute{}, ErrInvalidAttribute
@@ -12,7 +13,8 @@ func NewTraceParentAttribute(value string) (Attribute, error) {
 }
 
 // NewTraceStateAttribute constructs the selected distributed-tracing
-// extension's W3C tracestate value.
+// extension's W3C tracestate value with at most 512 bytes/32 members.
+// Event validation also requires traceparent; no tracing SDK is initialized.
 func NewTraceStateAttribute(value string) (Attribute, error) {
 	if !validTraceState(value) {
 		return Attribute{}, ErrInvalidAttribute
@@ -28,6 +30,9 @@ func NewPartitionKeyAttribute(value string) (Attribute, error) {
 	return NewStringAttribute(value)
 }
 
+// CloudEvents distributed-tracing extension 1.0.2, DEC-012: preserve the
+// selected W3C grammar without acquiring a span/provider. The version-00
+// four-part restriction and nonzero IDs are tested by extension boundary cases.
 func validTraceParent(value string) bool {
 	parts := strings.Split(value, "-")
 	if len(parts) < 4 || len(parts[0]) != 2 || len(parts[1]) != 32 || len(parts[2]) != 16 || len(parts[3]) != 2 {

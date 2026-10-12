@@ -11,12 +11,19 @@ type AttributeKind uint8
 
 const (
 	_ AttributeKind = iota
+	// AttributeString is CloudEvents String without syntax-based type inference.
 	AttributeString
+	// AttributeBoolean is canonical true/false text.
 	AttributeBoolean
+	// AttributeInteger is canonical signed 32-bit decimal text.
 	AttributeInteger
+	// AttributeBinary retains copied bytes with padded-base64 text.
 	AttributeBinary
+	// AttributeURI is a serialized absolute URI, not a fetched resource.
 	AttributeURI
+	// AttributeURIReference is a serialized URI-reference, not an authenticated origin.
 	AttributeURIReference
+	// AttributeTimestamp is UTC RFC3339Nano text, not a clock trust assertion.
 	AttributeTimestamp
 )
 
@@ -75,7 +82,8 @@ func NewURIReferenceAttribute(value string) (Attribute, error) {
 	return Attribute{kind: AttributeURIReference, text: value}, nil
 }
 
-// NewTimestampAttribute constructs an RFC 3339 Timestamp context attribute.
+// NewTimestampAttribute formats UTC RFC3339Nano without a constructor error.
+// Times outside its representable year range fail subsequent event validation.
 func NewTimestampAttribute(value time.Time) Attribute {
 	return Attribute{
 		kind: AttributeTimestamp,

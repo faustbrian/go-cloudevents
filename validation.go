@@ -121,6 +121,10 @@ func validAttribute(attribute Attribute) bool {
 	}
 }
 
+// CloudEvents 1.0.2 Attribute Naming Convention and CLOUDEVENTS-DEC-002:
+// lowercase ASCII alphanumeric is required; an initial digit is accepted and
+// the advisory twenty-character length is not a constructor validity rule.
+// TestAttributeNamesAndCloudStringsEnforceExactCharacterBoundaries protects it.
 func validAttributeName(name string) bool {
 	if name == "" {
 		return false
@@ -133,6 +137,9 @@ func validAttributeName(name string) bool {
 	return true
 }
 
+// DEC-006 requires already serialized URI syntax: round-trip equality rejects
+// url.Parse normalization. This checks syntax only, not scheme safety, ownership
+// or permission to resolve a URI (CloudEvents 1.0.2 Type System).
 func validURIReference(value string) bool {
 	parsed, err := url.Parse(value)
 	return err == nil && parsed.String() == value

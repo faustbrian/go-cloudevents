@@ -1,5 +1,7 @@
 // Package kafka maps CloudEvents through the Golib Kafka record boundary. It
 // performs no broker I/O and never owns producer or consumer lifecycle.
+// Encode uses strict core conversion with no encode-size Limits; Decode applies
+// supplied binding limits. Returned routing/delivery state is not broker proof.
 package kafka
 
 import (

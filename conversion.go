@@ -13,15 +13,20 @@ import (
 var ErrConversionLoss = errors.New("cloudevents: conversion loss")
 
 // ConversionLoss identifies one declared field whose representation changes
-// in a target event format or protocol binding. It never contains field data.
+// in a target event format or protocol binding. Package-generated reports omit
+// field data; field names and manually supplied report text are not sanitized.
 type ConversionLoss struct {
-	Field  string
+	// Field names the representation-changing path; extension names remain caller text.
+	Field string
+	// Reason describes the transformation without including package-generated field values.
 	Reason string
 }
 
 // ConversionReport makes every representation change explicit. Losses are
 // sorted by field and reason so callers can compare and persist reports.
+// Sorting is package determinism policy, not cryptographic canonicalization.
 type ConversionReport struct {
+	// Losses contains field/reason-sorted caller-owned diagnostics, not semantic equivalence proof.
 	Losses []ConversionLoss
 }
 

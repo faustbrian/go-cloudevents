@@ -51,7 +51,11 @@ internal whitespace, otherwise remain exact across structured round trips.
 Use `DecodeJSON`, `DecodeJSONBatch`, `DecodeHTTP`, or `DecodeKafka` with an
 explicit `Limits` value for untrusted input. `DefaultLimits` is conservative;
 applications remain responsible for choosing limits appropriate to their
-transport and threat model.
+transport and threat model. Constructors/encoders do not apply these limits;
+JSON token/raw-event materialization precedes selected count rejection.
+MaxAttributes covers binary HTTP context, not redundant structured HTTP header
+counts; caller transport policy must bound the full header map. These limits
+are not whole-process allocation, callback-duration or signing guarantees.
 
 ## Ownership and I/O
 

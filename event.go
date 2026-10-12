@@ -14,9 +14,13 @@ const specVersion = "1.0"
 type DataKind uint8
 
 const (
+	// DataAbsent is zero Data: no data member/value is present.
 	DataAbsent DataKind = iota
+	// DataJSON retains a valid JSON value, including explicit null.
 	DataJSON
+	// DataText retains present UTF-8 text, including empty text.
 	DataText
+	// DataBinary retains present arbitrary bytes, including empty bytes.
 	DataBinary
 )
 
@@ -27,7 +31,9 @@ type Data struct {
 	bytes   []byte
 }
 
-// NewJSONData constructs JSON-valued event data and takes a copy of value.
+// NewJSONData validates complete JSON syntax and copies value without formatting
+// or duplicate-member rejection inside the payload. It has no Limits admission;
+// a syntactically valid null is present data, distinct from zero Data.
 func NewJSONData(value []byte) (Data, error) {
 	if !json.Valid(value) {
 		return Data{}, ErrInvalidData
@@ -35,7 +41,8 @@ func NewJSONData(value []byte) (Data, error) {
 	return Data{kind: DataJSON, present: true, bytes: append([]byte(nil), value...)}, nil
 }
 
-// NewTextData constructs textual event data.
+// NewTextData copies valid UTF-8 text into present data, including empty text.
+// It does not apply CloudEvents context-string restrictions or byte admission.
 func NewTextData(value string) (Data, error) {
 	if !utf8.ValidString(value) {
 		return Data{}, ErrInvalidData
@@ -43,7 +50,8 @@ func NewTextData(value string) (Data, error) {
 	return Data{kind: DataText, present: true, bytes: []byte(value)}, nil
 }
 
-// NewBinaryData constructs binary event data and takes a copy of value.
+// NewBinaryData copies arbitrary bytes into present data without byte admission;
+// nil and empty inputs both mean present empty binary data, not absent data.
 func NewBinaryData(value []byte) Data {
 	return Data{kind: DataBinary, present: true, bytes: append([]byte(nil), value...)}
 }
@@ -66,17 +74,26 @@ func (d Data) Bytes() []byte {
 // Attributes contains the standard and extension context attributes used to
 // construct an Event. NewEvent takes ownership by copying mutable inputs.
 type Attributes struct {
-	ID              string
-	Source          string
-	Type            string
+	// ID is required producer-defined identity; uniqueness/authenticity are not checked.
+	ID string
+	// Source is a required valid URI-reference, not a dereferenced/authenticated origin.
+	Source string
+	// Type is the required producer-defined taxonomy label, not inferred routing.
+	Type string
+	// DataContentType is an optional parseable media type; encoder loss checks enforce data-kind compatibility.
 	DataContentType string
-	DataSchema      string
-	Subject         string
-	Time            *time.Time
-	Extensions      map[string]Attribute
+	// DataSchema is an optional absolute schema URI; construction/decoding does not fetch it.
+	DataSchema string
+	// Subject is optional application context; empty means absent.
+	Subject string
+	// Time is optional occurrence time; nil omits it and NewEvent copies/normalizes a supplied value to UTC.
+	Time *time.Time
+	// Extensions contains caller-owned exact lowercase-alphanumeric names and immutable attributes; NewEvent copies map membership.
+	Extensions map[string]Attribute
 }
 
-// Event is an immutable CloudEvent using the stable 1.0 specification.
+// Event is an immutable CloudEvent using the supported 1.0 information model.
+// The zero Event is invalid; source/ID identity is declared, not authenticated.
 type Event struct {
 	id              string
 	source          string
@@ -90,7 +107,11 @@ type Event struct {
 	data            Data
 }
 
-// NewEvent validates and constructs an immutable CloudEvent.
+// NewEvent validates required context/type-system/selected-extension constraints
+// and copies maps, data bytes and optional time. It does not validate data-kind/
+// content-type round-trip compatibility, input byte/count limits, source identity,
+// uniqueness or schema contents. Encoders report/reject representation loss later.
+// Input containers must stay stable while copied; returned values own their data.
 func NewEvent(attributes Attributes, data Data) (Event, error) {
 	if err := validateAttributes(attributes); err != nil {
 		return Event{}, err

@@ -1,5 +1,7 @@
 // Package rabbitstream maps structured CloudEvents through Golib RabbitMQ
 // Stream messages without claiming a non-existent binary AMQP binding.
+// Encode/Decode use structured JSON plus dependency-default transport validation;
+// they own copied values, not a stream client, publish confirmation or settlement.
 package rabbitstream
 
 import (
@@ -77,8 +79,8 @@ type State struct {
 	Offset uint64
 	// HasOffset distinguishes explicit offset zero from an unset offset.
 	HasOffset bool
-	// Timestamp is application event time, not broker receipt time. Its zero
-	// value means the CloudEvent did not supply a time.
+	// Timestamp retains Message.Timestamp on Decode; Encode supplies Event.Time.
+	// It is not cross-checked against the decoded occurrence time or broker clock.
 	Timestamp time.Time
 }
 

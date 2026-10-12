@@ -30,6 +30,10 @@ versioning.
 
 ### Documentation
 
+- Clarify constructor/encoder versus decoder admission, copied-value privacy,
+  opaque payload/extension loss, cooperative readers/validators and exact
+  transport-state ownership without changing wire acceptance or source pins.
+
 - Record versioned family trust boundaries and accepted collaborator risks
   with explicit ownership, mitigations and review conditions.
 

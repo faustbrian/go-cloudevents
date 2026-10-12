@@ -1,6 +1,8 @@
 // Package adapter contains shared mechanics for independently released
 // CloudEvents target adapters. It is internal so target modules share error and
-// conversion semantics without creating another public abstraction.
+// conversion semantics without creating another public abstraction. Helpers own
+// copied event/retained-state mechanics, not authentication, I/O or lifecycle.
+// Mutable maps/reports are caller-owned and need exclusive use during writes.
 package adapter
 
 import (
@@ -15,12 +17,19 @@ import (
 )
 
 const (
+	// CorrelationIDExtension is the exact correlationid mapping key.
 	CorrelationIDExtension = "correlationid"
-	RequestIDExtension     = "requestid"
-	CausationIDExtension   = "causationid"
-	TenantIDExtension      = "tenantid"
+	// RequestIDExtension is the exact requestid mapping key.
+	RequestIDExtension = "requestid"
+	// CausationIDExtension is the exact causationid mapping key.
+	CausationIDExtension = "causationid"
+	// TenantIDExtension is the exact tenantid mapping key; syntax does not establish tenant authorization.
+	TenantIDExtension = "tenantid"
 )
 
+// AddStringExtensions validates the event and constructs copied extension state; equal
+// existing values are accepted and conflicts fail. Addition names/caller maps
+// must remain stable/non-secret; no trust authentication or byte cap is added.
 func AddStringExtensions(event cloudevents.Event, additions map[string]string) (cloudevents.Event, error) {
 	if err := event.Validate(); err != nil {
 		return cloudevents.Event{}, fmt.Errorf("%w: event: %w", cloudevents.ErrInvalidAdapterInput, err)
@@ -42,6 +51,8 @@ func AddStringExtensions(event cloudevents.Event, additions map[string]string) (
 	return RebuildEvent(event, extensions)
 }
 
+// StringExtension returns a nonempty string extension, absence, or root invalid-input
+// error. It does not validate all other event fields or authenticate this value.
 func StringExtension(event cloudevents.Event, name string) (string, bool, error) {
 	attribute, present := event.Extension(name)
 	if !present {
@@ -53,10 +64,14 @@ func StringExtension(event cloudevents.Event, name string) (string, bool, error)
 	return attribute.String(), true, nil
 }
 
+// AttributesEqual compares abstract kind, encoded text and binary bytes, not just
+// their target wire spelling. This preserves collision detection across kinds.
 func AttributesEqual(left, right cloudevents.Attribute) bool {
 	return left.Kind() == right.Kind() && left.String() == right.String() && bytes.Equal(left.Bytes(), right.Bytes())
 }
 
+// RebuildEvent reconstructs standard fields with copied replacement extensions/data;
+// optional presence is retained and NewEvent revalidates context, not provenance.
 func RebuildEvent(event cloudevents.Event, extensions map[string]cloudevents.Attribute) (cloudevents.Event, error) {
 	dataContentType, _ := event.DataContentType()
 	dataSchema, _ := event.DataSchema()
@@ -73,6 +88,9 @@ func RebuildEvent(event cloudevents.Event, extensions map[string]cloudevents.Att
 	}, event.Data())
 }
 
+// DataFromPayload selects JSON, text or binary from a declared media type; empty
+// content type means binary here, unlike core JSON wire decoding. Constructors
+// copy payload without Limits; media-type errors may retain raw parser causes.
 func DataFromPayload(contentType string, payload []byte) (cloudevents.Data, error) {
 	if contentType == "" {
 		return cloudevents.NewBinaryData(payload), nil
@@ -91,6 +109,8 @@ func DataFromPayload(contentType string, payload []byte) (cloudevents.Data, erro
 	return cloudevents.NewBinaryData(payload), nil
 }
 
+// RestoreRetainedNil returns copied data, restoring nil only when retainedNil and
+// the payload is empty. It does not authenticate the retained presence bit.
 func RestoreRetainedNil(data cloudevents.Data, retainedNil bool) []byte {
 	value := data.Bytes()
 	if retainedNil && len(value) == 0 {
@@ -99,6 +119,8 @@ func RestoreRetainedNil(data cloudevents.Data, retainedNil bool) []byte {
 	return value
 }
 
+// PutStringExtension writes a validated string into a caller-owned non-nil map;
+// it overwrites an existing entry and is not collision-safe by itself.
 func PutStringExtension(extensions map[string]cloudevents.Attribute, name, value string) error {
 	attribute, err := cloudevents.NewStringAttribute(value)
 	if err != nil {
@@ -108,6 +130,9 @@ func PutStringExtension(extensions map[string]cloudevents.Attribute, name, value
 	return nil
 }
 
+// MappedString accepts retained equal metadata or trusted adoption when retained
+// is empty. Conflicting or missing retained metadata fails; trusted is caller
+// policy, not a credential verification or tenant authorization operation.
 func MappedString(event cloudevents.Event, name, retained string, trusted bool) (string, error) {
 	value, present, err := StringExtension(event, name)
 	if err != nil {
@@ -128,6 +153,7 @@ func MappedString(event cloudevents.Event, name, retained string, trusted bool) 
 	return retained, nil
 }
 
+// CloneBytes copies bytes while preserving nil versus non-nil empty storage.
 func CloneBytes(value []byte) []byte {
 	if value == nil {
 		return nil
@@ -137,6 +163,7 @@ func CloneBytes(value []byte) []byte {
 	return cloned
 }
 
+// CloneStrings copies map membership, preserving nil; immutable strings are reused.
 func CloneStrings(values map[string]string) map[string]string {
 	if values == nil {
 		return nil
@@ -148,6 +175,7 @@ func CloneStrings(values map[string]string) map[string]string {
 	return cloned
 }
 
+// CloneTimePointer copies an optional time value, preserving nil and its exact time state.
 func CloneTimePointer(value *time.Time) *time.Time {
 	if value == nil {
 		return nil
@@ -156,6 +184,8 @@ func CloneTimePointer(value *time.Time) *time.Time {
 	return &cloned
 }
 
+// AppendOptionalContextLosses appends present dataschema/subject/time losses to a
+// non-nil caller-owned report in that order; it does not inspect their values.
 func AppendOptionalContextLosses(event cloudevents.Event, report *cloudevents.AdapterReport, target string) {
 	for _, field := range []string{"dataschema", "subject", "time"} {
 		present := false
@@ -173,6 +203,8 @@ func AppendOptionalContextLosses(event cloudevents.Event, report *cloudevents.Ad
 	}
 }
 
+// AppendDataKindLoss reports a data-kind change under the target media-type policy;
+// absent data adds nothing. report must be non-nil and exclusively owned.
 func AppendDataKindLoss(event cloudevents.Event, report *cloudevents.AdapterReport, target string, contentTypePreserved bool) {
 	data := event.Data()
 	if !data.Present() {
@@ -196,6 +228,8 @@ func AppendDataKindLoss(event cloudevents.Event, report *cloudevents.AdapterRepo
 	}
 }
 
+// AppendExtensionLosses appends unselected names in lexical order to an owned
+// non-nil report. Names are not redacted; selected may be nil to retain none.
 func AppendExtensionLosses(event cloudevents.Event, report *cloudevents.AdapterReport, target string, selected map[string]struct{}) {
 	var names []string
 	for name := range event.Extensions() {
@@ -209,6 +243,8 @@ func AppendExtensionLosses(event cloudevents.Event, report *cloudevents.AdapterR
 	}
 }
 
+// IsJSONContentType accepts application/json or a parsed +json suffix; empty
+// or malformed media types are false, unlike the root implicit JSON policy.
 func IsJSONContentType(value string) bool {
 	mediaType, _, err := mime.ParseMediaType(value)
 	if err != nil {

@@ -12,7 +12,9 @@ import (
 // KafkaHeader is a Kafka record header. Value is always caller-owned on public
 // input and output boundaries.
 type KafkaHeader struct {
-	Key   string
+	// Key is the exact case-sensitive header name; content-type and ce_ belong to the binding.
+	Key string
+	// Value is borrowed on input and copied when retained; nil headers are not record tombstones.
 	Value []byte
 }
 
@@ -20,17 +22,24 @@ type KafkaHeader struct {
 // CloudEvents binding. Topic, partition, offset, timestamp, retries, and broker
 // settlement remain owned by the Kafka caller.
 type KafkaRecord struct {
-	Key     []byte
-	Value   []byte
+	// Key is borrowed on input/copied on output; nil remains distinct from non-nil empty bytes.
+	Key []byte
+	// Value is borrowed on input/copied on output; nil binary record data is a tombstone, not an empty payload.
+	Value []byte
+	// Headers is ordered input metadata; decoder-owned copies do not imply broker delivery.
 	Headers []KafkaHeader
 }
 
 // KafkaMessage is a decoded binding result. Transport headers are headers not
 // owned by the CloudEvents binding and are returned without interpretation.
 type KafkaMessage struct {
-	Mode             ContentMode
-	Event            Event
-	Key              []byte
+	// Mode records the detected structured/binary binding.
+	Mode ContentMode
+	// Event is the decoded immutable value, not an acknowledged message.
+	Event Event
+	// Key is borrowed on input/copied on output; nil remains distinct from non-nil empty bytes.
+	Key []byte
+	// TransportHeaders contains copied unowned headers in received order; values are not interpreted/redacted.
 	TransportHeaders []KafkaHeader
 }
 
@@ -48,8 +57,10 @@ func EncodeKafka(event Event, mode ContentMode, key []byte) (KafkaRecord, error)
 }
 
 // EncodeKafkaWithReport maps one Event to the stable Kafka protocol binding
-// while reporting every representation change. Kafka does not define batch
-// mode. The supplied key is copied unchanged.
+// while reporting representation changes. Only binary/structured modes exist;
+// batch fails with ErrUnsupportedMode. Key/header/value bytes are copied with
+// no encode Limits or broker I/O. Absent binary data becomes nil (a tombstone);
+// present empty data stays non-nil empty (Kafka 1.0.2, CLOUDEVENTS-DEC-010).
 func EncodeKafkaWithReport(event Event, mode ContentMode, key []byte) (KafkaRecord, ConversionReport, error) {
 	switch mode {
 	case BinaryMode:
@@ -117,6 +128,8 @@ func encodeKafkaBinaryHeaders(event Event) []KafkaHeader {
 	return headers
 }
 
+// Kafka tombstones and adapter retained-state reversal depend on nil versus
+// present-empty bytes; append-to-nil would collapse that distinction (DEC-010).
 func cloneBytesPreservingNil(value []byte) []byte {
 	if value == nil {
 		return nil
@@ -130,7 +143,12 @@ func cloneBytesPreservingEmpty(value []byte) []byte {
 	return owned
 }
 
-// DecodeKafka decodes the stable Kafka protocol binding without broker I/O.
+// DecodeKafka decodes Kafka 1.0.2 without broker I/O. Supplied limits are not
+// defaulted; copied key/unowned headers receive their own admission. Content-Type
+// selects structured JSON or binary mode; singleton metadata/conflicts fail.
+// Nil binary Value means absent data/tombstone; non-nil empty means present.
+// Received key is retained independently of partitionkey, without enforcing
+// equality. All failures return zero message; settlement/retry remain external.
 func DecodeKafka(record KafkaRecord, limits Limits) (KafkaMessage, error) {
 	if limits.MaxEventBytes <= 0 || limits.MaxDataBytes <= 0 ||
 		limits.MaxKafkaKeyBytes <= 0 || len(record.Key) > limits.MaxKafkaKeyBytes ||

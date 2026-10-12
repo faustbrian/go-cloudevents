@@ -1,5 +1,8 @@
 // Package eventsourcing maps persisted Golib event-sourcing messages to and
 // from CloudEvents while keeping event-store state explicit and caller-owned.
+// ToCloudEvent/FromCloudEvent preserve explicit retained stream/version identity;
+// they do not append, assign positions or establish optimistic persistence. Domain
+// occurrence and store recording time are intentionally separate.
 package eventsourcing
 
 import (
@@ -181,6 +184,9 @@ func FromCloudEvent(event cloudevents.Event, state State) (golibeventsourcing.Me
 	return message, report, nil
 }
 
+// Encode each stream component before joining: raw dots or delimiter characters
+// in aggregate type/ID must not create ambiguous subject identity. This is not
+// an authenticated or cryptographic stream reference.
 func encodeStreamSubject(stream golibeventsourcing.StreamID) string {
 	return base64.RawURLEncoding.EncodeToString([]byte(stream.AggregateType())) + "." + base64.RawURLEncoding.EncodeToString([]byte(stream.AggregateID()))
 }

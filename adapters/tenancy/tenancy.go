@@ -1,5 +1,7 @@
 // Package tenancy maps trusted Golib tenant routing identity to and from a
 // CloudEvents extension. It does not authenticate or authorize the tenant.
+// Add/Extract use Tenancy/v2 parsing and explicit trust, not provider isolation.
+// No tenant lookup or client lifecycle is introduced.
 package tenancy
 
 import (

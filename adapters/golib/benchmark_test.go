@@ -11,6 +11,7 @@ import (
 	"github.com/faustbrian/go-rabbitmq-streams"
 )
 
+// BenchmarkKafkaBinaryRoundTrip measures decode only: event construction and binary encode are setup, with no broker operation.
 func BenchmarkKafkaBinaryRoundTrip(b *testing.B) {
 	event := benchmarkEvent(b)
 	producer, err := golib.EncodeKafka(event, cloudevents.BinaryMode, golib.KafkaTransport{Topic: "events"})
@@ -27,6 +28,7 @@ func BenchmarkKafkaBinaryRoundTrip(b *testing.B) {
 	}
 }
 
+// BenchmarkRabbitStreamStructuredRoundTrip measures decode only of one preencoded structured message plus one transport property; it performs no Stream I/O.
 func BenchmarkRabbitStreamStructuredRoundTrip(b *testing.B) {
 	event := benchmarkEvent(b)
 	message, err := golib.EncodeRabbitStream(event, golib.RabbitStreamTransport{Stream: "events"})
@@ -43,6 +45,7 @@ func BenchmarkRabbitStreamStructuredRoundTrip(b *testing.B) {
 	}
 }
 
+// BenchmarkQueueRoundTrip includes both conversions of one fixed payload/retained job state, without enqueueing or execution.
 func BenchmarkQueueRoundTrip(b *testing.B) {
 	message := job.Message{Timeout: time.Second, Body: []byte(`{"order":"A-123"}`)}
 	options := golib.QueueOptions{Source: "/queue", StableID: "job-1", Type: "order.created"}

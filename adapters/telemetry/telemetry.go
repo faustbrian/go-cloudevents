@@ -1,5 +1,8 @@
 // Package telemetry maps caller-owned Golib propagation policy through
 // CloudEvents trace extensions without owning telemetry initialization.
+// InjectTraceContext/ExtractTraceContext borrow explicit propagation policy and
+// invoke it inline, without panic containment or a post-call cancellation check.
+// Trust filtering belongs to that policy; this mapping owns no exporter shutdown.
 package telemetry
 
 import (
@@ -84,6 +87,8 @@ func ExtractTraceContext(ctx context.Context, event cloudevents.Event, policy *t
 	return policy.Extract(ctx, carrier)
 }
 
+// metadataCarrier is owned by one conversion call. Propagation callbacks must
+// use it synchronously; concurrent writes or retention are not synchronized.
 type metadataCarrier map[string]string
 
 func (carrier metadataCarrier) Get(key string) string { return carrier[key] }

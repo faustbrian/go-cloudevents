@@ -1,5 +1,7 @@
 // Package jsonschema adapts one caller-compiled Golib JSON Schema to the
 // CloudEvents opt-in SchemaValidator boundary without registry lookup.
+// Construct Validator with a trusted exact URI and compiled Schema. Validate
+// borrows schema/data and delegates limits/context; no shutdown or retry is owned.
 package jsonschema
 
 import (

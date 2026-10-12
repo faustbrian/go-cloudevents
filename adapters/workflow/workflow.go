@@ -1,5 +1,7 @@
 // Package workflow maps durable Golib workflow history decisions to and from
 // CloudEvents while retaining workflow-owned state outside the event.
+// ToCloudEvent/FromCloudEvent map validated history fields and retained identity;
+// they do not schedule, execute, persist, retry or enforce idempotency.
 package workflow
 
 import (
