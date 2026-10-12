@@ -17,3 +17,9 @@ updates:
       github-actions:
         patterns:
           - "*"
+  - package-ecosystem: npm
+    directories:
+      - "/"
+      - "/scripts/javascript"
+    schedule:
+      interval: weekly
