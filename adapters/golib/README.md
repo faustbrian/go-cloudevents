@@ -25,8 +25,9 @@ registry validator.
 go get github.com/faustbrian/go-cloudevents/adapters/golib/v4@v4.0.0
 ```
 
-Requires Go 1.27. This command applies after facade `adapters/golib/v4.0.0`
-publication.
+Published facade `adapters/golib/v4.0.0` requires Go 1.27. It remains a
+deprecated compatibility path; prefer the individual target adapters for new
+code and migrations.
 
 ## Migration from v3
 

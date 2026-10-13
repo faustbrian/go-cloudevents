@@ -5,8 +5,8 @@
 This module provides caller-invoked, bounded schema-registry resolution for
 CloudEvents JSON Schema validation. Event decoding never performs lookup.
 
-The v3 adapter is prepared in this source and pending publication. After release,
-install with `go get github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3@v3`.
+This independently versioned adapter is published at `v3.0.0`. Install
+with `go get github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3@v3.0.0`.
 Construct `JSONSchemaValidator` with an immutable URI allowlist, resolution
 cache, adapter, availability policy, and positive timeout. The caller owns
 registry credentials and lifecycle.
@@ -25,10 +25,10 @@ CloudEvents error sentinels, exact trusted-URI mappings, caller-owned limits,
 availability policy, and timeout behavior are unchanged. Registry v3 preserves
 error classifications while keeping JSON payload diagnostics private.
 
-The deprecated Golib facade v3 remains on its released registry-adapter v2
-and types. Its one combined v4 migration follows publication of the new
-JSON Schema, Registry and Outbox targets. Select this target adapter directly
-to migrate earlier; existing public module generations can coexist.
+The deprecated Golib facade v3 retains its released registry-adapter v2 and
+types. Published facade v4.0.0 adopts the JSON Schema, Registry and Outbox
+target majors together. Prefer this target adapter directly when only this
+boundary is needed; existing public module generations can coexist.
 
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),

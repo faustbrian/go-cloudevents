@@ -5,8 +5,8 @@
 This module adapts one caller-compiled Golib JSON Schema to the CloudEvents
 `SchemaValidator` boundary. It performs no registry lookup or network I/O.
 
-The v2 adapter is prepared in this source and pending publication. After release,
-install with `go get github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2@v2`.
+This independently versioned adapter is published at `v2.0.0`. Install
+with `go get github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2@v2.0.0`.
 Construct a `Validator` with the exact schema URI and compiled schema, then
 pass it explicitly to CloudEvents validation. The caller owns compilation,
 availability, and lifecycle.
@@ -18,9 +18,10 @@ interface remain v1. Compilation policy, resource limits and remote-reference
 admission remain explicit caller responsibilities. Parser, limit and context
 errors are preserved, and schema violations retain the CloudEvents sentinel.
 
-The released Golib facade v3 still uses the old target cohort. Its combined
-v4 migration follows publication of the JSON Schema, Registry and Outbox target
-adapters; selecting this adapter alone does not migrate the facade.
+The released Golib facade v3 retains the old target cohort. Published facade
+v4.0.0 adopts the JSON Schema, Registry and Outbox target majors together;
+selecting this adapter alone does not migrate the deprecated facade. Prefer
+the target adapters your application actually needs.
 
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),

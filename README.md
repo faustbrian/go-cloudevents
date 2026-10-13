@@ -125,7 +125,7 @@ by the target integration recipes with the public Tenancy v2 contract.
 Published v1 adapters remain available with their original contracts.
 
 The `adapters/golib` module is a deprecated compatibility facade. Released v1,
-v2 and v3 remain available; the pending `adapters/golib/v4` identity adopts public
+v2 and v3 remain available; published `adapters/golib/v4` v4.0.0 adopts public
 JSONSchema2, Outbox2 and Schema Registry3 alongside Tenancy2, EventSourcing2 and
 Workflow2. All
 generations are excluded from the recommended set
