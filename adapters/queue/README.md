@@ -1,5 +1,7 @@
 # CloudEvents queue adapter
 
+[Documentation index](../../docs/README.md) · [Repository entry](../../README.md)
+
 This module maps Golib queue jobs to CloudEvents while retaining retry,
 settlement, execution, and operational state outside the event.
 
@@ -27,3 +29,6 @@ this public v2 adapter.
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/queue/v2),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),
 and [security policy](https://github.com/faustbrian/go-cloudevents/security/policy).
+
+Choose the next guide in the [documentation index](../../docs/README.md)
+or return to the [repository entry](../../README.md) for installation and ownership.

@@ -1,5 +1,7 @@
 # Conversion policy
 
+[Documentation index](README.md) · [Repository entry](../README.md)
+
 CloudEvents is never Golib's canonical internal envelope. A conversion adapter
 must expose its ownership decisions and return a structured report containing
 every field it could not represent. Silent dropping and overwriting are not
@@ -69,3 +71,6 @@ encoding.
 No adapter may claim an exact round trip when it reassigns an ID, substitutes a
 timestamp, infers a schema, coerces data kinds, overwrites reserved metadata,
 or drops transport or canonical-envelope state.
+
+Choose the next guide in the [documentation index](README.md)
+or return to the [repository entry](../README.md) for installation and ownership.

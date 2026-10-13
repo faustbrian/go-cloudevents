@@ -1,5 +1,7 @@
 # Security, privacy, and observability review
 
+[Documentation index](README.md) · [Repository entry](../README.md)
+
 ## Scope and conclusion
 
 This review covers the core event model, JSON/HTTP/Kafka formats and bindings,
@@ -188,3 +190,6 @@ that receive returned events, state, errors, or contexts.
   diagnostic workflow requires a narrowly redacted value.
 - Apply retention, access-control, deletion, and regional policies to telemetry
   independently of CloudEvents transport retention.
+
+Choose the next guide in the [documentation index](README.md)
+or return to the [repository entry](../README.md) for installation and ownership.

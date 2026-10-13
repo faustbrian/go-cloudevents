@@ -1,5 +1,7 @@
 # Specification matrix
 
+[Documentation index](README.md) · [Repository entry](../README.md)
+
 This module targets the stable CloudEvents 1.0 line. `Supported` means the
 listed surface has an owned implementation and executable artifact. It does not
 mean that the archived upstream conformance program has certified the module.
@@ -117,3 +119,6 @@ These reviewed commits clarify the stable contract without adopting unrelated
 
 The 1.0.3-wip recommendation that attribute names start with a letter is not
 made a 1.0.2 validity rule. Digit-leading extension names remain accepted.
+
+Choose the next guide in the [documentation index](README.md)
+or return to the [repository entry](../README.md) for installation and ownership.

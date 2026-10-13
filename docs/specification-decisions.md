@@ -1,5 +1,7 @@
 # CloudEvents specification decisions
 
+[Documentation index](README.md) · [Repository entry](../README.md)
+
 This register records observable choices where CloudEvents 1.0.2, selected
 stable-line clarifications, the JSON event format, or the HTTP and Kafka
 bindings permit or appear to permit more than one implementation. Normative
@@ -366,3 +368,6 @@ None. New ambiguities, errata, binding conflicts, extension policies, or peer
 divergences MUST be registered before observable behavior is selected. An
 unresolved wire, validation, security, or resource-policy decision blocks a
 release claim for the affected surface.
+
+Choose the next guide in the [documentation index](README.md)
+or return to the [repository entry](../README.md) for installation and ownership.

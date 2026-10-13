@@ -1,5 +1,7 @@
 # CloudEvents family threat model
 
+[Documentation index](README.md) · [Repository entry](../README.md)
+
 Model version: 1.0. Review date: 2026-10-05.
 Owner: Brian, repository maintainer. Next review: 2027-01-05, or sooner when
 a listed review condition occurs. This model applies to current main's core,
@@ -63,3 +65,6 @@ model does not assert that all goal gates are already green.
 
 Private reports must use the repository's private security reporting channel,
 without production payloads or credentials unless a secure channel is agreed.
+
+Choose the next guide in the [documentation index](README.md)
+or return to the [repository entry](../README.md) for installation and ownership.

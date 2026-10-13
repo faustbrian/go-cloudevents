@@ -1,5 +1,7 @@
 # Interoperability decisions
 
+[Documentation index](README.md) · [Repository entry](../README.md)
+
 Normative prose in the pinned specification outranks examples, schemas, and SDK
 behavior. These decisions cover places where the stable documents leave a
 runtime or conflict policy to implementations.
@@ -96,3 +98,6 @@ CloudEvents context attributes. Adapters preserve them out of band unless an
 explicit selected extension owns the meaning. A conversion that cannot retain a
 declared field returns structured loss information rather than silently dropping
 or overwriting it.
+
+Choose the next guide in the [documentation index](README.md)
+or return to the [repository entry](../README.md) for installation and ownership.

@@ -1,5 +1,7 @@
 # CloudEvents audit adapter
 
+[Documentation index](../../docs/README.md) · [Repository entry](../../README.md)
+
 This module maps a deliberately small trusted subset of Golib audit metadata
 through CloudEvents. It never treats an interoperability event as an audit
 record and returns explicit losses for audit-owned fields.
@@ -29,3 +31,6 @@ this public v2 adapter.
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/audit/v2),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),
 and [security policy](https://github.com/faustbrian/go-cloudevents/security/policy).
+
+Choose the next guide in the [documentation index](../../docs/README.md)
+or return to the [repository entry](../../README.md) for installation and ownership.

@@ -1,5 +1,7 @@
 # CloudEvents workflow adapter
 
+[Documentation index](../../docs/README.md) · [Repository entry](../../README.md)
+
 This module maps Golib durable workflow history to CloudEvents while retaining
 workflow-owned sequence, definition, retry, compensation, and scheduling
 state outside the event.
@@ -37,3 +39,6 @@ Applications should prefer this target adapter over the broad facade.
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/workflow/v2),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),
 and [security policy](https://github.com/faustbrian/go-cloudevents/security/policy).
+
+Choose the next guide in the [documentation index](../../docs/README.md)
+or return to the [repository entry](../../README.md) for installation and ownership.

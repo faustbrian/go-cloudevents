@@ -1,5 +1,7 @@
 # CloudEvents Kafka adapter
 
+[Documentation index](../../docs/README.md) · [Repository entry](../../README.md)
+
 This module maps CloudEvents through Golib Kafka records. It performs no
 broker I/O and owns no producer, consumer, offset, retry, or shutdown state.
 
@@ -10,3 +12,6 @@ use `Decode` with caller-selected limits. Returned bytes do not alias input.
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/kafka),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),
 and [security policy](https://github.com/faustbrian/go-cloudevents/security/policy).
+
+Choose the next guide in the [documentation index](../../docs/README.md)
+or return to the [repository entry](../../README.md) for installation and ownership.

@@ -1,5 +1,7 @@
 # Benchmarks
 
+[Documentation index](README.md) · [Repository entry](../README.md)
+
 The equivalent-event benchmark compares Golib with `cloudevents/sdk-go`
 v2.16.2. Both implementations are initialized from, and decode, the same
 canonical JSON bytes. Setup rejects any difference in the decoded specification
@@ -50,3 +52,6 @@ and 17,821-56,712 ns/op for SDK decoding. Concurrent repository verification
 made latency noisy, so this baseline is evidence of relative cost and
 allocations, not a release regression budget. A budget requires an isolated,
 repeatable runner and statistical comparison against this corpus.
+
+Choose the next guide in the [documentation index](README.md)
+or return to the [repository entry](../README.md) for installation and ownership.

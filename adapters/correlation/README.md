@@ -1,5 +1,7 @@
 # CloudEvents correlation adapter
 
+[Documentation index](../../docs/README.md) · [Repository entry](../../README.md)
+
 This module maps caller-owned Golib correlation identifiers through
 CloudEvents extensions without hidden I/O or mutable aliases.
 
@@ -10,3 +12,6 @@ has made its trust decision. The caller owns identifier policy and lifecycle.
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/correlation),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),
 and [security policy](https://github.com/faustbrian/go-cloudevents/security/policy).
+
+Choose the next guide in the [documentation index](../../docs/README.md)
+or return to the [repository entry](../../README.md) for installation and ownership.

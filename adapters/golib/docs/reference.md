@@ -1,5 +1,7 @@
 # Golib CloudEvents adapters technical guide
 
+[Documentation index](../../../docs/README.md) · [Repository entry](../../../README.md)
+
 This guide contains the complete behavioral and operational reference. Start
 with the [package overview](../README.md).
 
@@ -168,3 +170,6 @@ documentation, benchmarks, and clean-consumer installation.
 
 See the root [documentation index](../../../docs/README.md) for package integration
 and compatibility guidance.
+
+Choose the next guide in the [documentation index](../../../docs/README.md)
+or return to the [repository entry](../../../README.md) for installation and ownership.

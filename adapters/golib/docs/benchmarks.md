@@ -1,5 +1,7 @@
 # Benchmark evidence
 
+[Documentation index](../../../docs/README.md) · [Repository entry](../../../README.md)
+
 ## 2026-08-09 baseline
 
 Environment:
@@ -30,3 +32,6 @@ Allocation counts were identical across all ten samples. A future performance
 claim must rerun the same corpus on a controlled host, preserve the raw Go
 benchmark output, and compare statistically equivalent samples rather than a
 single result.
+
+Choose the next guide in the [documentation index](../../../docs/README.md)
+or return to the [repository entry](../../../README.md) for installation and ownership.

@@ -1,5 +1,7 @@
 # CloudEvents RabbitMQ Streams adapter
 
+[Documentation index](../../docs/README.md) · [Repository entry](../../README.md)
+
 This module maps structured CloudEvents through Golib RabbitMQ Streams
 messages without claiming a non-existent binary AMQP binding.
 
@@ -11,3 +13,6 @@ caller-owned.
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/rabbitstream),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),
 and [security policy](https://github.com/faustbrian/go-cloudevents/security/policy).
+
+Choose the next guide in the [documentation index](../../docs/README.md)
+or return to the [repository entry](../../README.md) for installation and ownership.

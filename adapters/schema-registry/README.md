@@ -1,5 +1,7 @@
 # CloudEvents schema-registry adapter
 
+[Documentation index](../../docs/README.md) · [Repository entry](../../README.md)
+
 This module provides caller-invoked, bounded schema-registry resolution for
 CloudEvents JSON Schema validation. Event decoding never performs lookup.
 
@@ -31,3 +33,6 @@ to migrate earlier; existing public module generations can coexist.
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/schema-registry/v3),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),
 and [security policy](https://github.com/faustbrian/go-cloudevents/security/policy).
+
+Choose the next guide in the [documentation index](../../docs/README.md)
+or return to the [repository entry](../../README.md) for installation and ownership.

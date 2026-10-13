@@ -1,5 +1,7 @@
 # CloudEvents telemetry adapter
 
+[Documentation index](../../docs/README.md) · [Repository entry](../../README.md)
+
 This module maps caller-owned Golib propagation policy through CloudEvents
 trace extensions without owning telemetry initialization or shutdown.
 
@@ -10,3 +12,6 @@ trust decision. Baggage is not flattened and is reported as conversion loss.
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/telemetry),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),
 and [security policy](https://github.com/faustbrian/go-cloudevents/security/policy).
+
+Choose the next guide in the [documentation index](../../docs/README.md)
+or return to the [repository entry](../../README.md) for installation and ownership.

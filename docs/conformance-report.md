@@ -1,5 +1,7 @@
 # Conformance report
 
+[Documentation index](README.md) · [Repository entry](../README.md)
+
 ## Claim boundary
 
 This is a coverage and provenance report for the executable artifacts shipped
@@ -76,3 +78,6 @@ data-reference, sampling-rate, and sequence extensions have no specialized
 implementation. Their pinned documents remain in the manifest so omission is
 explicit rather than silently presented as complete CloudEvents support. See
 the [specification matrix](specification-matrix.md) for the full inventory.
+
+Choose the next guide in the [documentation index](README.md)
+or return to the [repository entry](../README.md) for installation and ownership.

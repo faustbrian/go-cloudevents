@@ -1,5 +1,7 @@
 # Normative source provenance
 
+[Documentation index](README.md) · [Repository entry](../README.md)
+
 The [specification decision register](specification-decisions.md) maps these
 pinned inputs to the package's observable interpretations and executable
 evidence.
@@ -85,3 +87,6 @@ and rerunning the interoperability gate.
 Upstream material is Apache-2.0 licensed. Any copied fixture must retain its
 source path, revision, digest, license, generation or extraction command, and
 update procedure alongside the fixture.
+
+Choose the next guide in the [documentation index](README.md)
+or return to the [repository entry](../README.md) for installation and ownership.

@@ -1,5 +1,7 @@
 # CloudEvents tenancy adapter
 
+[Documentation index](../../docs/README.md) · [Repository entry](../../README.md)
+
 This module maps validated Golib tenant routing identity through one
 CloudEvents extension. It does not authenticate or authorize the tenant.
 
@@ -15,3 +17,6 @@ made its trust decision. Authorization and transport routing remain external.
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/tenancy/v2),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),
 and [security policy](https://github.com/faustbrian/go-cloudevents/security/policy).
+
+Choose the next guide in the [documentation index](../../docs/README.md)
+or return to the [repository entry](../../README.md) for installation and ownership.

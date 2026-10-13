@@ -1,5 +1,7 @@
 # CloudEvents outbox adapter
 
+[Documentation index](../../docs/README.md) · [Repository entry](../../README.md)
+
 This module maps Golib transactional-outbox envelopes to CloudEvents while
 retaining relay-owned state outside the interoperability event.
 
@@ -21,3 +23,6 @@ migration follows publication of all three schema/registry/outbox targets.
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/outbox/v2),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),
 and [security policy](https://github.com/faustbrian/go-cloudevents/security/policy).
+
+Choose the next guide in the [documentation index](../../docs/README.md)
+or return to the [repository entry](../../README.md) for installation and ownership.

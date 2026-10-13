@@ -2,8 +2,8 @@
 
 [![CI](https://github.com/faustbrian/go-cloudevents/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/faustbrian/go-cloudevents/actions/workflows/ci.yml)
 [![CodeQL](https://img.shields.io/badge/CodeQL-required-blue)](https://github.com/faustbrian/go-cloudevents/actions/workflows/ci.yml)
-[![Coverage](https://img.shields.io/badge/coverage-100%25_required-blue)](CONTRIBUTING.md#verification)
-[![Mutation](https://img.shields.io/badge/mutation-local_and_scheduled-blue)](CONTRIBUTING.md#verification)
+[![Coverage](https://img.shields.io/badge/coverage-risk_selected-blue)](CONTRIBUTING.md#verification)
+[![Mutation](https://img.shields.io/badge/mutation-optional_local%2Fselected_scheduled-blue)](CONTRIBUTING.md#verification)
 [![Documentation](https://img.shields.io/badge/docs-checked_in_CI-blue)](docs/)
 [![Go Reference](https://pkg.go.dev/badge/github.com/faustbrian/go-cloudevents.svg)](https://pkg.go.dev/github.com/faustbrian/go-cloudevents)
 [![Release](https://img.shields.io/github/v/release/faustbrian/go-cloudevents?sort=semver)](https://github.com/faustbrian/go-cloudevents/releases)
@@ -16,9 +16,15 @@ event and batch serialization, and selected HTTP and Kafka mappings. It does
 not replace richer domain, event-sourcing, outbox, queue, workflow, audit, or
 application envelopes.
 
-This module is pre-release. The [normative matrix](docs/specification-matrix.md)
+The root module has a published [v1.1.1 release](https://github.com/faustbrian/go-cloudevents/releases/tag/v1.1.1).
+The [normative matrix](docs/specification-matrix.md)
 is the authority for pinned revisions and support claims; an intended-support
 row is not complete until its listed evidence exists.
+
+## Install
+
+Install `github.com/faustbrian/go-cloudevents@v1.1.1` with `go get`.
+Optional adapters have independent module versions; see the package map.
 
 ## Quick start
 
@@ -153,3 +159,12 @@ bounded checks across the catalog, including deterministic fuzz seeds/corpus.
 Active fuzzing is explicit or selected for changed-source CI; `make check-full`
 retains full campaigns and online pinned-source conformance. See
 [contributing](CONTRIBUTING.md#verification) for standalone commands.
+
+## Documentation navigation
+
+[Complete documentation map](docs/README.md#complete-documentation-map) · [Current source package map](docs/package-map.md)
+
+Use the [versioned ecosystem entry](https://github.com/faustbrian/go-library-tools/blob/v2.1.3/docs/ecosystem/README.md) for package
+selection. The [frozen compatibility cohort](https://github.com/faustbrian/go-library-tools/blob/v1.8.4/docs/ecosystem/compatibility-sets.md)
+is separate from current package releases and unpublished source changes.
+Adopting them does not silently update that cohort.

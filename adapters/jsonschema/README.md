@@ -1,5 +1,7 @@
 # CloudEvents JSON Schema adapter
 
+[Documentation index](../../docs/README.md) · [Repository entry](../../README.md)
+
 This module adapts one caller-compiled Golib JSON Schema to the CloudEvents
 `SchemaValidator` boundary. It performs no registry lookup or network I/O.
 
@@ -23,3 +25,6 @@ adapters; selecting this adapter alone does not migrate the facade.
 See the [API reference](https://pkg.go.dev/github.com/faustbrian/go-cloudevents/adapters/jsonschema/v2),
 [parent documentation](https://github.com/faustbrian/go-cloudevents/blob/main/docs/README.md),
 and [security policy](https://github.com/faustbrian/go-cloudevents/security/policy).
+
+Choose the next guide in the [documentation index](../../docs/README.md)
+or return to the [repository entry](../../README.md) for installation and ownership.
