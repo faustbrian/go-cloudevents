@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"strings"
 	"testing"
 )
 
@@ -12,6 +13,10 @@ import (
 func FuzzDecodeJSON(f *testing.F) {
 	f.Add([]byte(`{"specversion":"1.0","id":"1","source":"/source","type":"example","data":null}`))
 	f.Add([]byte(`{"specversion":"1.0","id":"1","source":"/source","type":"example","data_base64":"AAE="}`))
+	f.Add([]byte(`{"specversion":"1.0","id":"1","source":"/source","type":"example","data_base64":null}`))
+	f.Add([]byte(`{"specversion":"1.0","id":"1","source":"/source","type":"example","data_base64":"YQ\r=="}`))
+	f.Add([]byte(`{"specversion":"1.0","id":"1","source":"/source","type":"example","data_base64":"YQ==\n"}`))
+	f.Add([]byte(`{"specversion":"1.0","id":"1","source":"/source","type":"example","data_base64":"\u0059\u0051=="}`))
 	f.Add([]byte(`{"specversion":"1.0","id":"1","id":"2","source":"/source","type":"example"}`))
 	limits := DefaultLimits()
 	limits.MaxEventBytes = 64 << 10
@@ -23,6 +28,22 @@ func FuzzDecodeJSON(f *testing.F) {
 		event, err := DecodeJSON(value, limits)
 		if err != nil {
 			return
+		}
+		var members map[string]json.RawMessage
+		if err := json.Unmarshal(value, &members); err != nil {
+			t.Fatalf("successful JSON decode rejected by encoding/json: %v", err)
+		}
+		if raw, present := members["data_base64"]; present {
+			if bytes.Equal(bytes.TrimSpace(raw), []byte("null")) {
+				t.Fatal("successful decode admitted null instead of a base64 string")
+			}
+			var encoded string
+			if err := json.Unmarshal(raw, &encoded); err != nil {
+				t.Fatalf("successful decode retained a non-string base64 member: %v", err)
+			}
+			if strings.ContainsAny(encoded, "\r\n") {
+				t.Fatal("successful decode admitted CR/LF in received base64 text")
+			}
 		}
 		encoded, err := EncodeJSON(event)
 		if err != nil {
@@ -37,6 +58,8 @@ func FuzzDecodeJSON(f *testing.F) {
 // FuzzDecodeJSONBatch checks accepted batch counts across a bounded round trip, not full event equality.
 func FuzzDecodeJSONBatch(f *testing.F) {
 	f.Add([]byte(`[]`))
+	f.Add([]byte(`null`))
+	f.Add([]byte(" \r\nnull\t"))
 	f.Add([]byte(`[
 		{"specversion":"1.0","id":"1","source":"/source","type":"example","data":null},
 		{"specversion":"1.0","id":"2","source":"/source","type":"example","data_base64":"AAE="}
@@ -52,6 +75,10 @@ func FuzzDecodeJSONBatch(f *testing.F) {
 		events, err := DecodeJSONBatch(value, limits)
 		if err != nil {
 			return
+		}
+		trimmed := bytes.TrimSpace(value)
+		if len(trimmed) == 0 || trimmed[0] != '[' {
+			t.Fatal("successful batch decode admitted a non-array document")
 		}
 		var rawEvents []json.RawMessage
 		if err := json.Unmarshal(value, &rawEvents); err != nil {

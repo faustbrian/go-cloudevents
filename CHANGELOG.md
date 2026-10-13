@@ -3,6 +3,65 @@
 All notable changes follow Keep a Changelog. This module uses semantic
 versioning.
 
+## 1.1.2 - 2026-10-13
+
+This entry records a prepared root patch; publication is separate. Adopt
+`github.com/faustbrian/go-cloudevents@v1.1.2` only after its public tag and module
+are available. Independently versioned adapters need an explicit corrected root
+selection in the consuming application; their existing releases are not republished.
+
+### Fixed
+
+- Restore canonical received base64 admission across JSON and structured
+  transports: reject line breaks and null binary members while preserving
+  valid JSON escapes and empty binary strings. Reject null JSON batches;
+  empty arrays remain valid. Invalid input returns no partial event or batch.
+
+### Source accountability
+
+This root source includes the following 35 non-merge repository commits after
+public root v1.1.1 (`5559c521abeb0ac979a06a9405185b8486033c88`) through
+`925df9881d1fe33e510c802efda0aa4ff90f4141`. Several concern independently released
+adapter families or tooling, not a new root runtime feature. The current
+admission repair is outside this frozen range; other pending Unreleased entries
+and prior release notes are retained.
+
+- [141a6536f2](https://github.com/faustbrian/go-cloudevents/commit/141a6536f2cbf91836c21c965c08e86e806ed1b1),
+  [3a1d8fb457](https://github.com/faustbrian/go-cloudevents/commit/3a1d8fb457b59cc50b29284a4e4a93aa60f898ac),
+  [4b5ac41915](https://github.com/faustbrian/go-cloudevents/commit/4b5ac419159624e1550d35ab50aca5bb1e145c7b).
+- [fa1bb5fb9e](https://github.com/faustbrian/go-cloudevents/commit/fa1bb5fb9e883e72b05074dbddc4250c45dac7a3),
+  [8aa80ae9c4](https://github.com/faustbrian/go-cloudevents/commit/8aa80ae9c4409053aee971af0e67f67d95cf7875),
+  [91bac0bd23](https://github.com/faustbrian/go-cloudevents/commit/91bac0bd2348e0006d4db8b1239babc2e4b6c346).
+- [0aaa6e6a24](https://github.com/faustbrian/go-cloudevents/commit/0aaa6e6a24c698a11cf9dd6d0bdeb7363a3be8dd),
+  [86a8d93a21](https://github.com/faustbrian/go-cloudevents/commit/86a8d93a213f26d9fa7008afe2713d571801fa9f),
+  [17e1234c01](https://github.com/faustbrian/go-cloudevents/commit/17e1234c015ecec77b40d36418d5dfa5f18b479e).
+- [6cb28d8ef9](https://github.com/faustbrian/go-cloudevents/commit/6cb28d8ef9e4ec989e28d0897336d331d9af3562),
+  [6328dd1726](https://github.com/faustbrian/go-cloudevents/commit/6328dd17262d10890b9c3f2c781602060a3354bf),
+  [f7e18aee23](https://github.com/faustbrian/go-cloudevents/commit/f7e18aee23c5cc59f5c638067fe92737429440c1).
+- [c35e7e2149](https://github.com/faustbrian/go-cloudevents/commit/c35e7e214908459c2b80467ea6be421f1d537b26),
+  [bb458dba14](https://github.com/faustbrian/go-cloudevents/commit/bb458dba144ad09a7a62ef3d78a48ea95ccb4bde),
+  [9a4a405070](https://github.com/faustbrian/go-cloudevents/commit/9a4a405070a24f4eea65856c9a5c9c6543029af3).
+- [ad718ca37e](https://github.com/faustbrian/go-cloudevents/commit/ad718ca37e77d64e73716a5f2ac1afc5c4aaa85c),
+  [55dc285d2d](https://github.com/faustbrian/go-cloudevents/commit/55dc285d2d1d368c6a95bb8277add683b82cc25a),
+  [68df4d8273](https://github.com/faustbrian/go-cloudevents/commit/68df4d827377d487d72c42d4611b5ee0f9de4da9).
+- [32c81411ab](https://github.com/faustbrian/go-cloudevents/commit/32c81411ab3ec521b48558c158179da655a11f20),
+  [f7165a0ec5](https://github.com/faustbrian/go-cloudevents/commit/f7165a0ec56b88bb0d6975716d29ebe6e88c8749),
+  [9fbe050c73](https://github.com/faustbrian/go-cloudevents/commit/9fbe050c73e8d19600f922a8952230deed35e68e).
+- [ce4d6f3deb](https://github.com/faustbrian/go-cloudevents/commit/ce4d6f3deb6bf3221ac6db6b4c7a8c0301b10615),
+  [2f5217bdfa](https://github.com/faustbrian/go-cloudevents/commit/2f5217bdfa060453f19e62ac8fc76ee245c86b0a),
+  [c81c0870ee](https://github.com/faustbrian/go-cloudevents/commit/c81c0870ee92e6cb9b069a09848f928202077ee9).
+- [c463941dd2](https://github.com/faustbrian/go-cloudevents/commit/c463941dd20825a67d94d73e51d61ce47432eddd),
+  [0a1c18fd37](https://github.com/faustbrian/go-cloudevents/commit/0a1c18fd37029dd1cc133a0dd1eb9ad76698eb97),
+  [87d5db0c9e](https://github.com/faustbrian/go-cloudevents/commit/87d5db0c9ee37010ecfce8cfce7dda7f93c0398e).
+- [6256325388](https://github.com/faustbrian/go-cloudevents/commit/6256325388ead6dc2a99dc2850a0c5b375860134),
+  [bacfb75212](https://github.com/faustbrian/go-cloudevents/commit/bacfb752125817076fbfeb951879d30474199b43),
+  [f8755fef42](https://github.com/faustbrian/go-cloudevents/commit/f8755fef42b6f629a670e347ffdbaf43a79c70f8).
+- [faa16c8a08](https://github.com/faustbrian/go-cloudevents/commit/faa16c8a08c39cb237ad3c27fbc826537fd57573),
+  [7d8554ce20](https://github.com/faustbrian/go-cloudevents/commit/7d8554ce20cf332012fd110d217c700be15c825a),
+  [9df39dd95a](https://github.com/faustbrian/go-cloudevents/commit/9df39dd95a15a3dd8f143e9a2f58aa1f9ca7a1b1).
+- [bc98b48945](https://github.com/faustbrian/go-cloudevents/commit/bc98b48945e61da4cb691093a03a77fa944b1dc7),
+  [925df9881d](https://github.com/faustbrian/go-cloudevents/commit/925df9881d1fe33e510c802efda0aa4ff90f4141).
+
 ## Unreleased
 
 ### Changed

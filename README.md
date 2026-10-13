@@ -54,6 +54,18 @@ encoded value plus a deterministic `ConversionReport` when the caller has an
 explicit policy for those changes. JSON payload bytes, including significant
 internal whitespace, otherwise remain exact across structured round trips.
 
+Received `data_base64` must be a JSON string containing canonical padded
+base64: CR and LF are rejected after JSON unescaping, while equivalent JSON
+escape spellings remain accepted. JSON batches require an outer array; `[]`
+is valid and `null` is not. These admission rules also apply through structured
+HTTP, Kafka and their target adapters. Producers previously sending null binary
+members or line-wrapped base64 must send an empty string or canonical base64;
+producers using null batches must send `[]`. JSON `data: null` and absent optional
+context attributes retain their distinct meanings. Independently versioned
+adapters consume the correction when the application explicitly selects the
+corrected root dependency. The current repair prepares root v1.1.2; adopt it
+only after its public tag and module are available.
+
 Use `DecodeJSON`, `DecodeJSONBatch`, `DecodeHTTP`, or `DecodeKafka` with an
 explicit `Limits` value for untrusted input. `DefaultLimits` is conservative;
 applications remain responsible for choosing limits appropriate to their

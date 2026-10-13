@@ -314,7 +314,7 @@ func exceedsJSONEncodedStringLimit(raw []byte, limit int64) bool {
 }
 
 // DecodeJSONBatch parses the normative JSON batch format. Empty batches are
-// valid; the current slice decoder also accepts JSON null as an empty batch.
+// valid; the outer value must be an array, not JSON null.
 // Every returned Event owns storage. MaxEventBytes caps the entire batch
 // and each event; MaxDepth permits one outer array level. Raw events materialize
 // before MaxBatchEvents rejection. A failed event returns nil, not partial output.
@@ -327,6 +327,9 @@ func DecodeJSONBatch(value []byte, limits Limits) ([]Event, error) {
 	}
 	if err := inspectJSON(value, limits.MaxDepth+1); err != nil {
 		return nil, err
+	}
+	if trimmed := bytes.TrimSpace(value); len(trimmed) == 0 || trimmed[0] != '[' {
+		return nil, fmt.Errorf("%w: json batch", ErrInvalidEvent)
 	}
 	var rawEvents []json.RawMessage
 	if err := json.Unmarshal(value, &rawEvents); err != nil {
@@ -440,6 +443,9 @@ func decodeJSONData(members map[string]json.RawMessage, dataContentType string, 
 		return Data{}, fmt.Errorf("%w: data and data_base64", ErrInvalidEvent)
 	}
 	if hasBase64 {
+		if bytes.Equal(bytes.TrimSpace(rawBase64), []byte("null")) {
+			return Data{}, fmt.Errorf("%w: data_base64", ErrInvalidEvent)
+		}
 		var encoded string
 		if err := json.Unmarshal(rawBase64, &encoded); err != nil {
 			return Data{}, fmt.Errorf("%w: data_base64", ErrInvalidEvent)
@@ -447,8 +453,11 @@ func decodeJSONData(members map[string]json.RawMessage, dataContentType string, 
 		if limits.MaxDataBytes <= 0 || int64(base64DecodedLength(encoded)) > limits.MaxDataBytes {
 			return Data{}, ErrLimitExceeded
 		}
-		// Use the padded alphabet and strict trailing-bit checks; exact lexical
-		// acceptance remains encoding/base64 policy, not a signing normalization.
+		// Canonical padded base64 applies to the decoded JSON string, not its
+		// JSON escape spelling. Go's strict decoder still ignores CR and LF.
+		if strings.ContainsAny(encoded, "\r\n") {
+			return Data{}, fmt.Errorf("%w: data_base64", ErrInvalidEvent)
+		}
 		decoded, err := base64.StdEncoding.Strict().DecodeString(encoded)
 		if err != nil {
 			return Data{}, fmt.Errorf("%w: data_base64", ErrInvalidEvent)
