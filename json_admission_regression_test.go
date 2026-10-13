@@ -103,6 +103,25 @@ func TestJSONBatchRequiresOuterArrayAcrossHTTP(t *testing.T) {
 	}
 }
 
+func TestJSONBatchRejectsMalformedTrailingInputAcrossHTTP(t *testing.T) {
+	for _, valid := range []string{"[]", "[" + admissionEventPrefix + `"data":null}]`} {
+		events, err := cloudevents.DecodeJSONBatch([]byte(valid), cloudevents.DefaultLimits())
+		if err != nil || events == nil {
+			t.Fatalf("valid batch control: events=%v, err=%v", events, err)
+		}
+		input := []byte(valid + " !")
+		events, err = cloudevents.DecodeJSONBatch(input, cloudevents.DefaultLimits())
+		if !errors.Is(err, cloudevents.ErrInvalidEvent) || events != nil {
+			t.Fatalf("malformed trailing input admitted: events=%v, err=%v", events, err)
+		}
+		body := &admissionBody{Reader: bytes.NewReader(input)}
+		message, err := cloudevents.DecodeHTTP(context.Background(), http.Header{"Content-Type": {cloudevents.JSONBatchMediaType}}, body, cloudevents.DefaultLimits())
+		if !errors.Is(err, cloudevents.ErrInvalidEvent) || len(message.Events) != 0 || body.closed {
+			t.Fatalf("malformed HTTP batch admission/borrowed ownership: events=%d, closed=%v, err=%v", len(message.Events), body.closed, err)
+		}
+	}
+}
+
 func TestJSONBatchPreservesEmptyArraysAndEventNullFields(t *testing.T) {
 	for _, input := range []string{"[]", " \r\n[ \t ]\n "} {
 		events, err := cloudevents.DecodeJSONBatch([]byte(input), cloudevents.DefaultLimits())
