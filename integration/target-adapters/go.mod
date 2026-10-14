@@ -24,7 +24,7 @@ require (
 	github.com/faustbrian/go-queue v1.1.2
 	github.com/faustbrian/go-schema-registry/v3 v3.0.0
 	github.com/faustbrian/go-telemetry v1.2.0
-	github.com/faustbrian/go-tenancy/v2 v2.0.1
+	github.com/faustbrian/go-tenancy/v2 v2.0.2
 	github.com/faustbrian/go-transactional-outbox/v2 v2.0.0
 	github.com/faustbrian/go-workflow/v2 v2.0.0
 	go.opentelemetry.io/otel v1.46.0
