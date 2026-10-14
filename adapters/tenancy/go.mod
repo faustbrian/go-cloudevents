@@ -7,4 +7,4 @@ require (
 	github.com/faustbrian/go-tenancy/v2 v2.0.1
 )
 
-require github.com/IBM/sarama v1.60.2 // indirect
+require github.com/IBM/sarama v1.61.1 // indirect
