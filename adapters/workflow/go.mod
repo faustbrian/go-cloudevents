@@ -7,4 +7,8 @@ require (
 	github.com/faustbrian/go-workflow/v2 v2.0.0
 )
 
-require github.com/IBM/sarama v1.60.2 // indirect
+require (
+	github.com/IBM/sarama v1.60.2 // indirect
+	golang.org/x/net v0.59.0 // indirect
+	golang.org/x/sys v0.48.0 // indirect
+)
