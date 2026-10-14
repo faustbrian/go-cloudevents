@@ -20,7 +20,7 @@ require (
 	github.com/faustbrian/go-correlation v1.1.2
 	github.com/faustbrian/go-event-sourcing/v2 v2.0.0
 	github.com/faustbrian/go-json-schema/v2 v2.0.0
-	github.com/faustbrian/go-kafka v1.1.0
+	github.com/faustbrian/go-kafka v1.1.1
 	github.com/faustbrian/go-queue v1.1.2
 	github.com/faustbrian/go-schema-registry/v3 v3.0.0
 	github.com/faustbrian/go-telemetry v1.2.0
@@ -39,8 +39,8 @@ require (
 	github.com/faustbrian/go-rabbitmq-streams v1.1.1 // indirect
 	github.com/golang/snappy v1.0.0 // indirect
 	github.com/jackc/pgx/v5 v5.11.0 // indirect
-	github.com/klauspost/compress v1.19.2 // indirect
-	github.com/pierrec/lz4/v4 v4.1.29 // indirect
+	github.com/klauspost/compress v1.20.1 // indirect
+	github.com/pierrec/lz4/v4 v4.1.33 // indirect
 	github.com/twmb/franz-go v1.21.5 // indirect
 	github.com/twmb/franz-go/pkg/kadm v1.18.0 // indirect
 	github.com/twmb/franz-go/pkg/kmsg v1.13.1 // indirect
