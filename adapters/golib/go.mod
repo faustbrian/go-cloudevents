@@ -17,7 +17,7 @@ require (
 	github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0
 	github.com/faustbrian/go-cloudevents/adapters/tenancy/v2 v2.0.0
 	github.com/faustbrian/go-cloudevents/adapters/workflow/v2 v2.0.0
-	github.com/faustbrian/go-correlation v1.1.2
+	github.com/faustbrian/go-correlation v1.1.3
 	github.com/faustbrian/go-event-sourcing/v2 v2.0.0
 	github.com/faustbrian/go-json-schema/v2 v2.0.0
 	github.com/faustbrian/go-kafka v1.1.0
@@ -28,8 +28,8 @@ require (
 	github.com/faustbrian/go-tenancy/v2 v2.0.1
 	github.com/faustbrian/go-transactional-outbox/v2 v2.0.0
 	github.com/faustbrian/go-workflow/v2 v2.0.0
-	go.opentelemetry.io/otel v1.46.0
-	go.opentelemetry.io/otel/trace v1.46.0
+	go.opentelemetry.io/otel v1.47.0
+	go.opentelemetry.io/otel/trace v1.47.0
 	go.uber.org/goleak v1.3.0
 )
 
@@ -37,7 +37,7 @@ require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/deszhou/jcs v1.0.0 // indirect
 	github.com/dlclark/regexp2/v2 v2.8.2 // indirect
-	github.com/faustbrian/go-identifier/v2 v2.0.0 // indirect
+	github.com/faustbrian/go-identifier/v2 v2.0.1 // indirect
 	github.com/golang/snappy v1.0.0 // indirect
 	github.com/jackc/pgx/v5 v5.11.0 // indirect
 	github.com/klauspost/compress v1.19.2 // indirect
