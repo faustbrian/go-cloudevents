@@ -4,13 +4,15 @@ go 1.27.0
 
 require (
 	github.com/faustbrian/go-cloudevents v1.1.0
-	github.com/faustbrian/go-correlation v1.1.2
+	github.com/faustbrian/go-correlation v1.1.3
 )
 
 require (
 	github.com/IBM/sarama v1.60.2 // indirect
-	github.com/faustbrian/go-identifier/v2 v2.0.0 // indirect
+	github.com/faustbrian/go-identifier/v2 v2.0.1 // indirect
 	github.com/jackc/pgx/v5 v5.11.0 // indirect
 	github.com/stretchr/testify v1.12.1 // indirect
-	golang.org/x/text v0.41.0 // indirect
+	golang.org/x/net v0.59.0 // indirect
+	golang.org/x/sync v0.23.0 // indirect
+	golang.org/x/sys v0.48.0 // indirect
 )

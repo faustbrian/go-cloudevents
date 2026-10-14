@@ -5,11 +5,13 @@ go 1.27.0
 require (
 	github.com/faustbrian/go-cloudevents v1.1.0
 	github.com/faustbrian/go-telemetry v1.2.0
-	go.opentelemetry.io/otel v1.46.0
-	go.opentelemetry.io/otel/trace v1.46.0
+	go.opentelemetry.io/otel v1.47.0
+	go.opentelemetry.io/otel/trace v1.47.0
 )
 
 require (
 	github.com/IBM/sarama v1.60.2 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
+	golang.org/x/net v0.59.0 // indirect
+	golang.org/x/sys v0.48.0 // indirect
 )
