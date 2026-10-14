@@ -17,21 +17,3 @@ use (
 	./adapters/workflow
 	./integration/target-adapters
 )
-
-replace github.com/faustbrian/go-cloudevents v1.1.0 => .
-
-replace github.com/faustbrian/go-cloudevents/adapters/audit v1.0.0 => ./adapters/audit
-
-replace github.com/faustbrian/go-cloudevents/adapters/correlation v1.0.0 => ./adapters/correlation
-
-replace github.com/faustbrian/go-cloudevents/adapters/kafka v1.0.0 => ./adapters/kafka
-
-replace github.com/faustbrian/go-cloudevents/adapters/queue v1.0.0 => ./adapters/queue
-
-replace github.com/faustbrian/go-cloudevents/adapters/rabbitstream v1.0.0 => ./adapters/rabbitstream
-
-replace github.com/faustbrian/go-cloudevents/adapters/telemetry v1.0.0 => ./adapters/telemetry
-
-replace github.com/faustbrian/go-cloudevents/adapters/tenancy/v2 v2.0.0 => ./adapters/tenancy
-
-replace github.com/faustbrian/go-cloudevents/adapters/workflow/v2 v2.0.0 => ./adapters/workflow
