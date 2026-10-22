@@ -3,6 +3,26 @@
 All notable changes follow Keep a Changelog. This module uses semantic
 versioning.
 
+## 1.1.3 - 2026-10-22
+
+### Changed
+
+- Publish the current source and documentation with a fresh immutable tag.
+- Publish independently versioned modules from the same source snapshot:
+  - `adapters/golib/v4.1.0`.
+  - `adapters/audit/v2.1.0`.
+  - `adapters/correlation/v1.1.0`.
+  - `adapters/event-sourcing/v2.1.0`.
+  - `adapters/jsonschema/v2.1.0`.
+  - `adapters/kafka/v1.1.0`.
+  - `adapters/outbox/v2.1.0`.
+  - `adapters/queue/v2.1.0`.
+  - `adapters/rabbitstream/v1.1.0`.
+  - `adapters/schema-registry/v3.1.0`.
+  - `adapters/telemetry/v1.1.0`.
+  - `adapters/tenancy/v2.1.0`.
+  - `adapters/workflow/v2.1.0`.
+
 ## 1.1.2 - 2026-10-13
 
 This entry records a prepared root patch; publication is separate. Adopt
