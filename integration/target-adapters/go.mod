@@ -32,6 +32,7 @@ require (
 )
 
 require (
+	github.com/IBM/sarama v1.61.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/deszhou/jcs v1.0.0 // indirect
 	github.com/dlclark/regexp2/v2 v2.8.2 // indirect
@@ -39,8 +40,8 @@ require (
 	github.com/faustbrian/go-rabbitmq-streams v1.1.1 // indirect
 	github.com/golang/snappy v1.0.0 // indirect
 	github.com/jackc/pgx/v5 v5.11.0 // indirect
-	github.com/klauspost/compress v1.19.2 // indirect
-	github.com/pierrec/lz4/v4 v4.1.29 // indirect
+	github.com/klauspost/compress v1.20.1 // indirect
+	github.com/pierrec/lz4/v4 v4.1.31 // indirect
 	github.com/twmb/franz-go v1.21.5 // indirect
 	github.com/twmb/franz-go/pkg/kadm v1.18.0 // indirect
 	github.com/twmb/franz-go/pkg/kmsg v1.13.1 // indirect

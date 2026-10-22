@@ -7,4 +7,4 @@ require (
 	github.com/faustbrian/go-transactional-outbox/v2 v2.0.0
 )
 
-require github.com/IBM/sarama v1.60.2 // indirect
+require github.com/IBM/sarama v1.61.1 // indirect

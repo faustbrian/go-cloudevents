@@ -7,3 +7,5 @@ require (
 	github.com/faustbrian/go-event-sourcing/v2 v2.0.0
 	github.com/faustbrian/go-tenancy/v2 v2.0.1
 )
+
+require github.com/IBM/sarama v1.61.1 // indirect
