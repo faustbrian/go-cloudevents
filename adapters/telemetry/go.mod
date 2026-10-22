@@ -10,6 +10,6 @@ require (
 )
 
 require (
-	github.com/IBM/sarama v1.60.2 // indirect
+	github.com/IBM/sarama v1.61.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 )

@@ -8,7 +8,7 @@ require (
 )
 
 require (
-	github.com/IBM/sarama v1.60.2 // indirect
+	github.com/IBM/sarama v1.61.1 // indirect
 	github.com/deszhou/jcs v1.0.0 // indirect
 	github.com/dlclark/regexp2/v2 v2.8.2 // indirect
 	github.com/faustbrian/go-json-schema/v2 v2.0.0 // indirect
