@@ -4,7 +4,11 @@ go 1.27.0
 
 require (
 	github.com/faustbrian/go-cloudevents v1.1.0
-	github.com/faustbrian/go-tenancy/v2 v2.0.1
+	github.com/faustbrian/go-tenancy/v2 v2.0.2
 )
 
-require github.com/IBM/sarama v1.60.2 // indirect
+require (
+	github.com/IBM/sarama v1.60.2 // indirect
+	golang.org/x/net v0.59.0 // indirect
+	golang.org/x/sys v0.48.0 // indirect
+)
