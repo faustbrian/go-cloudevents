@@ -4,6 +4,8 @@ All notable changes to this module are documented here.
 
 ## Unreleased
 
+## 4.1.1 - 2026-11-26
+
 ### Security
 
 - Require klauspost/compress v1.20.2 and OpenTelemetry v1.47.0 to address GO-2026-6865,
@@ -14,6 +16,8 @@ All notable changes to this module are documented here.
   GO-2026-6611, GO-2026-6612, GO-2026-6617, GO-2026-6860 and GO-2026-6866).
   Production packages import `golang.org/x/crypto` and `golang.org/x/net`, but
   govulncheck found no imported vulnerable package.
+
+## 4.0.0 - 2026-10-08
 
 ### Changed
 

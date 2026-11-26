@@ -2,10 +2,7 @@
 
 ## Unreleased
 
-- Prepare the `/v2` adapter with public transactional-outbox `/v2` v2.0.0
-  envelope types. Upgrade adapter and outbox imports together; the CloudEvents
-  root remains v1. Preserve retained-state ownership, nil-versus-empty payloads,
-  identifier collision checks and explicit field-loss reporting.
+## 2.1.1 - 2026-11-26
 
 ### Security
 
@@ -14,6 +11,13 @@
   GO-2026-6355) and `golang.org/x/net` v0.62.0 (from v0.58.0; GO-2026-6603,
   GO-2026-6610, GO-2026-6611, GO-2026-6612, GO-2026-6617, GO-2026-6860 and
   GO-2026-6866). The vulnerable versions were reachable only from tests.
+
+## 2.0.0 - 2026-10-08
+
+- Prepare the `/v2` adapter with public transactional-outbox `/v2` v2.0.0
+  envelope types. Upgrade adapter and outbox imports together; the CloudEvents
+  root remains v1. Preserve retained-state ownership, nil-versus-empty payloads,
+  identifier collision checks and explicit field-loss reporting.
 
 ## 1.0.0 - 2026-09-09
 

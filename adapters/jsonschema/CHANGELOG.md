@@ -2,10 +2,7 @@
 
 ## Unreleased
 
-- Prepare the `/v2` adapter with public `go-json-schema/v2` v2.0.0 compiled
-  schema types. Upgrade adapter and schema imports together; the CloudEvents
-  root remains v1. Preserve exact URI admission, parser and cancellation
-  errors, Unicode code-point validation and schema-violation classification.
+## 2.1.1 - 2026-11-26
 
 ### Security
 
@@ -16,6 +13,13 @@
   vulnerable `github.com/klauspost/compress` and `golang.org/x/crypto` versions
   were reachable only from tests. Production packages import
   `golang.org/x/net`, but govulncheck found no imported vulnerable package.
+
+## 2.0.0 - 2026-10-08
+
+- Prepare the `/v2` adapter with public `go-json-schema/v2` v2.0.0 compiled
+  schema types. Upgrade adapter and schema imports together; the CloudEvents
+  root remains v1. Preserve exact URI admission, parser and cancellation
+  errors, Unicode code-point validation and schema-violation classification.
 
 ## 1.0.0 - 2026-09-09
 
