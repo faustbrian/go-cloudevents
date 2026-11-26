@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.1.1 - 2026-11-26
+
 ### Security
 
 - Require OpenTelemetry v1.47.0 to address GO-2026-6974 and GO-2026-6975.

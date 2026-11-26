@@ -2,15 +2,7 @@
 
 ## Unreleased
 
-- Prepare the `/v3` adapter with public `go-schema-registry/v3` v3.0.0 cache,
-  lookup, availability and JSON Schema adapter types. Upgrade both adapter
-  and registry imports together. Keep exact URI admission, bounded resolution,
-  private payload diagnostics and CloudEvents error classifications.
-
-### Documentation
-
-- Clarify the shared resolution/payload-validation timeout context and borrowed
-  cache/adapter lifecycle; deadlines require cooperative collaborators.
+## 3.1.1 - 2026-11-26
 
 ### Security
 
@@ -21,6 +13,20 @@
   vulnerable `github.com/klauspost/compress` and `golang.org/x/crypto` versions
   were reachable only from tests. Production packages import
   `golang.org/x/net`, but govulncheck found no imported vulnerable package.
+
+## 3.1.0 - 2026-10-22
+
+### Documentation
+
+- Clarify the shared resolution/payload-validation timeout context and borrowed
+  cache/adapter lifecycle; deadlines require cooperative collaborators.
+
+## 3.0.0 - 2026-10-08
+
+- Prepare the `/v3` adapter with public `go-schema-registry/v3` v3.0.0 cache,
+  lookup, availability and JSON Schema adapter types. Upgrade both adapter
+  and registry imports together. Keep exact URI admission, bounded resolution,
+  private payload diagnostics and CloudEvents error classifications.
 
 ## 2.0.0 - 2026-10-02
 

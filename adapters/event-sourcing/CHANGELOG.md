@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.1.1 - 2026-11-26
+
 ### Security
 
 - Require `github.com/klauspost/compress` v1.20.2 (from v1.19.2; GO-2026-6865),

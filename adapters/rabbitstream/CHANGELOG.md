@@ -2,10 +2,7 @@
 
 ## Unreleased
 
-### Documentation
-
-- Clarify that decoded State.Timestamp retains the transport message timestamp,
-  while Encode supplies event occurrence time; neither is a broker-clock proof.
+## 1.1.1 - 2026-11-26
 
 ### Security
 
@@ -14,6 +11,13 @@
   GO-2026-6355) and `golang.org/x/net` v0.62.0 (from v0.58.0; GO-2026-6603,
   GO-2026-6610, GO-2026-6611, GO-2026-6612, GO-2026-6617, GO-2026-6860 and
   GO-2026-6866). The vulnerable versions were reachable only from tests.
+
+## 1.1.0 - 2026-10-22
+
+### Documentation
+
+- Clarify that decoded State.Timestamp retains the transport message timestamp,
+  while Encode supplies event occurrence time; neither is a broker-clock proof.
 
 ## 1.0.2 - 2026-10-07
 

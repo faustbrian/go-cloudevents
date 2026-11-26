@@ -3,6 +3,18 @@
 All notable changes follow Keep a Changelog. This module uses semantic
 versioning.
 
+## Unreleased
+
+## 1.1.4 - 2026-11-26
+
+### Security
+
+- Require `github.com/klauspost/compress` v1.20.2 (from v1.19.2; GO-2026-6865),
+  `golang.org/x/crypto` v0.59.0 (from v0.55.0; GO-2026-5932, GO-2026-6354 and
+  GO-2026-6355) and `golang.org/x/net` v0.62.0 (from v0.58.0; GO-2026-6603,
+  GO-2026-6610, GO-2026-6611, GO-2026-6612, GO-2026-6617, GO-2026-6860 and
+  GO-2026-6866). The vulnerable versions were reachable only from tests.
+
 ## 1.1.3 - 2026-10-22
 
 ### Changed
@@ -130,14 +142,6 @@ and prior release notes are retained.
 - Mark the broad `adapters/golib` compatibility facade as deprecated for new
   adoption and point applications to the target-oriented adapters and their
   non-releasable Kafka and schema validation recipe.
-
-### Security
-
-- Require `github.com/klauspost/compress` v1.20.2 (from v1.19.2; GO-2026-6865),
-  `golang.org/x/crypto` v0.59.0 (from v0.55.0; GO-2026-5932, GO-2026-6354 and
-  GO-2026-6355) and `golang.org/x/net` v0.62.0 (from v0.58.0; GO-2026-6603,
-  GO-2026-6610, GO-2026-6611, GO-2026-6612, GO-2026-6617, GO-2026-6860 and
-  GO-2026-6866). The vulnerable versions were reachable only from tests.
 
 ## 1.1.0 - 2026-09-09
 
