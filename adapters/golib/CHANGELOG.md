@@ -4,6 +4,11 @@ All notable changes to this module are documented here.
 
 ## Unreleased
 
+### Security
+
+- Require klauspost/compress v1.20.2 and OpenTelemetry v1.47.0 to address GO-2026-6865,
+  GO-2026-6974 and GO-2026-6975.
+
 ### Changed
 
 - Prepare facade v4 with public JSON Schema v2, Transactional Outbox v2 and
