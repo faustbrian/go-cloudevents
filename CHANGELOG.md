@@ -86,12 +86,6 @@ and prior release notes are retained.
 
 ## Unreleased
 
-### Security
-
-- Require klauspost/compress v1.20.2 in the `golib` and `kafka` adapters and
-  OpenTelemetry v1.47.0 in the `golib` and `telemetry` adapters to address
-  GO-2026-6865 and GO-2026-6975.
-
 ### Changed
 
 - Select the patched documentation spelling parser in the repository lock
